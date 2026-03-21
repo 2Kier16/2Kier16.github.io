@@ -26,6 +26,8 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--bg-white);
+    background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
 }
 
 /* Navbar */
@@ -389,6 +391,26 @@ body {
     opacity: 0.8;
 }
 
+.install-guide {
+    max-width: 450px;
+    margin: 2.5rem auto 0;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.install-guide h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.install-guide li {
+    margin-bottom: 0.5rem;
+}
+
 /* Footer */
 .footer {
     background: var(--text-dark);
@@ -479,6 +501,8 @@ body {
 .about-section {
     padding: 6rem 2rem;
     background: var(--bg-white);
+    background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
 }
 
 .about-container {
@@ -517,9 +541,20 @@ body {
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    color: var(--primary);
+    background: linear-gradient(45deg, var(--primary), var(--secondary), #8b5cf6, var(--primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradient 6s ease infinite;
     margin: 3.5rem 0 2rem;
     line-height: 1.5;
+}
+
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Responsive Design */
