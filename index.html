@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MoodMix - Match your music to your mood. Listen, journal, and discover your emotional soundtrack.">
     <meta name="theme-color" content="#6366f1">
     <title>MoodMix - Emotional Music & Journaling Experience</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
+</head> 
 <body>
     <header class="navbar">
         <div class="nav-container">
@@ -21,9 +21,10 @@
             </button>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#features">Features</a>
-                <a href="story.html">The Story</a>
-                <a href="about.html">About K.V.T</a>
+                <a href="index.html#moodmix">MoodMix</a>
+                <a href="heritage.html">The Heritage Project</a>
+                <a href="resume.html">Professional Profile</a>
+                <a href="about.html">About</a>
                 <a href="#download">Download</a>
             </nav>
         </div>
@@ -31,172 +32,120 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Your Mood. Your Music. Your Story.</h1>
-                <p class="hero-subtext">MoodMix is an emotional music and journaling experience designed for you. Select a mood, discover music that matches your emotional state, and journal your thoughts while listening.</p>
+        <section class="hero hero-portfolio" id="home">
+            <div class="hero-content" style="grid-column: 1 / -1; text-align: center;">
+                <div class="crest-placeholder">PLACEHOLDER:<br>K.V.T. Master Crest Image</div>
+                <h1>Knowledge. Versatility. Technology.</h1>
+                <h2 class="hero-subtext" style="font-size: 1.5rem; color: #d1d5db;">Level Up Through Creation.</h2>
                 <div class="cta-buttons">
-                    <a href="assets/MoodMix.apk" download="MoodMix.apk" class="btn btn-primary">
-                        ⬇️ Download App Directly
-                    </a>
-                    <a href="#features" class="btn btn-secondary">
-                        Learn More
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="featured-logo">
-                    <img src="assets/MoodMix logo with re.png" alt="MoodMix - Your Mood. Your Music. Your Story." class="logo-featured">
+                    <a href="#moodmix" class="btn btn-primary">Download MoodMix</a>
+                    <a href="#pillars" class="btn btn-secondary">Explore My Work</a>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <h2>Why Choose MoodMix?</h2>
-            <div class="features-grid">
+        <!-- SECTION 2 — INTRO / WHO I AM -->
+        <section id="intro" class="portfolio-section">
+            <div class="container text-center">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Welcome to K.V.T.</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8;">K.V.T. is the creative identity of Kier Turpin — a technologist, musician, and advocate dedicated to helping people Level Up Through Creation. I build tools, art, and spaces that empower growth, expression, and community. Every project I release is designed to help people learn, evolve, and rise.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3 — MOODMIX SPOTLIGHT -->
+        <section id="moodmix" class="portfolio-section bg-light" style="background: var(--bg-light);">
+            <div class="split-section">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary);">MoodMix — Music That Understands You</h2>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark);">A mood‑driven music experience built to help you reflect, express, and level up emotionally.</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">MoodMix blends emotional awareness with music discovery. Choose your mood, explore curated soundscapes, and track your emotional journey over time. Built with empathy, clarity, and user safety at the core.</p>
+                    <div class="cta-buttons">
+                        <a href="assets/MoodMix.apk" download="MoodMix.apk" class="btn btn-primary">Download MoodMix</a>
+                        <a href="story.html" class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary);">Learn More</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="image-placeholder">PLACEHOLDER:<br>MoodMix App Preview Image</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 — WHAT I CREATE (3-PILLAR GRID) -->
+        <section id="pillars" class="portfolio-section">
+            <h2 class="text-center" style="font-size: 2.5rem; color: var(--primary);">What I Create</h2>
+            <div class="three-pillar-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Tech</h3>
+                    <p>Apps, tools, and digital experiences designed to empower people, not overwhelm them. I build what I wish existed — clean, intuitive, meaningful technology.</p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎵</div>
-                    <h3>Smart Mood Matching</h3>
-                    <p>Select an emotion with emoji icons and instantly get music that matches your mood from multiple sources.</p>
+                    <h3>Music</h3>
+                    <p>I create the sounds I miss — music rooted in emotion, storytelling, and truth. No trends. No A&R boxes. Just real expression.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Multi-Provider Music</h3>
-                    <p>Access music from local files, Jamendo, and Audius all in one unified experience. More providers coming soon.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3>Journaling & Reflection</h3>
-                    <p>Journal your thoughts and feelings while listening. Your entries are saved with mood and track metadata for later reflection.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💾</div>
-                    <h3>Automatic Saving</h3>
-                    <p>Your drafts autosave as you type. Never lose a moment. Access your full reflection timeline anytime.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Seamless Playback</h3>
-                    <p>MoodBrain intelligently routes playback through the best engine for each source. You just press play.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Android & iOS Ready</h3>
-                    <p>Native app experience on Android. Coming soon to iOS with the same powerful features.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Customization (Coming Soon)</h3>
-                    <p>Soon you'll be able to create your own custom moods, pick your personal color themes, and build your own emotional playlists.</p>
+                    <div class="feature-icon">✊🏾</div>
+                    <h3>Advocacy</h3>
+                    <p>From veteran support to cultural preservation, I use technology and storytelling to uplift communities and help others release their own work.</p>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works -->
-        <section id="how-it-works" class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Pick Your Mood</h3>
-                    <p>Select how you're feeling using intuitive emoji icons that represent different emotional states.</p>
+        <!-- SECTION 5 — THE HERITAGE PROJECT PREVIEW -->
+        <section id="heritage" class="portfolio-section" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white;">
+            <div class="split-section">
+                <div>
+                    <div class="image-placeholder" style="border-color: #f3f4f6; color: #f3f4f6;">PLACEHOLDER:<br>Heritage Project Visual</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Discover Music</h3>
-                    <p>MoodBrain finds music that matches your emotional state from multiple trusted sources.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Listen & Journal</h3>
-                    <p>Play your music and journal your thoughts. Connect your emotions with your music story.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Reflect</h3>
-                    <p>Review your emotional journey through your reflection timeline whenever you need it.</p>
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #f9fafb;">The Heritage Project</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #d1d5db;">A living archive dedicated to preserving stories, culture, and identity. This project blends technology, history, and community to honor the past while empowering the future.</p>
+                    <a href="heritage.html" class="btn btn-primary">Explore The Heritage Project</a>
                 </div>
             </div>
         </section>
 
-        <!-- Music Sources -->
-        <section class="music-sources">
-            <h2>Your Music. From Your Favorite Sources.</h2>
-            <div class="sources-container">
-                <div class="source">
-                    <h3>📱 Local Files</h3>
-                    <p>Music already on your device</p>
+        <!-- SECTION 6 & 7 — PROFESSIONAL PROFILE & ABOUT -->
+        <section class="portfolio-section">
+            <div class="split-section" style="align-items: start;">
+                <!-- SECTION 6 -->
+                <div id="profile" class="feature-card" style="text-align: left; height: 100%;">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">Professional Profile</h2>
+                    <p style="margin-bottom: 2rem;">Explore my technical background, experience, and the journey that shaped K.V.T. From military service to tech innovation, every chapter contributes to the mission: Level Up Through Creation.</p>
+                    <a href="resume.html" class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary);">View Resume</a>
                 </div>
-                <div class="source">
-                    <h3>🌐 Jamendo</h3>
-                    <p>Curated independent music</p>
-                </div>
-                <div class="source">
-                    <h3>🎵 Audius</h3>
-                    <p>Emerging artist platform</p>
-                </div>
-                <div class="source coming-soon">
-                    <h3>🎧 + More</h3>
-                    <p>Spotify, YouTube Music, SoundCloud, Apple Music coming soon</p>
+                
+                <!-- SECTION 7 -->
+                <div id="about" class="feature-card" style="text-align: left; height: 100%;">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">About K.V.T.</h2>
+                    <p style="margin-bottom: 2rem;">From Penny to Meahgee to K.V.T., my story is built on evolution. I’ve lived multiple creative lives — athlete, dancer, gamer, coder, technologist — and each one shaped the mission I carry today.</p>
+                    <a href="about.html" class="btn btn-primary">Read My Story</a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="download" class="cta-section">
-            <h2>Ready to Match Your Mood?</h2>
-            <p>Download MoodMix directly to your device today and start your emotional music journey.</p>
-            <a href="assets/MoodMix.apk" download="MoodMix.apk" class="btn btn-primary btn-large">
-                ⬇️ Download APK (Android)
-            </a>
-            <p class="version-note">🚀 Android direct download available now | 🍎 iOS coming soon</p>
-            
-            <div class="install-guide">
-                <h3>How to Install (First-Time Guide):</h3>
-                <ol>
-                    <li>Tap the download button above to save the <strong>MoodMix.apk</strong> file to your Android device.</li>
-                    <li>Open the downloaded file from your notifications or 'Downloads' folder.</li>
-                    <li>If you see a "Security risk" or "Unknown apps" prompt, don't worry! This is a standard Android message for apps downloaded outside the Play Store.</li>
-                    <li>Tap <strong>Settings</strong> on the prompt, and toggle on <strong>"Allow from this source"</strong>.</li>
-                    <li>Go back, tap <strong>Install</strong>, and start your emotional music journey!</li>
-                </ol>
-                <div class="safety-badge">
-                    <span class="shield-icon">🛡️</span> <strong>100% Safe & Secure:</strong> MoodMix is a verified personal project by K.V.Tech and contains no malicious code.
-                </div>
+        <!-- SECTION 8 — CONTACT -->
+        <section id="contact" class="cta-section" style="background: var(--bg-light); color: var(--text-dark);">
+            <h2 style="color: var(--primary);">Get In Touch</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-light);">Whether you’re interested in collaboration, app development, music, or advocacy work, I’d love to connect.</p>
+            <div class="install-guide" style="border-color: var(--border); background: var(--bg-white); color: var(--text-dark); text-align: center;">
+                <p style="margin-bottom: 1rem;"><strong>Email:</strong> <a href="mailto:Kier.turpin@student.uagc.edu" style="color: var(--primary); text-decoration: none;">PLACEHOLDER</a></p>
+                <p><strong>Socials:</strong> <a href="https://www.linkedin.com/in/kier-turpin" style="color: var(--primary); text-decoration: none;" target="_blank">PLACEHOLDER</a></p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>MoodMix</h4>
-                <p>Emotional music and journaling experience</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="story.html">The Story</a></li>
-                    <li><a href="about.html">About K.V.T</a></li>
-                    <li><a href="#download">Download</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/kier-turpin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="mailto:Kier.turpin@student.uagc.edu">Email Me</a></li>
-                </ul>
+        <div class="footer-content" style="text-align: center; display: block;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">K.V.T. — Level Up Through Creation</p>
+            <div class="footer-links" style="margin-bottom: 2rem;">
+                <a href="#home" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Home</a> |
+                <a href="index.html#moodmix" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">MoodMix</a> |
+                <a href="heritage.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">The Heritage Project</a> |
+                <a href="resume.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Professional Profile</a> |
+                <a href="about.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">About</a> |
+                <a href="#contact" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Contact</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -205,7 +154,7 @@
                 <p class="signature-text">Kier V. Turpin</p>
                 <img src="assets/K.V.T logo with blac.png" alt="K.V.T Logo" class="signature-logo">
             </div>
-            <p>&copy; 2026 MoodMix Project. All rights reserved.</p>
+            <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>
     </footer>
 
