@@ -879,3 +879,56 @@ body {
         padding: 1.5rem;
     }
 }
+
+/* --- MoodMix Page Specific Styles --- */
+#moodmix-page {
+    --royal-purple: #2D004B;
+    --gilded-gold: #FFD700;
+    --onyx-black: #000000;
+    --platinum-silver: #E5E4E2;
+    --tech-blue: #0047AB;
+    --mood-ring-glow: #4D4DFF;
+
+    background-color: var(--onyx-black);
+    color: var(--platinum-silver);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#moodmix-page h1, #moodmix-page h2, #moodmix-page h3 {
+    color: var(--platinum-silver);
+    font-family: 'Playfair Display', serif;
+}
+
+#moodmix-page p {
+    color: #E5E4E2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#moodmix-page .moodmix-card {
+    background-color: #111827;
+    border: 2px solid var(--tech-blue);
+    box-shadow: 0 0 15px rgba(0, 71, 171, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#moodmix-page .moodmix-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--mood-ring-glow);
+}
+
+#moodmix-page .moodmix-card h3 {
+    color: var(--tech-blue);
+}
+
+#moodmix-page .btn-moodmix {
+    background-color: var(--tech-blue);
+    color: white;
+    border: 1px solid var(--platinum-silver);
+    transition: all 0.3s ease;
+}
+
+#moodmix-page .btn-moodmix:hover {
+    box-shadow: 0 0 15px var(--mood-ring-glow);
+    background-color: var(--mood-ring-glow);
+    border-color: var(--mood-ring-glow);
+}
