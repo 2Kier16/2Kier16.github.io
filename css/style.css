@@ -884,9 +884,9 @@ body {
 /* --- App Gallery Styles --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -919,7 +919,7 @@ body {
 
 /* --- Theater Video Container --- */
 .theater-container {
-    max-width: 800px;
+    max-width: 320px;
     margin: 0 auto 4rem auto;
     padding: 1.5rem;
     background: radial-gradient(circle, #2d3748 0%, #000000 100%);
