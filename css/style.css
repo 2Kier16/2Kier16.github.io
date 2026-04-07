@@ -896,7 +896,6 @@ body {
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
@@ -943,23 +942,23 @@ body {
     --tech-blue: #6366f1;
     --mood-ring-glow: #ec4899;
 
-    background: linear-gradient(135deg, #1a1525 0%, #2d2434 50%, #1c1936 100%);
-    color: #e5e7eb; /* Light text for readability */
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 50%, #9ca3af 100%); /* Flowing moody grey */
+    color: #1f2937; /* Dark text for readability */
     font-family: 'Montserrat', sans-serif;
 }
 
 #moodmix-page h1, #moodmix-page h2, #moodmix-page h3 {
-    color: #ffffff; /* White for headings */
+    color: #111827; /* Dark slate for headings */
     font-family: 'Playfair Display', serif;
 }
 
 #moodmix-page p {
-    color: #d1d5db; /* Light grey for readability */
+    color: #374151; /* Dark grey for readability */
     font-family: 'Montserrat', sans-serif;
 }
 
 #moodmix-page .moodmix-card {
-    background-color: #2d2434; /* Soft warm dark card background */
+    background-color: #ffffff; /* Clean white card background */
     border: 2px solid var(--tech-blue);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -994,7 +993,7 @@ body {
 
 /* Ensure the story text is perfectly readable against the dark background */
 #moodmix-page .about-content p {
-    color: #f3f4f6; /* Very bright grey/white for high contrast */
-    font-weight: 400;
+    color: #111827; /* Very dark grey for high contrast against the grey background */
+    font-weight: 500;
     line-height: 1.9;
 }
