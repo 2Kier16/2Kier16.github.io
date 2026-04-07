@@ -884,9 +884,9 @@ body {
 /* --- App Gallery Styles --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1rem;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -895,8 +895,8 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: var(--bg-white);
-    border: 4px solid var(--border);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .gallery-item:hover {
@@ -919,9 +919,9 @@ body {
 
 /* --- Theater Video Container --- */
 .theater-container {
-    max-width: 320px;
+    max-width: 200px;
     margin: 0 auto 4rem auto;
-    padding: 1.5rem;
+    padding: 1rem;
     background: radial-gradient(circle, #2d3748 0%, #000000 100%);
     border-radius: 16px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.2);
@@ -940,23 +940,23 @@ body {
     --tech-blue: #6366f1;
     --mood-ring-glow: #ec4899;
 
-    background-color: #f3f4f6; /* Soft grey background */
-    color: #1f2937; /* Dark color for main text */
+    background-color: #231b26; /* Soft, warm dark background */
+    color: #e5e7eb; /* Light text for readability */
     font-family: 'Montserrat', sans-serif;
 }
 
 #moodmix-page h1, #moodmix-page h2, #moodmix-page h3 {
-    color: #111827; /* Very dark for headings */
+    color: #ffffff; /* White for headings */
     font-family: 'Playfair Display', serif;
 }
 
 #moodmix-page p {
-    color: #374151; /* Dark grey for readability */
+    color: #d1d5db; /* Light grey for readability */
     font-family: 'Montserrat', sans-serif;
 }
 
 #moodmix-page .moodmix-card {
-    background-color: #ffffff;
+    background-color: #2d2434; /* Soft warm dark card background */
     border: 2px solid var(--tech-blue);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
