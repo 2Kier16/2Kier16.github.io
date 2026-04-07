@@ -897,11 +897,14 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    border-color: var(--primary);
 }
 
 .screenshot-placeholder {
@@ -940,7 +943,7 @@ body {
     --tech-blue: #6366f1;
     --mood-ring-glow: #ec4899;
 
-    background-color: #231b26; /* Soft, warm dark background */
+    background: linear-gradient(135deg, #1a1525 0%, #2d2434 50%, #1c1936 100%);
     color: #e5e7eb; /* Light text for readability */
     font-family: 'Montserrat', sans-serif;
 }
@@ -981,4 +984,17 @@ body {
 #moodmix-page .btn-moodmix:hover {
     box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
     background-color: var(--mood-ring-glow);
+}
+
+/* Remove the white background from the story section on this specific page */
+#moodmix-page .about-section {
+    background: transparent;
+    background-image: none;
+}
+
+/* Ensure the story text is perfectly readable against the dark background */
+#moodmix-page .about-content p {
+    color: #f3f4f6; /* Very bright grey/white for high contrast */
+    font-weight: 400;
+    line-height: 1.9;
 }
