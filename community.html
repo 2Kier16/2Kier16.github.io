@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="K.V.T. Community - A safe space for creators to collaborate, share projects, and level up together.">
+    <meta name="theme-color" content="#6366f1">
+    <title>Community - K.V.T.</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Company Logo" class="logo-img"></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html#home">Home</a>
+            <div class="dropdown">
+                <a href="#" onclick="event.preventDefault()">Projects ▼</a>
+                <div class="dropdown-content">
+                    <a href="moodmix.html">MoodMix</a>
+                    <a href="music.html">Music</a>
+                    <a href="heritage.html">The Heritage Project</a>
+                    <a href="community.html">Community</a>
+                </div>
+            </div>
+                <a href="resume.html">Professional Profile</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="community-hero">
+            <div class="about-container">
+                <div class="crest-display">
+                <img src="assets/communitycrest.png?v=1" alt="K.V.T. Community Crest" class="community-crest-img">
+                </div>
+                <h1>Creation, Collaboration, Elevation</h1>
+                <p class="lead-text">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
+            </div>
+        </section>
+
+        <section class="community-mission">
+            <div class="about-container">
+                <h2>The Community Philosophy</h2>
+                <div class="about-content">
+                    <p>The K.V.T. Community is built on the belief that true progress happens when we stop competing and start citing. While the Master Crest represents my personal DNA and heritage, this Community Crest represents our collective future. It is a symbol of <strong>Global Interconnection</strong>—a bridge between our unified past and a future defined by what we build together.</p>
+                    
+                    <div class="symbolic-grid">
+                        <div class="symbol-item">
+                            <h3>Unified Past (Pangea)</h3>
+                            <p>The left sphere represents the time before borders—a reminder that we all share a foundational history of ingenuity and survival.</p>
+                        </div>
+                        <div class="symbol-item">
+                            <h3>Collective Future (The Grid)</h3>
+                            <p>The right sphere symbolizes the digital age and the interconnected network of creators we are building today.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-spotlight">
+            <div class="about-container">
+                <h2>Community Spotlights</h2>
+                <p>Coming soon: This space will feature apps, foundations, and projects from creators across the globe. We are here to help you get what you want to share out to the world.</p>
+                <div class="spotlight-placeholder">
+                    <p>Are you building something beautiful? We want to see it.</p>
+                    <a href="#submit" class="cta-button">Submit Your Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="submit" class="submission-section">
+            <div class="about-container">
+                <h2>Share Your Creation</h2>
+                <form id="community-form" class="community-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-name">Project/App Name</label>
+                        <input type="text" id="project-name" name="project-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">What are you creating? (And how does it help people level up?)</label>
+                        <textarea id="description" name="description" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="link">Project Link (Website/GitHub/App Store)</label>
+                        <input type="url" id="link" name="link">
+                    </div>
+                    <button type="submit" class="submit-btn">Send to K.V.T.</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-tagline">K.V.T. — Level Up Through Creation</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a> |
+                <a href="heritage.html">The Heritage Project</a> |
+                <a href="community.html">Community</a> |
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html
