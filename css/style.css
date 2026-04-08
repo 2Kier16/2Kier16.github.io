@@ -659,12 +659,17 @@ body {
     .dropdown {
         width: 100%;
         text-align: center;
+        padding: 0;
     }
     .dropdown-content {
         position: static;
         box-shadow: none;
         border: none;
         background: transparent;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
     }
     .dropdown-content a {
         padding: 0.5rem;
