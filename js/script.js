@@ -51,7 +51,7 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Typewriter Effect for Hero Title
-const heroTitle = document.querySelector('.hero-content h1');
+const heroTitle = document.querySelector('.hero-content .typing-target');
 if (heroTitle) {
     const text = heroTitle.textContent;
     heroTitle.textContent = '';

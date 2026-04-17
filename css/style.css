@@ -747,7 +747,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     z-index: 0;
-    animation: crestPulse 8s infinite alternate ease-in-out;
 }
 
 @keyframes crestPulse {
@@ -770,6 +769,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-index::after {
     background-image: url('../assets/mastercrest.png');
     background-size: contain;
+    animation: crestPulse 8s infinite alternate ease-in-out; /* Apply animation specifically here */
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -778,7 +778,7 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../assets/MoodMix%20logo%20with%20re.png');
     background-size: 60%; /* Adjust as needed for the logo */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; /* Ensure no repeat */
     animation: logoFloat 3s ease-in-out infinite; /* Add animation */
 }
 
@@ -786,7 +786,7 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../assets/gen.jpg');
     background-size: cover; /* Cover the entire area */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; /* Ensure no repeat */
 }
 
 .hero-community::after {
@@ -794,6 +794,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    /* No animation by default for community */
 }
 
 .hero-heritage::after {
@@ -801,6 +802,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    animation: crestPulse 8s infinite alternate ease-in-out; /* Apply animation specifically here */
 }
 
 .text-center { text-align: center; }
