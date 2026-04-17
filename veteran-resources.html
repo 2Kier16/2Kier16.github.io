@@ -99,10 +99,10 @@
             }
 
             resources.forEach(item => {
-                const placeholderImage = 'assets/military-branches.png';
+                const placeholderImage = 'assets/gen.jpg';
                 const imageHTML = item.image
                     ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
-                    : `<img src="${placeholderImage}" alt="A collage representing all branches of the U.S. Military">`;
+                    : `<img src="${placeholderImage}" alt="General veteran resource image">`;
 
                 const categoryHTML = item.category ? `<span class="category-tag">${item.category}</span>` : '';
 

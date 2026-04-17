@@ -119,6 +119,8 @@ body {
 }
 
 .dropdown-content a {
+    display: block; /* Forces links to stack vertically */
+    white-space: nowrap; /* Prevents long names from wrapping to the next line */
     font-size: 1.1rem !important;
     padding: 0.75rem 1.5rem;
     font-weight: 500;
@@ -718,8 +720,28 @@ body {
 
 /* --- K.V.T. Portfolio Layout Additions --- */
 .hero-portfolio {
-    background: linear-gradient(135deg, #2e0854 0%, #000000 100%);
+    background-image: url('../assets/mastercrest.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111827; /* Dark fallback color */
     text-align: center;
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.75); /* Dark overlay to keep text readable */
+    z-index: 1;
 }
 
 .text-center { text-align: center; }
