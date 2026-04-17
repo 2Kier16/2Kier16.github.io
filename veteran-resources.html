@@ -68,6 +68,9 @@
                     Loading resources...
                 </div>
             </div>
+            <div class="pagination-container" id="pagination-container">
+                <!-- Pagination buttons will be injected by JavaScript -->
+            </div>
         </section>
     </main>
 
@@ -86,20 +89,27 @@
 
     <script src="js/script.js"></script>
     <script>
-        let allResources = []; // This will store all the fetched resources
+        let allResources = []; // This will store all the fetched resources from the sheet
+        let currentPage = 1;
+        const itemsPerPage = 6; // Number of resource cards to show per page
 
-        // This function takes an array of resources and renders them to the page
-        const renderResources = (resources) => {
+        // Renders the cards for the given page
+        const renderResources = (resources, page) => {
             const container = document.getElementById('resource-container');
-            container.innerHTML = ''; // Clear any existing cards
+            container.innerHTML = '';
+            page--; // Adjust for zero-based index for slicing
 
-            if (resources.length === 0) {
-                container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">No resources found matching your search.</p>';
+            const start = itemsPerPage * page;
+            const end = start + itemsPerPage;
+            const paginatedItems = resources.slice(start, end);
+
+            if (paginatedItems.length === 0 && page === 0) {
+                container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">No resources found.</p>';
                 return;
             }
 
-            resources.forEach(item => {
-                const placeholderImage = 'assets/gen.jpg';
+            paginatedItems.forEach(item => {
+                const placeholderImage = 'assets/gen.jpg'; // The default image
                 const imageHTML = item.image
                     ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
                     : `<img src="${placeholderImage}" alt="General veteran resource image">`;
@@ -114,10 +124,10 @@
                         ${categoryHTML}
                     </div>
                     <div class="resource-content">
-                        <h3><a href="${item.link}">${item.title}</a></h3>
+                        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
                         <p>${item.brief}</p>
-                        <a href="${item.link}" class="read-more-btn" ${item.link.startsWith('http') || item.link.endsWith('.pdf') ? 'target="_blank"' : ''}>
-                            Read More &rarr;
+                        <a href="${item.link}" target="_blank" class="read-more-btn">
+                            View Resource &rarr;
                         </a>
                     </div>
                 `;
@@ -125,21 +135,41 @@
             });
         };
 
+        // Creates and manages the pagination buttons
+        const setupPagination = (resources) => {
+            const paginationContainer = document.getElementById('pagination-container');
+            paginationContainer.innerHTML = "";
+            const pageCount = Math.ceil(resources.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                if (currentPage === i) button.classList.add('active');
+
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderResources(resources, currentPage);
+
+                    // Update active button class
+                    const currentActive = document.querySelector('.pagination-container button.active');
+                    if (currentActive) currentActive.classList.remove('active');
+                    button.classList.add('active');
+                });
+                paginationContainer.appendChild(button);
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             const sheetId = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
             const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
 
-            // Fetch data from Google Sheet
             fetch(base)
                 .then(response => {
                     if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
                     return response.text();
                 })
                 .then(csvData => {
-                    const rows = csvData.split('\n').slice(1);
-
-                    // Map rows to resource objects and store them
-                    allResources = rows.map(row => {
+                    allResources = csvData.split('\n').slice(1).map(row => {
                         if (row.trim() === '') return null;
                         const columns = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
                         return {
@@ -149,10 +179,10 @@
                             link: (columns[3] || '').replace(/"/g, "").trim() || '#',
                             image: (columns[4] || '').replace(/"/g, "").trim()
                         };
-                    }).filter(Boolean); // Filter out any null (empty) rows
+                    }).filter(Boolean);
 
-                    // Perform the initial render with all resources
-                    renderResources(allResources);
+                    renderResources(allResources, currentPage);
+                    setupPagination(allResources);
                 })
                 .catch(error => {
                     console.error('Error loading resources:', error);
@@ -160,20 +190,18 @@
                     container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
                 });
 
-            // Set up the search functionality
             const searchInput = document.getElementById('resource-search');
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
-                
-                // Filter the resources based on the search term
                 const filteredResources = allResources.filter(resource => {
                     return resource.title.toLowerCase().includes(searchTerm) ||
                            resource.brief.toLowerCase().includes(searchTerm) ||
                            resource.category.toLowerCase().includes(searchTerm);
                 });
 
-                // Re-render the cards with the filtered results
-                renderResources(filteredResources);
+                currentPage = 1;
+                renderResources(filteredResources, currentPage);
+                setupPagination(filteredResources);
             });
         });
     </script>
