@@ -1470,11 +1470,17 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-sm);
 }
 
+.hero-moodmix::before {
+    background: transparent; /* Removes dark overlay for moodmix page */
+}
+
 #moodmix-page .hero-portfolio .hero-content h1 {
-    color: #111827;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 #moodmix-page .hero-portfolio .hero-content .hero-subtext {
-    color: #374151;
+    color: white;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 
 /* --- Embedded Crest Styling (Magazine Article Look) --- */
