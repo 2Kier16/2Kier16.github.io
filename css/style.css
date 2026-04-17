@@ -128,7 +128,6 @@ body {
 .dropdown-content a:hover {
     background-color: var(--bg-light);
     color: var(--primary);
-    padding-left: 2rem;
 }
 
 .dropdown:hover .dropdown-content {
@@ -1320,4 +1319,31 @@ body {
 
 .read-more-btn:hover {
     color: var(--secondary);
+}
+
+/* --- Search Bar --- */
+.search-container {
+    width: 100%;
+}
+
+#resource-search {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+#resource-search:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+#resource-search::placeholder {
+    color: var(--text-light);
+    opacity: 0.8;
 }

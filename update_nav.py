@@ -15,7 +15,6 @@ for file in files:
         
         has_home_hash = 'href="index.html#home"' in nav_block
         has_contact = 'href="index.html#contact"' in nav_block
-        has_download = 'href="moodmix.html#download"' in nav_block
         
         new_nav = '            <nav class="nav-links">\n'
         
@@ -26,29 +25,32 @@ for file in files:
             
         new_nav += '                <a href="moodmix.html">MoodMix</a>\n'
         new_nav += '                <a href="heritage.html">Heritage Project</a>\n'
+        new_nav += '                <a href="community.html">Community</a>\n'
         
         arrow = '▾' if '▾' in nav_block else '▼'
         if '▼' not in nav_block and '▾' not in nav_block:
              arrow = '▼'
              
+        # New "About Me" dropdown
+        new_nav += '                <div class="dropdown">\n'
+        new_nav += f'                    <a href="#" onclick="event.preventDefault()">About Me {arrow}</a>\n'
+        new_nav += '                    <div class="dropdown-content">\n'
+        new_nav += '                        <a href="about.html">My Story</a>\n'
+        new_nav += '                        <a href="resume.html">Resume</a>\n'
+        new_nav += '                    </div>\n'
+        new_nav += '                </div>\n'
+
+        # Pathways dropdown at the end
         new_nav += '                <div class="dropdown">\n'
         new_nav += f'                    <a href="#" onclick="event.preventDefault()">Pathways {arrow}</a>\n'
         new_nav += '                    <div class="dropdown-content">\n'
-        new_nav += '                        <a href="community.html">Community</a>\n'
         new_nav += '                        <a href="music.html">Music</a>\n'
         new_nav += '                        <a href="veteran-resources.html">Vet Resources</a>\n'
         new_nav += '                    </div>\n'
         new_nav += '                </div>\n'
         
-        new_nav += '                <a href="resume.html">Resume</a>\n'
-            
-        new_nav += '                <a href="about.html">About</a>\n'
-        
         if has_contact:
             new_nav += '                <a href="index.html#contact">Contact</a>\n'
-            
-        if has_download:
-            new_nav += '                <a href="moodmix.html#download">Download</a>\n'
             
         new_nav += '            </nav>'
         return new_nav

@@ -21,17 +21,21 @@
                 <a href="index.html">Home</a>
                 <a href="moodmix.html">MoodMix</a>
                 <a href="heritage.html">The Heritage Project</a>
+                <a href="community.html">Community</a>
+                <div class="dropdown">
+                    <a href="#" onclick="event.preventDefault()">About Me ▼</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">My Story</a>
+                        <a href="resume.html">Resume</a>
+                    </div>
+                </div>
                 <div class="dropdown">
                     <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
                     <div class="dropdown-content">
-                        <a href="community.html">Community</a>
                         <a href="music.html">Music</a>
-                        <a href="veteran-resources.html">Veteran Resources</a>
+                        <a href="veteran-resources.html">Vet Resources</a>
                     </div>
                 </div>
-                <a href="resume.html">Resume</a>
-                <a href="about.html">About</a>
-                <a href="moodmix.html#download">Download</a>
             </nav>
         </div>
     </header>
@@ -47,8 +51,17 @@
             </div>
         </section>
 
+        <!-- Search Bar -->
+        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 3rem; padding-bottom: 0;">
+            <div class="container" style="max-width: 800px; margin-bottom: 3rem;">
+                <div class="search-container">
+                    <input type="search" id="resource-search" placeholder="Search resources by keyword, title, or category...">
+                </div>
+            </div>
+        </section>
+
         <!-- Blog / Resources Feed -->
-        <section class="portfolio-section" style="background: var(--bg-light);">
+        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 0;">
             <div class="resource-grid" id="resource-container">
                 <!-- The JavaScript below will inject the blog cards here automatically -->
                 <div style="text-align: center; width: 100%; color: var(--text-light); padding: 3rem;">
@@ -73,73 +86,95 @@
 
     <script src="js/script.js"></script>
     <script>
-        // This acts as the connection to your Google Sheet "API"
+        let allResources = []; // This will store all the fetched resources
+
+        // This function takes an array of resources and renders them to the page
+        const renderResources = (resources) => {
+            const container = document.getElementById('resource-container');
+            container.innerHTML = ''; // Clear any existing cards
+
+            if (resources.length === 0) {
+                container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">No resources found matching your search.</p>';
+                return;
+            }
+
+            resources.forEach(item => {
+                const placeholderImage = 'assets/military-branches.png';
+                const imageHTML = item.image
+                    ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
+                    : `<img src="${placeholderImage}" alt="A collage representing all branches of the U.S. Military">`;
+
+                const categoryHTML = item.category ? `<span class="category-tag">${item.category}</span>` : '';
+
+                const card = document.createElement('div');
+                card.className = 'resource-card';
+                card.innerHTML = `
+                    <div class="resource-img-container">
+                        ${imageHTML}
+                        ${categoryHTML}
+                    </div>
+                    <div class="resource-content">
+                        <h3><a href="${item.link}">${item.title}</a></h3>
+                        <p>${item.brief}</p>
+                        <a href="${item.link}" class="read-more-btn" ${item.link.startsWith('http') || item.link.endsWith('.pdf') ? 'target="_blank"' : ''}>
+                            Read More &rarr;
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Your unique Google Sheet ID
             const sheetId = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
             const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
 
+            // Fetch data from Google Sheet
             fetch(base)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.statusText}`);
-                    }
+                    if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
                     return response.text();
                 })
                 .then(csvData => {
-                    const container = document.getElementById('resource-container');
-                    container.innerHTML = ''; // Clear the "loading" text
-
-                    // This part splits the CSV data from your sheet into rows, skipping the header
                     const rows = csvData.split('\n').slice(1);
 
-                    if (rows.length === 0 || (rows.length === 1 && rows[0].trim() === '')) {
-                        container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light);">No resources found. The sheet might be empty.</p>';
-                        return;
-                    }
-
-                    rows.forEach(row => {
-                        if (row.trim() === '') return; // Skip any blank rows
-
-                        // This splits each column. It's designed to handle commas within quoted fields.
-                        // Expected columns: Title, Brief, Category, Link, Image (optional)
+                    // Map rows to resource objects and store them
+                    allResources = rows.map(row => {
+                        if (row.trim() === '') return null;
                         const columns = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                        return {
+                            title: (columns[0] || '').replace(/"/g, "").trim() || 'Untitled Resource',
+                            brief: (columns[1] || '').replace(/"/g, "").trim() || 'No brief available.',
+                            category: (columns[2] || '').replace(/"/g, "").trim(),
+                            link: (columns[3] || '').replace(/"/g, "").trim() || '#',
+                            image: (columns[4] || '').replace(/"/g, "").trim()
+                        };
+                    }).filter(Boolean); // Filter out any null (empty) rows
 
-                        const title = (columns[0] || '').replace(/"/g, "").trim() || 'Untitled Resource';
-                        const brief = (columns[1] || '').replace(/"/g, "").trim() || 'No brief available.';
-                        const category = (columns[2] || '').replace(/"/g, "").trim();
-                        const link = (columns[3] || '').replace(/"/g, "").trim() || '#';
-                        const image = (columns[4] || '').replace(/"/g, "").trim();
-
-                        const placeholderImage = 'assets/military-branches.png';
-                        const imageHTML = image
-                            ? `<img src="${image}" alt="${title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
-                            : `<img src="${placeholderImage}" alt="A collage representing all branches of the U.S. Military">`;
-
-                        const categoryHTML = category ? `<span class="category-tag">${category}</span>` : '';
-
-                        const card = document.createElement('div');
-                        card.className = 'resource-card';
-                        card.innerHTML = `
-                            <div class="resource-img-container">
-                                ${imageHTML}
-                                ${categoryHTML}
-                            </div>
-                            <div class="resource-content">
-                                <h3><a href="${link}">${title}</a></h3>
-                                <p>${brief}</p>
-                                <a href="${link}" class="read-more-btn" ${link.startsWith('http') || link.endsWith('.pdf') ? 'target="_blank"' : ''}>
-                                    Read More &rarr;
-                                </a>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    });
+                    // Perform the initial render with all resources
+                    renderResources(allResources);
                 })
                 .catch(error => {
                     console.error('Error loading resources:', error);
-                    document.getElementById('resource-container').innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light);">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
+                    const container = document.getElementById('resource-container');
+                    container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
                 });
+
+            // Set up the search functionality
+            const searchInput = document.getElementById('resource-search');
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                
+                // Filter the resources based on the search term
+                const filteredResources = allResources.filter(resource => {
+                    return resource.title.toLowerCase().includes(searchTerm) ||
+                           resource.brief.toLowerCase().includes(searchTerm) ||
+                           resource.category.toLowerCase().includes(searchTerm);
+                });
+
+                // Re-render the cards with the filtered results
+                renderResources(filteredResources);
+            });
         });
     </script>
 </body>
