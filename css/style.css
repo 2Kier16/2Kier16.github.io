@@ -746,10 +746,6 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/mastercrest.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: 0;
     animation: crestPulse 8s infinite alternate ease-in-out;
 }
@@ -768,6 +764,43 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background: rgba(17, 24, 39, 0.6); /* Dark overlay to keep text readable */
     z-index: 1;
+}
+
+/* Specific Hero Backgrounds */
+.hero-index::after {
+    background-image: url('../assets/mastercrest.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-moodmix::after {
+    background-image: url('../assets/MoodMix%20logo%20with%20re.png');
+    background-size: 60%; /* Adjust as needed for the logo */
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: logoFloat 3s ease-in-out infinite; /* Add animation */
+}
+
+.hero-veteran-resources::after {
+    background-image: url('../assets/gen.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-community::after {
+    background-image: url('../assets/com-crest.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-heritage::after {
+    background-image: url('../assets/mastercrest.png'); /* Heritage uses the master crest */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .text-center { text-align: center; }
@@ -1430,6 +1463,13 @@ h1, h2, h3, h4, h5, h6 {
 .pagination-container button.active {
     transform: scale(1.05);
     box-shadow: var(--shadow-sm);
+}
+
+#moodmix-page .hero-portfolio .hero-content h1 {
+    color: #111827;
+}
+#moodmix-page .hero-portfolio .hero-content .hero-subtext {
+    color: #374151;
 }
 
 /* --- Back to Top Button --- */

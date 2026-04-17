@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,17 +44,16 @@
     </header>
 
     <main>
-        <section class="community-hero">
-            <div class="about-container">
-                <div class="crest-display">
-                <img src="assets/com-crest.png" alt="K.V.T. Community Crest" class="community-crest-img">
-                </div>
+        <!-- Hero Section -->
+        <section class="hero hero-portfolio hero-community" id="home">
+            <div class="hero-content" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
                 <h1>Creation, Collaboration, Elevation</h1>
-                <p class="lead-text">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
+                <p class="hero-subtext visible">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
             </div>
         </section>
 
-        <section class="community-mission">
+        <!-- Original Community Mission content, now in a separate section -->
+        <section class="portfolio-section">
             <div class="about-container">
                 <h2>The Community Philosophy</h2>
                 <div class="about-content">
@@ -73,8 +72,9 @@
                 </div>
             </div>
         </section>
-
-        <section class="community-spotlight">
+        
+        <!-- Original Community Spotlight content, now in a separate section -->
+        <section class="portfolio-section">
             <div class="about-container">
                 <h2>Community Spotlights</h2>
                 <p>Coming soon: This space will feature apps, foundations, and projects from creators across the globe. We are here to help you get what you want to share out to the world.</p>
@@ -112,16 +112,26 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-tagline">K.V.T. — Level Up Through Creation</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a> |
-                <a href="heritage.html">The Heritage Project</a> |
-                <a href="community.html">Community</a> |
-                <a href="about.html">About</a>
+        <div class="footer-content" style="text-align: center; display: block;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">K.V.T. — Level Up Through Creation</p>
+            <div class="footer-links" style="margin-bottom: 2rem;">
+                <a href="index.html#home" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Home</a> |
+                <a href="moodmix.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">MoodMix</a> |
+                <a href="heritage.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Heritage Project</a> |
+                <a href="community.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Community</a> |
+                <a href="about.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">My Story</a> |
+                <a href="resume.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Resume</a> |
+                <a href="music.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Music</a> |
+                <a href="veteran-resources.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Vet Resources</a> |
+                <a href="index.html#contact" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Contact</a>
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="signature-content">
+                <p class="signature-label">Product by</p>
+                <p class="signature-text">Kier V. Turpin</p>
+                <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Logo" class="signature-logo">
+            </div>
             <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>
     </footer>
