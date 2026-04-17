@@ -114,14 +114,11 @@
                     ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
                     : `<img src="${placeholderImage}" alt="General veteran resource image">`;
 
-                const categoryHTML = item.category ? `<span class="category-tag">${item.category}</span>` : '';
-
                 const card = document.createElement('div');
                 card.className = 'resource-card';
                 card.innerHTML = `
                     <div class="resource-img-container">
                         ${imageHTML}
-                        ${categoryHTML}
                     </div>
                     <div class="resource-content">
                         <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
