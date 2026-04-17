@@ -1475,11 +1475,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #moodmix-page .hero-portfolio .hero-content h1 {
-    color: white;
+    color: black;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 #moodmix-page .hero-portfolio .hero-content .hero-subtext {
-    color: white;
+    color: black;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 
