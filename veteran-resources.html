@@ -51,15 +51,6 @@
             </div>
         </section>
 
-        <!-- Search Bar -->
-        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 3rem; padding-bottom: 0;">
-            <div class="container" style="max-width: 800px; margin-bottom: 3rem;">
-                <div class="search-container">
-                    <input type="search" id="resource-search" placeholder="Search resources by keyword, title, or category...">
-                </div>
-            </div>
-        </section>
-
         <!-- Blog / Resources Feed -->
         <section class="portfolio-section" style="background: var(--bg-light); padding-top: 0;">
             <div class="resource-grid" id="resource-container">
@@ -186,20 +177,6 @@
                     const container = document.getElementById('resource-container');
                     container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
                 });
-
-            const searchInput = document.getElementById('resource-search');
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filteredResources = allResources.filter(resource => {
-                    return resource.title.toLowerCase().includes(searchTerm) ||
-                           resource.brief.toLowerCase().includes(searchTerm) ||
-                           resource.category.toLowerCase().includes(searchTerm);
-                });
-
-                currentPage = 1;
-                renderResources(filteredResources, currentPage);
-                setupPagination(filteredResources);
-            });
         });
     </script>
 </body>

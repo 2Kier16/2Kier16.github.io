@@ -80,13 +80,14 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
     object-fit: contain;
     transform: scale(1.6);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)); /* Keep shadow for depth */
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo-img:hover {
     transform: scale(1.75);
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+    transform: scale(1.75) rotate(5deg); /* Added rotation */
 }
 
 .nav-links {
@@ -778,12 +779,27 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../assets/MoodMix%20logo%20with%20re.png');
     background-size: 60%; /* Adjust as needed for the logo */
     background-position: center;
-    background-repeat: no-repeat; /* Ensure no repeat */
-    animation: logoFloat 3s ease-in-out infinite; /* Add animation */
+    background-repeat: no-repeat;
+    animation: moodMixGradient 15s ease infinite alternate; /* New gradient animation */
+}
+
+@keyframes moodMixGradient {
+    0% { background-color: #e0f2f7; background-position: 0% 50%; } /* Light blue */
+    25% { background-color: #fce4ec; background-position: 25% 75%; } /* Light pink */
+    50% { background-color: #f0f4c3; background-position: 50% 100%; } /* Light yellow */
+    75% { background-color: #e1bee7; background-position: 75% 25%; } /* Light purple */
+    100% { background-color: #e0f2f7; background-position: 100% 50%; } /* Back to light blue */
 }
 
 .hero-veteran-resources::after {
     background-image: url('../assets/gen.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-about::after {
+    background-image: url('../assets/animated_logo.mp4'); /* Use video as background */
     background-size: cover; /* Cover the entire area */
     background-position: center;
     background-repeat: no-repeat; /* Ensure no repeat */
@@ -794,7 +810,6 @@ h1, h2, h3, h4, h5, h6 {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* No animation by default for community */
 }
 
 .hero-heritage::after {
@@ -815,18 +830,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container { max-width: 800px; margin: 0 auto; }
-
-.crest-image {
-    width: 180px;
-    height: auto;
-    margin: 0 auto 2rem;
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
-    transition: transform 0.3s ease;
-}
-
-.crest-image:hover {
-    transform: scale(1.05);
-}
 
 .three-pillar-grid {
     display: grid;
@@ -1472,6 +1475,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 #moodmix-page .hero-portfolio .hero-content .hero-subtext {
     color: #374151;
+}
+
+/* --- Embedded Crest Styling (Magazine Article Look) --- */
+.embedded-crest {
+    max-width: 300px; /* Adjust size as needed */
+    height: auto;
+    float: right; /* Float to the right */
+    margin: 0 0 1.5rem 2.5rem; /* Top, Right, Bottom, Left margins */
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.embedded-crest.left {
+    float: left;
+    margin: 0 2.5rem 1.5rem 0;
+}
+
+.embedded-crest:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow);
 }
 
 /* --- Back to Top Button --- */

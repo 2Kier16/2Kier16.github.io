@@ -55,6 +55,7 @@ const heroTitle = document.querySelector('.hero-content .typing-target');
 if (heroTitle) {
     const text = heroTitle.textContent;
     heroTitle.textContent = '';
+    heroTitle.classList.add('typing-cursor'); // Add typing-cursor class to the h1
     
     const span = document.createElement('span');
     span.classList.add('typing-cursor');
