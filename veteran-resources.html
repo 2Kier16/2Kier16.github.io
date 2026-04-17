@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veteran Resources - K.V.T.</title>
+    <link rel="stylesheet" href="css/style.css?v=1.1">
+</head> 
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Company Logo" class="logo-img">
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="moodmix.html">MoodMix</a>
+                <a href="heritage.html">The Heritage Project</a>
+                <div class="dropdown">
+                    <a href="#" onclick="event.preventDefault()">KVT Links ▼</a>
+                    <div class="dropdown-content">
+                        <a href="community.html">Community</a>
+                        <a href="music.html">Music</a>
+                        <a href="veteran-resources.html">Veteran Resources</a>
+                    </div>
+                </div>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About</a>
+                <a href="moodmix.html#download">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, #1f2937 0%, #374151 100%); text-align: center;">
+            <div class="hero-content" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                <h1>Veteran Resources</h1>
+                <p class="hero-subtext visible" style="font-size: 1.2rem; color: #d1d5db;">
+                    A curated collection of guides, articles, and tools dedicated to empowering the military community. Level up your transition, career, and creative journey here.
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog / Resources Feed -->
+        <section class="portfolio-section" style="background: var(--bg-light);">
+            <div class="resource-grid" id="resource-container">
+                <!-- The JavaScript below will inject the blog cards here automatically -->
+                <div style="text-align: center; width: 100%; color: var(--text-light); padding: 3rem;">
+                    Loading resources...
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content" style="text-align: center; display: block;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">K.V.T. — Level Up Through Creation</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="signature-content" style="top: -25px;">
+                <p class="signature-label">Product by</p>
+                <p class="signature-text">Kier V. Turpin</p>
+            </div>
+            <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // This acts as the connection to your Google Sheet "API"
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your unique Google Sheet ID
+            const sheetId = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
+            const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+
+            fetch(base)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(csvData => {
+                    const container = document.getElementById('resource-container');
+                    container.innerHTML = ''; // Clear the "loading" text
+
+                    // This part splits the CSV data from your sheet into rows, skipping the header
+                    const rows = csvData.split('\n').slice(1);
+
+                    if (rows.length === 0 || (rows.length === 1 && rows[0].trim() === '')) {
+                        container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light);">No resources found. The sheet might be empty.</p>';
+                        return;
+                    }
+
+                    rows.forEach(row => {
+                        if (row.trim() === '') return; // Skip any blank rows
+
+                        // This splits each column. It's designed to handle commas within quoted fields.
+                        // Expected columns: Title, Brief, Category, Link, Image (optional)
+                        const columns = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+                        const title = (columns[0] || '').replace(/"/g, "").trim() || 'Untitled Resource';
+                        const brief = (columns[1] || '').replace(/"/g, "").trim() || 'No brief available.';
+                        const category = (columns[2] || '').replace(/"/g, "").trim();
+                        const link = (columns[3] || '').replace(/"/g, "").trim() || '#';
+                        const image = (columns[4] || '').replace(/"/g, "").trim();
+
+                        const imageHTML = image
+                            ? `<img src="${image}" alt="${title}" onerror="this.parentElement.innerHTML += '<div style=\\'color: var(--primary); font-weight: bold; opacity: 0.5;\\'>Image Not Found</div>'; this.remove();">`
+                            : `<div style="color: var(--primary); font-weight: bold; opacity: 0.5;">No Image</div>`;
+
+                        const categoryHTML = category ? `<span class="category-tag">${category}</span>` : '';
+
+                        const card = document.createElement('div');
+                        card.className = 'resource-card';
+                        card.innerHTML = `
+                            <div class="resource-img-container">
+                                ${imageHTML}
+                                ${categoryHTML}
+                            </div>
+                            <div class="resource-content">
+                                <h3><a href="${link}">${title}</a></h3>
+                                <p>${brief}</p>
+                                <a href="${link}" class="read-more-btn" ${link.startsWith('http') || link.endsWith('.pdf') ? 'target="_blank"' : ''}>
+                                    Read More &rarr;
+                                </a>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading resources:', error);
+                    document.getElementById('resource-container').innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light);">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
+                });
+        });
+    </script>
+</body>
+</html>
