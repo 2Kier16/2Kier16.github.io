@@ -22,7 +22,7 @@
                 <a href="moodmix.html">MoodMix</a>
                 <a href="heritage.html">The Heritage Project</a>
                 <div class="dropdown">
-                    <a href="#" onclick="event.preventDefault()">KVT Links ▼</a>
+                    <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
                     <div class="dropdown-content">
                         <a href="community.html">Community</a>
                         <a href="music.html">Music</a>
@@ -111,9 +111,10 @@
                         const link = (columns[3] || '').replace(/"/g, "").trim() || '#';
                         const image = (columns[4] || '').replace(/"/g, "").trim();
 
+                        const placeholderImage = 'assets/military-branches.png';
                         const imageHTML = image
-                            ? `<img src="${image}" alt="${title}" onerror="this.parentElement.innerHTML += '<div style=\\'color: var(--primary); font-weight: bold; opacity: 0.5;\\'>Image Not Found</div>'; this.remove();">`
-                            : `<div style="color: var(--primary); font-weight: bold; opacity: 0.5;">No Image</div>`;
+                            ? `<img src="${image}" alt="${title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
+                            : `<img src="${placeholderImage}" alt="A collage representing all branches of the U.S. Military">`;
 
                         const categoryHTML = category ? `<span class="category-tag">${category}</span>` : '';
 
