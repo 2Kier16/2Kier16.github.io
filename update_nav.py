@@ -1,4 +1,4 @@
-﻿import os
+﻿﻿import os
 import re
 
 files = ['about.html', 'community.html', 'heritage.html', 'index.html', 'moodmix.html', 'music.html', 'resume.html', 'story.html']
@@ -40,6 +40,7 @@ for file in files:
         new_nav += '                    <div class="dropdown-content">\n'
         new_nav += '                        <a href="community.html">Community</a>\n'
         new_nav += '                        <a href="music.html">Music</a>\n'
+        new_nav += '                        <a href="veteran-resources.html">Veteran Resources</a>\n'
         new_nav += '                    </div>\n'
         new_nav += '                </div>\n'
         
