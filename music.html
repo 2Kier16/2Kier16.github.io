@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,38 +42,115 @@
         </div>
     </header>
 
-    <main style="min-height: 75vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
-        <div class="container text-center music-coming-soon-card">
-            <div class="music-emoji">🎧</div>
-            <h1 class="music-coming-soon-h1">Music Space</h1>
-            <div class="under-construction-badge">
-                🚧 Under Construction
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero-portfolio hero-music" id="home">
+            <div class="hero-content hero-content-inner">
+                <h1>K.V.T. Music</h1>
+                <p class="hero-subtext visible">Music rooted in emotion, storytelling, and truth. Explore the artists, the production, and live experiences.</p>
             </div>
-            <p class="music-p-line-height">
-                I am currently in the studio curating sounds, producing new tracks, and building out this space to share my musical journey.
-            </p>
-            <p class="music-p-mb-2_5">
-                Check back soon to explore music rooted in emotion, storytelling, and truth.
-            </p>
-            <a href="index.html" class="btn btn-primary">Return Home</a>
-        </div>
-    </main>
+        </section>
 
-    <main class="main-centered-full-height">
-        <div class="container text-center music-coming-soon-card">
-            <div class="music-emoji">🎧</div>
-            <h1 class="music-coming-soon-h1">Music Space</h1>
-            <div class="under-construction-badge">
-                🚧 Under Construction
+        <!-- Artists Section -->
+        <section id="artists" class="portfolio-section">
+            <div class="container text-center">
+                <h2 class="section-heading-primary">Featured Artists</h2>
+                <p class="section-paragraph-large">Discover the voices and visionaries currently in rotation.</p>
             </div>
-            <p class="music-p-line-height">
-                I am currently in the studio curating sounds, producing new tracks, and building out this space to share my musical journey.
-            </p>
-            <p class="music-p-mb-2_5">
-                Check back soon to explore music rooted in emotion, storytelling, and truth.
-            </p>
-            <a href="index.html" class="btn btn-primary">Return Home</a>
-        </div>
+            
+            <div class="artist-grid">
+                <!-- Artist 1 Example -->
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="assets/gen.jpg" alt="Artist Name">
+                    </div>
+                    <div class="artist-info">
+                        <h3>Artist Name</h3>
+                        <p>A brief bio describing the artist's sound, influences, and the core message behind their music.</p>
+                        
+                        <div class="artist-links-container">
+                            <div class="link-group">
+                                <div class="link-group-title">Listen</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-icon" target="_blank">Spotify</a>
+                                    <a href="#" class="social-icon" target="_blank">Apple Music</a>
+                                    <a href="#" class="social-icon" target="_blank">SoundCloud</a>
+                                </div>
+                            </div>
+                            
+                            <div class="link-group">
+                                <div class="link-group-title">Follow</div>
+                                <div class="social-links">
+                                    <a href="#" class="social-icon" target="_blank">Instagram</a>
+                                    <a href="#" class="social-icon" target="_blank">Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add more artist-cards here as needed -->
+            </div>
+        </section>
+
+        <!-- Production Section -->
+        <section id="production" class="portfolio-section portfolio-section-light">
+            <div class="container text-center">
+                <h2 class="section-heading-primary">Production & Sound Design</h2>
+                <p class="section-paragraph-large" style="margin-bottom: 3rem;">
+                    In the studio, I focus on curating sounds and producing tracks that resonate on a deeper level. Every beat, melody, and lyric is crafted to tell a story without relying on trends.
+                </p>
+                
+                <div class="three-pillar-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎹</div>
+                        <h3>Beat Curation</h3>
+                        <p>Building instrumental foundations that capture exact emotional states and energies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎛️</div>
+                        <h3>Engineering</h3>
+                        <p>Mixing and mastering to ensure the highest quality clarity and punch for every release.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎙️</div>
+                        <h3>Collaboration</h3>
+                        <p>Working directly with vocalists and creators to bring their truth to the forefront.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Venues & Shows Section -->
+        <section id="shows" class="portfolio-section">
+            <div class="container text-center">
+                <h2 class="section-heading-primary">Live Shows & Venues</h2>
+                <p class="section-paragraph-large">Catch the energy live. Here is where we are performing next.</p>
+                
+                <div class="shows-list">
+                    <!-- Show Item Example -->
+                    <div class="show-item">
+                        <div class="show-date">Nov 15, 2026</div>
+                        <div class="show-details">
+                            <h3>The Sound Room (Album Release)</h3>
+                            <p>Miami, FL — 8:00 PM</p>
+                        </div>
+                        <div class="show-action">
+                            <a href="#" class="btn btn-secondary btn-secondary-primary-border">Get Tickets</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more show-items here -->
+                    <div class="show-item">
+                        <div class="show-date">TBA</div>
+                        <div class="show-details">
+                            <h3>More Dates Coming Soon</h3>
+                            <p>Stay tuned for upcoming announcements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
