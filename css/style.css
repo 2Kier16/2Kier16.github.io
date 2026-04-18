@@ -1248,24 +1248,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- MoodMix Hero Section Layout --- */
 /* This ensures the section is tall enough for animations */
-.hero-moodmix {
+.hero-moodmix { /* Existing rule */
     position: relative;
-    min-height: 90vh; 
+    min-height: 100vh; /* Full screen height to give animation room */
     display: flex;
     flex-direction: column;
     overflow: hidden;
-}
-
-.moodmix-hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: 5rem 2rem;
-    position: relative;
-    z-index: 10;
-    flex-grow: 1;
+    background: #fff0f5; /* Matching your screenshot's pinkish hue */
 }
 
 
@@ -1492,18 +1481,31 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-sm);
 }
 
-.hero-about::before,
-.hero-moodmix::before {
-    background: transparent; /* Removes dark overlay for moodmix page */
+.hero-about::before {
+    background: transparent; /* Removes dark overlay for about page */
 }
 
-#moodmix-page .moodmix-hero-content h1 {
-    color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+.moodmix-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes top-text up and cta-buttons down */
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem; /* Adds breathing room at very top and bottom */
+    position: relative;
+    z-index: 10;
+    flex-grow: 1;
+    height: 100%;
 }
-#moodmix-page .moodmix-hero-content .hero-subtext {
-    color: white;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+
+/* Ensure the top text doesn't drift too low */
+.hero-top-text {
+    margin-top: 2rem;
+}
+
+/* Ensure the buttons stay at the absolute bottom */
+#moodmix-page .cta-buttons {
+    margin-bottom: 2rem;
 }
 
 /* --- About Page Specific Overrides --- */
