@@ -43,7 +43,7 @@
     <main>
         <!-- Hero Section -->
         <section class="hero hero-portfolio hero-veteran-resources" id="home">
-            <div class="hero-content" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
+            <div class="hero-content hero-content-inner">
                 <h1>Veteran Resources</h1>
                 <p class="hero-subtext visible">
                     A curated collection of guides, articles, and tools dedicated to empowering the military community. Level up your transition, career, and creative journey here.
@@ -51,11 +51,20 @@
             </div>
         </section>
 
+        <!-- Search Bar -->
+        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 3rem; padding-bottom: 0;">
+            <div class="container" style="max-width: 800px; margin-bottom: 3rem;">
+                <div class="search-container">
+                    <input type="search" id="resource-search" placeholder="Search resources by keyword, title, or category...">
+                </div>
+            </div>
+        </section>
+
         <!-- Blog / Resources Feed -->
-        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 0;">
+        <section class="portfolio-section portfolio-section-vet-resources">
             <div class="resource-grid" id="resource-container">
                 <!-- The JavaScript below will inject the blog cards here automatically -->
-                <div style="text-align: center; width: 100%; color: var(--text-light); padding: 3rem;">
+                <div class="loading-message-style">
                     Loading resources...
                 </div>
             </div>
@@ -66,13 +75,14 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content" style="text-align: center; display: block;">
-            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">K.V.T. — Level Up Through Creation</p>
+        <div class="footer-content footer-center-block">
+            <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
         </div>
         <div class="footer-bottom">
-            <div class="signature-content" style="top: -25px;">
+            <div class="signature-content signature-content-footer">
                 <p class="signature-label">Product by</p>
                 <p class="signature-text">Kier V. Turpin</p>
+                <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Logo" class="signature-logo">
             </div>
             <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>
@@ -108,7 +118,7 @@
                 const card = document.createElement('div');
                 card.className = 'resource-card';
                 card.innerHTML = `
-                    <div class="resource-img-container">
+                    <div class="resource-img-container"> <!-- Existing rule -->
                         ${imageHTML}
                     </div>
                     <div class="resource-content">

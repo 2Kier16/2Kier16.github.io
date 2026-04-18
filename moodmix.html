@@ -48,10 +48,10 @@
         <section class="hero hero-portfolio hero-moodmix" id="home">
             <div class="moodmix-animation-layer"></div>
 
-    <div class="hero-content">
-        <p class="hero-subtext visible" style="font-size: 1.6rem; font-weight: 500; max-width: 800px;">A mood-driven music experience built to help you reflect, express, and level up emotionally.</p>
+    <div class="hero-content moodmix-hero-content">
+        <p class="hero-subtext visible" style="font-size: 1.6rem; font-weight: 500; max-width: 800px;">A Mood-driven reflection experience with journaling and music built to help you express, and level up emotionally.</p>
         <div>
-            <h1 style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">Music That Understands You</h1>
+            <h1 style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem;">Take Back Control</h1>
             <div class="cta-buttons justify-center">
                 <a href="#download" class="btn btn-moodmix">Download for Android</a>
             </div>
@@ -62,19 +62,19 @@
         <!-- Features Section -->
         <section id="features" class="portfolio-section">
             <h2 class="text-center" style="font-size: 2.5rem;">Core Features</h2>
-            <div class="three-pillar-grid">
+            <div class="three-pillar-grid"> <!-- Existing rule -->
                 <div class="feature-card moodmix-card">
-                    <div class="feature-icon" style="font-size: 3rem;">🎨</div>
+                    <div class="feature-icon">🎨</div>
                     <h3>Select Your Mood</h3>
                     <p>Choose from a spectrum of emotions. The app’s interface and music adapt to match how you feel.</p>
                 </div>
                 <div class="feature-card moodmix-card">
-                    <div class="feature-icon" style="font-size: 3rem;">🎧</div>
+                    <div class="feature-icon">🎧</div>
                     <h3>Curated Soundscapes</h3>
                     <p>Listen to music playlists curated for specific emotional states, helping you process or shift your mood.</p>
                 </div>
                 <div class="feature-card moodmix-card">
-                    <div class="feature-icon" style="font-size: 3rem;">📝</div>
+                    <div class="feature-icon">📝</div>
                     <h3>Journal Your Thoughts</h3>
                     <p>A private, secure space to write down what's on your mind, connecting your thoughts to the music you hear.</p>
                 </div>
@@ -82,51 +82,49 @@
         </section>
 
         <!-- App Gallery Section -->
-        <section id="gallery" class="portfolio-section" style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem;">
-            <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Inside MoodMix</h2>
+        <section id="gallery" class="portfolio-section" style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem;"> <!-- Existing rule -->
+            <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Inside MoodMix</h2> <!-- Existing rule -->
             
-            <h3 class="text-center" style="margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--primary);">Live Action Demo</h3>
+            <h3 class="text-center" style="margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--primary);">Live Action Demo</h3> <!-- Existing rule -->
             <!-- Theater Video Showcase -->
-            <div class="theater-container">
+            <div class="theater-container"> <!-- Existing rule -->
                 <video id="demovid" autoplay muted loop playsinline>
                     <source src="assets/screenshots/demovid.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <script>
-                    // Plays the video automatically at a slightly faster speed (1.25x)
-                    document.getElementById('demovid').playbackRate = 1.25;
-                </script>
+                <!-- Script for video playback rate is fine to remain inline for specific media behavior -->
+                <script>document.getElementById('demovid').playbackRate = 1.25;</script>
             </div>
 
-            <h3 class="text-center" style="margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--primary);">App Screenshots</h3>
-            <div class="gallery-grid">
+            <h3 class="text-center" style="margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--primary);">App Screenshots</h3> <!-- Existing rule -->
+            <div class="gallery-grid"> <!-- Existing rule -->
                 <!-- Screenshots -->
                 <div class="gallery-item">
-                    <img src="assets/screenshots/demotopstart.png" alt="Demo Top Start" title="Welcome Screen: An introduction to MoodMix and its purpose." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/demotopstart.png" alt="Demo Top Start" title="Welcome Screen: An introduction to MoodMix and its purpose." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/screenshots/demobottomstart.png" alt="Demo Bottom Start" title="Welcome Screen: Details on the reflection space and upcoming features." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/demobottomstart.png" alt="Demo Bottom Start" title="Welcome Screen: Details on the reflection space and upcoming features." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/screenshots/demohometop.png" alt="Demo Home Top" title="Mood Selection: Choose how you feel right now to begin." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/demohometop.png" alt="Demo Home Top" title="Mood Selection: Choose how you feel right now to begin." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/screenshots/demohomebottom.png" alt="Demo Home Bottom" title="Mood Selection: Additional emotions and access to the Reflection Space." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/demohomebottom.png" alt="Demo Home Bottom" title="Mood Selection: Additional emotions and access to the Reflection Space." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/screenshots/demoplay.png" alt="Demo Play" title="Music Player: Enjoying curated music perfectly matched to the selected mood." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/demoplay.png" alt="Demo Play" title="Music Player: Enjoying curated music perfectly matched to the selected mood." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/screenshots/reflection.png?v=2" alt="Demo Reflection" title="Reflection Space: A private area to safely journal and process your thoughts." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;">
+                    <img src="assets/screenshots/reflection.png?v=2" alt="Demo Reflection" title="Reflection Space: A private area to safely journal and process your thoughts." style="display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/19;"> <!-- Existing rule -->
                 </div>
             </div>
         </section>
 
-        <!-- Story Section -->
-        <section class="about-section" style="padding-top: 2rem;">
-            <div class="about-container">
-                <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem;">Why I Built This App</h2>
-                <div class="about-content">
+        <!-- Story Section --> <!-- Existing rule -->
+        <section class="about-section" style="padding-top: 2rem;"> <!-- Existing rule -->
+            <div class="about-container"> <!-- Existing rule -->
+                <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem;">Why I Built This App</h2> <!-- Existing rule -->
+                <div class="about-content"> <!-- Existing rule -->
                     <p>I built MoodMix for the people who struggle to express themselves out loud — not because they don’t feel deeply, but because sometimes the words just don’t come out right. Maybe you’re frustrated, and it feels like no one really understands you but you. Maybe you need to write things out first to gain the confidence to speak them into existence. Maybe you’re carrying anger, hurt, or stress that you don’t want anyone else to see. Or maybe you had to stay professional in a moment when someone absolutely deserved the verbal lashing you couldn’t give them. MoodMix is for all of that and more.</p>
                     <p>It’s a space where you can be honest without judgment, where you can release what you’re holding, and where music helps say the things you can’t always say yourself or others. This app is rooted in therapeutic advice I received from my own therapist about the power of words, journaling, and the truth that music has also played a role in saving my life when I was ready to give up.</p>
                     <p>What started as a project during my Mobile Application Design & Development class while pursuing my Bachelor’s degree in Information Technology became something much more personal and real. I wanted to build something pure and honest for the heart, soul, and mind to truly help people; not for money or thanks, just because I'm tired of feeling my heart breaking, my head hurting, my soul feeling weak, and frustrated that THESE PARASITES are destroy everything beautiful in this life we are blessed to live in this or any moment. Something that I believe can help people process their emotions, reflect safely, and find their own space to breathe, grow, and heal. In order to deal with the mess this world is in.</p>
@@ -135,21 +133,21 @@
         </section>
 
         <!-- Download Section -->
-        <section id="download" class="portfolio-section">
-            <div class="container">
-                <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem;">Download MoodMix</h2>
-                <div class="install-guide" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-color: var(--tech-blue); color: #1f2937;">
-                    <h3 style="font-size: 1.2rem; color: #111827;">How to Install (Android First-Time Guide):</h3>
-                    <ol style="padding-left: 1.5rem; font-size: 1rem; margin-top: 1rem; color: #374151;">
-                        <li style="margin-bottom: 0.5rem;">Download the <strong>moodmix1.5.apk</strong> file.</li>
-                        <li style="margin-bottom: 0.5rem;">Open the downloaded file from your notifications or 'Downloads' folder.</li>
-                        <li style="margin-bottom: 0.5rem;">If you see an "Unknown apps" prompt, tap <strong>Settings</strong> and toggle <strong>"Allow from this source"</strong>.</li>
-                        <li style="margin-bottom: 0.5rem;">Go back, tap <strong>Install</strong>, and start your journey!</li>
+        <section id="download" class="portfolio-section"> <!-- Existing rule -->
+            <div class="container"> <!-- Existing rule -->
+                <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem;">Download MoodMix</h2> <!-- Existing rule -->
+                <div class="install-guide" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-color: var(--tech-blue); color: #1f2937;"> <!-- Existing rule -->
+                    <h3 style="font-size: 1.2rem; color: #111827;">How to Install (Android First-Time Guide):</h3> <!-- Existing rule -->
+                    <ol style="padding-left: 1.5rem; font-size: 1rem; margin-top: 1rem; color: #374151;"> <!-- Existing rule -->
+                        <li style="margin-bottom: 0.5rem;">Download the <strong>moodmix1.5.apk</strong> file.</li> <!-- Existing rule -->
+                        <li style="margin-bottom: 0.5rem;">Open the downloaded file from your notifications or 'Downloads' folder.</li> <!-- Existing rule -->
+                        <li style="margin-bottom: 0.5rem;">If you see an "Unknown apps" prompt, tap <strong>Settings</strong> and toggle <strong>"Allow from this source"</strong>.</li> <!-- Existing rule -->
+                        <li style="margin-bottom: 0.5rem;">Go back, tap <strong>Install</strong>, and start your journey!</li> <!-- Existing rule -->
                     </ol>
-                    <div class="safety-badge" style="margin-top: 1.5rem; padding: 1rem; border-color: rgba(99, 102, 241, 0.5); background: rgba(99, 102, 241, 0.1);">
+                    <div class="safety-badge" style="margin-top: 1.5rem; padding: 1rem; border-color: rgba(99, 102, 241, 0.5); background: rgba(99, 102, 241, 0.1);"> <!-- Existing rule -->
                         <span class="shield-icon">🛡️</span> <strong>100% Safe & Secure:</strong> Verified project by K.V.Tech with no malicious code.
                     </div>
-                    <div class="cta-buttons justify-center" style="margin-top: 2rem;">
+                    <div class="cta-buttons justify-center" style="margin-top: 2rem;"> <!-- Existing rule -->
                         <a href="assets/moodmix1.5.apk" download="moodmix1.5.apk" class="btn btn-moodmix">Download MoodMix 1.5</a>
                     </div>
                 </div>
@@ -158,21 +156,21 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content" style="text-align: center; display: block;">
-            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 1rem;">K.V.T. — Level Up Through Creation</p>
-            <div class="footer-links" style="margin-bottom: 2rem;">
-                <a href="index.html#home" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Home</a> |
-                <a href="moodmix.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">MoodMix</a> |
-                <a href="music.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Music</a> |
-                <a href="heritage.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">The Heritage Project</a> |
-                <a href="community.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Community</a> |
-                <a href="resume.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Professional Profile</a> |
-                <a href="about.html" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">About</a> |
-                <a href="index.html#contact" style="margin: 0 10px; color: #d1d5db; text-decoration: none;">Contact</a>
+        <div class="footer-content footer-center-block">
+            <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
+            <div class="footer-links footer-links-style">
+                <a href="index.html#home">Home</a> |
+                <a href="moodmix.html">MoodMix</a> |
+                <a href="music.html">Music</a> |
+                <a href="heritage.html">The Heritage Project</a> |
+                <a href="community.html">Community</a> |
+                <a href="resume.html">Professional Profile</a> |
+                <a href="about.html">About</a> |
+                <a href="index.html#contact">Contact</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="signature-content">
+            <div class="signature-content signature-content-footer">
                 <p class="signature-label">Product by</p>
                 <p class="signature-text">Kier V. Turpin</p>
                 <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Logo" class="signature-logo">
