@@ -48,6 +48,17 @@
                 <p class="hero-subtext visible">
                     A curated collection of guides, articles, and tools dedicated to empowering the military community. Level up your transition, career, and creative journey here.
                 </p>
+                
+                <div class="crisis-alert-box">
+                    <h2>Anytime, day or night – 24/7</h2>
+                    <p>If you are a Veteran in crisis or concerned about one, connect with our caring, qualified responders for confidential help. Many of them are Veterans themselves.</p>
+                    <ul class="crisis-contacts">
+                        <li><strong>Call 988</strong> and select <strong>1</strong></li>
+                        <li><strong>Text 838255</strong></li>
+                        <li>For TTY, call <strong>711</strong> then <strong>988</strong></li>
+                    </ul>
+                    <p class="crisis-link">Get more resources at <a href="https://www.veteranscrisisline.net" target="_blank" rel="noopener noreferrer">VeteransCrisisLine.net</a>.</p>
+                </div>
             </div>
         </section>
 
@@ -111,8 +122,18 @@
 
             paginatedItems.forEach(item => {
                 const placeholderImage = 'assets/gen.jpg'; // The default image
-                const imageHTML = item.image
-                    ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
+                
+                // Convert Google Drive view links to direct image links
+                let imageUrl = item.image;
+                if (imageUrl && imageUrl.includes('drive.google.com')) {
+                    const match = imageUrl.match(/\/d\/([a-zA-Z0-9_-]+)/) || imageUrl.match(/id=([a-zA-Z0-9_-]+)/);
+                    if (match && match[1]) {
+                        imageUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+                    }
+                }
+
+                const imageHTML = imageUrl
+                    ? `<img src="${imageUrl}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
                     : `<img src="${placeholderImage}" alt="General veteran resource image">`;
 
                 const card = document.createElement('div');

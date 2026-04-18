@@ -1486,59 +1486,77 @@ h1, h2, h3, h4, h5, h6 {
     background: transparent; /* Removes dark overlay for about page */
 }
 
+.hero-moodmix::before {
+    display: none !important; /* Removes dark overlay film completely */
+}
+
 .moodmix-hero-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Pushes top-text up and cta-buttons down */
     align-items: center;
     text-align: center;
-    padding: 6rem 2rem; /* Adds breathing room at very top and bottom */
+    padding: 0; /* Remove padding to control strictly on children */
     position: relative;
     z-index: 10;
     flex-grow: 1;
-    height: 100%;
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* Ensure the top text doesn't drift too low */
 .hero-top-text {
-    margin-top: 2rem;
+    padding-top: 4rem;
+    margin-top: 0;
 }
 
 /* Ensure the buttons stay at the absolute bottom */
 #moodmix-page .cta-buttons {
-    margin-bottom: 2rem;
+    padding-bottom: 6rem;
+    margin-bottom: 0;
 }
 
 /* --- About Page Specific Overrides --- */
 #about-page .about-container > h1 {
-    color: var(--text-dark); /* Make title black as requested */
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Add a light shadow to lift it from the video */
     color: #ffffff;
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Make all text in the about page's hero readable on the video */
-#about-page .about-content p,
+/* Make the KVT acronym section a solid light grey card with dark text */
 #about-page .highlight-box {
-    color: #ffffff;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    background: #f9fafb;
+    color: #1f2937;
+    text-shadow: none;
 }
 
+#about-page .highlight-box p {
+    color: #1f2937;
+    text-shadow: none;
+}
+
+/* Mission Statement / Bottom Quote specifically targeted */
 #about-page .mission-statement {
-    background: linear-gradient(45deg, var(--primary), var(--secondary), #8b5cf6, var(--primary));
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textGradient 6s ease infinite;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for readability */
+    position: relative;
     color: #ffffff;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1.6;
-    background: none; /* Remove gradient animation */
-    -webkit-text-fill-color: initial;
+    padding: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 3.5rem 0 2rem;
+    z-index: 2; /* Text layer */
+}
+
+#about-page .mission-statement::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), #8b5cf6, var(--primary));
+    background-size: 300% 300%;
+    animation: textGradient 6s ease infinite;
+    z-index: -1; /* Animation container sits behind the text */
 }
 
 /* --- Embedded Crest Styling (Magazine Article Look) - Base Styles --- */
@@ -1856,4 +1874,61 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     color: var(--text-light);
     padding: 3rem;
+}
+
+/* --- Crisis Alert Box for Veteran Resources --- */
+.crisis-alert-box {
+    background: rgba(185, 28, 28, 0.85); /* Deep, respectful red */
+    border: 2px solid #ef4444;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-top: 2.5rem;
+    color: white;
+    text-align: left;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.crisis-alert-box h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.crisis-alert-box p {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.crisis-contacts {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.crisis-contacts li {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.crisis-alert-box .crisis-link {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+.crisis-alert-box .crisis-link a {
+    color: #fca5a5; /* Soft red/pink contrast for the link */
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.crisis-alert-box .crisis-link a:hover {
+    color: white;
 }
