@@ -2,6 +2,7 @@
     {
         "id": 1,
         "title": "Transitioning from Military to Tech",
+        "category": "Career",
         "brief": "A comprehensive guide to translating your military skills into a successful resume for the technology sector.",
         "image": "assets/placeholder-vet1.jpg",
         "link": "https://www.example.com/tech-transition"
@@ -9,6 +10,7 @@
     {
         "id": 2,
         "title": "Mental Health & Creative Outlets",
+        "category": "Wellness",
         "brief": "How picking up coding, music production, or creative writing can provide a therapeutic outlet for veterans.",
         "image": "assets/placeholder-vet2.jpg",
         "link": "moodmix.html"
@@ -16,8 +18,25 @@
     {
         "id": 3,
         "title": "Veterans Affairs Education Benefits Guide",
+        "category": "Education",
         "brief": "Everything you need to know about maximizing your GI Bill, VR&E, and other educational benefits.",
         "image": "", 
-        "link": "assets/documents/VA_Benefits_Guide.pdf"
+        "link": "assets/PDF_Guides/VA_Benefits_Guide.pdf"
+    },
+    {
+        "id": 4,
+        "title": "Service Member to Software Engineer",
+        "category": "Career",
+        "brief": "A deep dive into the specific certifications and languages that high-paying tech firms are looking for in veterans.",
+        "image": "assets/placeholder-vet3.jpg",
+        "link": "assets/Word_Documents/Tech_Transition_Blueprint.docx"
+    },
+    {
+        "id": 5,
+        "title": "Community Resource Map",
+        "category": "Community",
+        "brief": "A curated list of local Miami-Dade organizations providing housing, food, and legal support for veterans.",
+        "image": "",
+        "link": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1482937780001601"
     }
 ]
