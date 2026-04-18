@@ -1260,15 +1260,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* This forces the text/button to the bottom */
 #moodmix-page .hero-content {
-    margin-top: auto; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding-bottom: 5rem; 
+    padding: 5rem 2rem;
     position: relative;
     z-index: 10;
+    flex-grow: 1;
 }
 
 /* --- Typography --- */
@@ -1507,6 +1507,20 @@ h1, h2, h3, h4, h5, h6 {
 #moodmix-page .hero-portfolio .hero-content .hero-subtext {
     color: black;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+}
+
+/* --- About Page Specific Overrides --- */
+#about-page .about-container > h1 {
+    color: var(--text-dark); /* Make title black as requested */
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Add a light shadow to lift it from the video */
+}
+
+#about-page .mission-statement {
+    background: none; /* Remove gradient background */
+    -webkit-text-fill-color: initial; /* Restore normal text color fill */
+    color: white; /* Make text solid white */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Add shadow for readability on video */
+    opacity: 0.95;
 }
 
 /* --- Embedded Crest Styling (Magazine Article Look) --- */
