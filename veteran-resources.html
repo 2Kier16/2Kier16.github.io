@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veteran Resources by K.V.T. - A curated collection of guides and tools for the military community.">
+    <meta name="theme-color" content="#6366f1">
     <title>Veteran Resources - K.V.T.</title>
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <link rel="stylesheet" href="css/style.css?v=2.0">
 </head> 
 <body>
     <header class="navbar">
@@ -20,7 +22,7 @@
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="moodmix.html">MoodMix</a>
-                <a href="heritage.html">The Heritage Project</a>
+                <a href="heritage.html">Heritage Project</a>
                 <a href="community.html">Community</a>
                 <div class="dropdown">
                     <a href="#" onclick="event.preventDefault()">About Me ▼</a>
@@ -41,53 +43,56 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero hero-portfolio hero-veteran-resources" id="home">
-            <div class="hero-content hero-content-inner">
+        <section class="hero-portfolio hero-veteran-resources" id="home">
+            <div class="hero-content-inner text-pop">
                 <h1>Veteran Resources</h1>
-                <p class="hero-subtext visible">
-                    A curated collection of guides, articles, and tools dedicated to empowering the military community. Level up your transition, career, and creative journey here.
+                <p class="hero-subtext-index">
+                    A curated collection of guides, articles, and tools dedicated to empowering the military community.
                 </p>
                 
                 <div class="crisis-alert-box">
                     <h2>Anytime, day or night – 24/7</h2>
-                    <p>If you are a Veteran in crisis or concerned about one, connect with our caring, qualified responders for confidential help. Many of them are Veterans themselves.</p>
+                    <p>If you are a Veteran in crisis, connect with qualified responders for confidential help.</p>
                     <ul class="crisis-contacts">
                         <li><strong>Call 988</strong> and select <strong>1</strong></li>
                         <li><strong>Text 838255</strong></li>
                         <li>For TTY, call <strong>711</strong> then <strong>988</strong></li>
                     </ul>
-                    <p class="crisis-link">Get more resources at <a href="https://www.veteranscrisisline.net" target="_blank" rel="noopener noreferrer">VeteransCrisisLine.net</a>.</p>
+                    <p class="crisis-link">Visit <a href="https://www.veteranscrisisline.net" target="_blank">VeteransCrisisLine.net</a></p>
                 </div>
             </div>
         </section>
 
-        <!-- Search Bar -->
-        <section class="portfolio-section" style="background: var(--bg-light); padding-top: 3rem; padding-bottom: 0;">
-            <div class="container" style="max-width: 800px; margin-bottom: 3rem;">
+        <section class="portfolio-section content-wrapper" style="background: var(--bg-light);">
+            <div class="container">
                 <div class="search-container">
                     <input type="search" id="resource-search" placeholder="Search resources by keyword, title, or category...">
                 </div>
             </div>
         </section>
 
-        <!-- Blog / Resources Feed -->
-        <section class="portfolio-section portfolio-section-vet-resources">
+        <section class="portfolio-section portfolio-section-vet-resources content-wrapper">
             <div class="resource-grid" id="resource-container">
-                <!-- The JavaScript below will inject the blog cards here automatically -->
                 <div class="loading-message-style">
                     Loading resources...
                 </div>
             </div>
             <div class="pagination-container" id="pagination-container">
-                <!-- Pagination buttons will be injected by JavaScript -->
-            </div>
+                </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="footer-content footer-center-block">
             <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
+            <div class="footer-links-style">
+                <a href="index.html">Home</a> |
+                <a href="moodmix.html">MoodMix</a> |
+                <a href="heritage.html">The Heritage Project</a> |
+                <a href="community.html">Community</a> |
+                <a href="resume.html">Professional Profile</a> |
+                <a href="about.html">About</a>
+            </div>
         </div>
         <div class="footer-bottom">
             <div class="signature-content signature-content-footer">
@@ -101,114 +106,7 @@
 
     <script src="js/script.js"></script>
     <script>
-        let allResources = []; // This will store all the fetched resources from the sheet
-        let currentPage = 1;
-        const itemsPerPage = 6; // Number of resource cards to show per page
-
-        // Renders the cards for the given page
-        const renderResources = (resources, page) => {
-            const container = document.getElementById('resource-container');
-            container.innerHTML = '';
-            page--; // Adjust for zero-based index for slicing
-
-            const start = itemsPerPage * page;
-            const end = start + itemsPerPage;
-            const paginatedItems = resources.slice(start, end);
-
-            if (paginatedItems.length === 0 && page === 0) {
-                container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">No resources found.</p>';
-                return;
-            }
-
-            paginatedItems.forEach(item => {
-                const placeholderImage = 'assets/gen.jpg'; // The default image
-                
-                // Convert Google Drive view links to direct image links
-                let imageUrl = item.image;
-                if (imageUrl && imageUrl.includes('drive.google.com')) {
-                    const match = imageUrl.match(/\/d\/([a-zA-Z0-9_-]+)/) || imageUrl.match(/id=([a-zA-Z0-9_-]+)/);
-                    if (match && match[1]) {
-                        imageUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
-                    }
-                }
-
-                const imageHTML = imageUrl
-                    ? `<img src="${imageUrl}" alt="${item.title}" onerror="this.onerror=null;this.src='${placeholderImage}';">`
-                    : `<img src="${placeholderImage}" alt="General veteran resource image">`;
-
-                const card = document.createElement('div');
-                card.className = 'resource-card';
-                card.innerHTML = `
-                    <div class="resource-img-container"> <!-- Existing rule -->
-                        ${imageHTML}
-                    </div>
-                    <div class="resource-content">
-                        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                        <p>${item.brief}</p>
-                        <a href="${item.link}" target="_blank" class="read-more-btn">
-                            View Resource &rarr;
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        };
-
-        // Creates and manages the pagination buttons
-        const setupPagination = (resources) => {
-            const paginationContainer = document.getElementById('pagination-container');
-            paginationContainer.innerHTML = "";
-            const pageCount = Math.ceil(resources.length / itemsPerPage);
-
-            for (let i = 1; i <= pageCount; i++) {
-                const button = document.createElement('button');
-                button.innerText = i;
-                if (currentPage === i) button.classList.add('active');
-
-                button.addEventListener('click', () => {
-                    currentPage = i;
-                    renderResources(resources, currentPage);
-
-                    // Update active button class
-                    const currentActive = document.querySelector('.pagination-container button.active');
-                    if (currentActive) currentActive.classList.remove('active');
-                    button.classList.add('active');
-                });
-                paginationContainer.appendChild(button);
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const sheetId = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
-            const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
-
-            fetch(base)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
-                    return response.text();
-                })
-                .then(csvData => {
-                    allResources = csvData.split('\n').slice(1).map(row => {
-                        if (row.trim() === '') return null;
-                        const columns = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                        return {
-                            title: (columns[0] || '').replace(/"/g, "").trim() || 'Untitled Resource',
-                            brief: (columns[1] || '').replace(/"/g, "").trim() || 'No brief available.',
-                            category: (columns[2] || '').replace(/"/g, "").trim(),
-                            link: (columns[3] || '').replace(/"/g, "").trim() || '#',
-                            image: (columns[4] || '').replace(/"/g, "").trim()
-                        };
-                    }).filter(Boolean);
-
-                    renderResources(allResources, currentPage);
-                    setupPagination(allResources);
-                })
-                .catch(error => {
-                    console.error('Error loading resources:', error);
-                    const container = document.getElementById('resource-container');
-                    container.innerHTML = '<p style="text-align: center; width: 100%; color: var(--text-light); grid-column: 1 / -1;">Could not load resources. Please ensure the Google Sheet is public ("Anyone with the link can view").</p>';
-                });
-        });
+        /* ... (Keep your original JS script here as it was) ... */
     </script>
 </body>
 </html>
