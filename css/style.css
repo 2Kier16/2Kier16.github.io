@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-moodmix::after {
     background-image: url('../assets/MoodMix%20logo%20with%20re.png');
     background-size: 60%;
-    animation: moodMixGradient 15s ease infinite alternate;
+    animation: moodMixGradient 15s ease infinite alternate, moodMixLogoMove 15s linear infinite;
 }
 
 .hero-veteran-resources::after, .hero-music::after {
@@ -334,6 +334,15 @@ h1, h2, h3, h4, h5, h6 {
     100% { background-color: #e0f2f7; }
 }
 
+@keyframes moodMixLogoMove {
+    0% { background-position: 5% 5%; }
+    20% { background-position: 95% 40%; }
+    40% { background-position: 40% 95%; }
+    60% { background-position: 5% 60%; }
+    80% { background-position: 60% 5%; }
+    100% { background-position: 5% 5%; }
+}
+
 @media (max-width: 768px) {
     .content-wrapper { padding: 2rem 0; }
     .hero-portfolio { min-height: 60vh; }
@@ -376,13 +385,17 @@ h1, h2, h3, h4, h5, h6 {
 .under-construction-badge { display: inline-block; background: rgba(245, 158, 11, 0.1); color: #d97706; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; border: 1px solid rgba(245, 158, 11, 0.3); }
 
 /* Media & Images */
-.video-responsive-shadow { max-width: 100%; max-height: 400px; border-radius: 16px; box-shadow: var(--shadow); filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2)); }
+#moodmix-page video, .video-responsive-shadow { width: 100%; max-width: 300px; height: auto; border-radius: 20px; box-shadow: var(--shadow); filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2)); display: block; margin: 0 auto; }
+#moodmix-page img:not(.logo-img):not(.logo-featured-responsive) { max-width: 450px; width: 100%; height: auto; display: block; margin: 0 auto 1rem auto; border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+#moodmix-page img:not(.logo-img):not(.logo-featured-responsive):hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); position: relative; z-index: 10; cursor: pointer; }
 .about-video-container { text-align: center; margin-bottom: 2.5rem; }
 .story-crest-responsive { max-width: 100%; max-height: 250px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3)); }
 .embedded-crest { max-width: 300px; height: auto; float: right; margin: 0 0 1.5rem 2.5rem; border-radius: 8px; box-shadow: var(--shadow-sm); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); transition: transform 0.3s ease; }
 .embedded-crest.left { float: left; margin: 0 2.5rem 1.5rem 0; }
 .theater-container { max-width: 800px; margin: 0 auto 4rem auto; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid #374151; }
 .theater-container video { display: block; width: 100%; height: auto; }
+#moodmix-page .theater-container { max-width: 300px; border: none; background: transparent; box-shadow: none; margin-bottom: 0.5rem; }
+#moodmix-page .theater-container video { border-radius: 20px; box-shadow: var(--shadow); filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2)); }
 
 /* Highlights & Divs */
 .highlight-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--primary); padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
@@ -399,11 +412,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* MoodMix Hero Fixes & Shadow Removals */
 .moodmix-hero-content { display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 0; position: relative; z-index: 10; flex-grow: 1; min-height: 100vh; width: 100%; }
-.hero-top-text { padding-top: 4rem; margin-top: 0; }
+.hero-top-text { padding-top: 4rem; margin-top: 0; display: flex; flex-direction: column; flex-grow: 1; width: 100%; }
 #moodmix-page .cta-buttons { padding-bottom: 6rem; margin-bottom: 0; justify-content: center; }
 .hero-moodmix::before, .hero-about::before { display: none !important; }
-.moodmix-hero-content h1 { color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5); font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
-.moodmix-hero-content .hero-subtext-index { color: white; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+.moodmix-hero-content h1 { color: #fdfbf7; text-shadow: 0 0 15px var(--primary), 0 0 25px var(--secondary); font-size: 3.5rem; margin-bottom: auto; line-height: 1.2; }
+.moodmix-hero-content .hero-subtext-index { color: #fdfbf7; text-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary); font-weight: 700; margin-bottom: 2rem; }
+#moodmix-page .content-wrapper { padding: 1.5rem 0; }
 
 /* Heritage Page Colors */
 .heritage-h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #f9fafb; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
