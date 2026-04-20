@@ -264,27 +264,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-bottom {
     border-top: 1px solid #374151;
-    padding-top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     margin-top: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .signature-content {
     position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1a1c2c;
-    padding: 0 1.5rem;
+    top: 50%;
+    right: 2rem;
+    left: auto;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 15px;
 }
 
-.signature-logo { max-width: 140px; margin-top: -10px; }
+.signature-logo { max-width: 60px; margin-top: 0; }
+
+.signature-text {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 1.8rem;
+    margin: 0;
+}
 
 /* --- 9. UTILITIES, BUTTONS & ANIMATIONS --- */
 .text-pop {
@@ -346,7 +356,13 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .content-wrapper { padding: 2rem 0; }
     .hero-portfolio { min-height: 60vh; }
-    .signature-content { top: -20px; }
+    .signature-content { 
+        position: relative; 
+        top: auto; 
+        right: auto; 
+        transform: none; 
+        margin-top: 1.5rem; 
+    }
 }
 
 /* --- 10. REFACTORED HTML CLASSES --- */
@@ -374,7 +390,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer Enhancements */
 .footer-center-block { text-align: center; display: block; }
-.signature-content-footer { top: -25px; }
 
 /* Install Guide & Badges */
 .install-guide-alt { margin: 2.5rem auto 0; padding: 1.5rem; text-align: left; }
