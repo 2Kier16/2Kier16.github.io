@@ -1,4 +1,8 @@
-﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿I've cleaned up your Community page, applying the "Power Words" to ensure the layout is locked in. I used the about-container for your mission text to keep those margins consistent with the "My Story" page and applied text-pop to the hero section for maximum readability against your crest background.
+
+Updated community.html
+HTML
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +10,7 @@
     <meta name="description" content="K.V.T. Community - A safe space for creators to collaborate, share projects, and level up together.">
     <meta name="theme-color" content="#6366f1">
     <title>Community - K.V.T.</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
 <body>
     <header class="navbar">
@@ -44,19 +48,17 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero hero-portfolio hero-community" id="home">
-            <div class="hero-content hero-content-inner">
+        <section class="hero-portfolio hero-community" id="home">
+            <div class="hero-content-inner text-pop">
                 <h1>Creation, Collaboration, Elevation</h1>
-                <p class="hero-subtext visible">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
+                <p class="hero-subtext-index">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
             </div>
         </section>
 
-        <!-- Original Community Mission content, now in a separate section -->
         <section class="portfolio-section">
-            <div class="about-container"> <!-- Existing rule -->
+            <div class="about-container">
                 <img src="assets/com-crest.png" alt="K.V.T. Community Crest" class="embedded-crest left">
-                <h2>The Community Philosophy</h2>
+                <h2 class="section-heading-primary">The Community Philosophy</h2>
                 <div class="about-content">
                     <p>The K.V.T. Community is built on the belief that true progress happens when we stop competing and start citing. While the Master Crest represents my personal DNA and heritage, this Community Crest represents our collective future. It is a symbol of <strong>Global Interconnection</strong>—a bridge between our unified past and a future defined by what we build together.</p>
                     
@@ -74,11 +76,11 @@
             </div>
         </section>
         
-        <!-- Original Community Spotlight content, now in a separate section -->
-        <section class="portfolio-section">
-            <div class="about-container"> <!-- Existing rule -->
-                <h2>Community Spotlights</h2>
-                <p>Coming soon: This space will feature apps, foundations, and projects from creators across the globe. We are here to help you get what you want to share out to the world.</p>
+        <section class="portfolio-section content-wrapper">
+            <div class="text-center">
+                <h2 class="section-heading-primary">Community Spotlights</h2>
+                <p class="section-paragraph-large">Coming soon: This space will feature apps, foundations, and projects from creators across the globe. We are here to help you get what you want to share out to the world.</p>
+                
                 <div class="spotlight-placeholder">
                     <p>Are you building something beautiful? We want to see it.</p>
                     <a href="#submit" class="cta-button">Submit Your Project</a>
@@ -86,9 +88,9 @@
             </div>
         </section>
 
-        <section id="submit" class="submission-section">
-            <div class="about-container"> <!-- Existing rule -->
-                <h2>Share Your Creation</h2>
+        <section id="submit" class="submission-section content-wrapper">
+            <div class="text-center">
+                <h2 class="section-heading-primary">Share Your Creation</h2>
                 <form id="community-form" class="community-form">
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -115,15 +117,13 @@
     <footer class="footer">
         <div class="footer-content footer-center-block">
             <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
-            <div class="footer-links footer-links-style">
+            <div class="footer-links-style">
                 <a href="index.html#home">Home</a> |
                 <a href="moodmix.html">MoodMix</a> |
-                <a href="heritage.html">Heritage Project</a> |
+                <a href="heritage.html">The Heritage Project</a> |
                 <a href="community.html">Community</a> |
-                <a href="about.html">My Story</a> |
-                <a href="resume.html">Resume</a> |
-                <a href="music.html">Music</a> |
-                <a href="veteran-resources.html">Vet Resources</a> |
+                <a href="resume.html">Professional Profile</a> |
+                <a href="about.html">About</a> |
                 <a href="index.html#contact">Contact</a>
             </div>
         </div>
