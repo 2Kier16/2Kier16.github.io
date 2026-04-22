@@ -1,150 +1,180 @@
-﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="K.V.T. Music - Discover featured artists, production showcases, and live events.">
+    <meta name="description" content="K.V.T. Music - Amplifying independent artists and uplifting voices through sound.">
     <meta name="theme-color" content="#6366f1">
-    <title>Music - K.V.T. (Coming Soon)</title>
-    <link rel="stylesheet" href="css/style.css?v=2.0">
+    <title>K.V.T. Music</title>
+    <link rel="stylesheet" href="css/style.css?v=2.1">
 </head>
+
 <body>
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Company Logo" class="logo-img"></a>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="moodmix.html">MoodMix</a>
-                <a href="heritage.html">Heritage Project</a>
-                <a href="community.html">Community</a>
-                <div class="dropdown">
-                    <a href="#" onclick="event.preventDefault()">About Me ▼</a>
-                    <div class="dropdown-content">
-                        <a href="about.html">My Story</a>
-                        <a href="resume.html">Resume</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
-                    <div class="dropdown-content">
-                        <a href="music.html">Music</a>
-                        <a href="veteran-resources.html">Vet Resources</a>
-                    </div>
-                </div>
-            </nav>
+
+<!-- NAVIGATION (unchanged) -->
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Company Logo" class="logo-img">
+            </a>
         </div>
-    </header>
 
-    <main>
-        <section class="hero-portfolio hero-music" id="home">
-            <div class="hero-content-inner text-pop">
-                <h1>K.V.T. Music</h1>
-                <p class="hero-subtext-index">STILL UNDER CONSTRUCTION. COMING SOON.</p>
-            </div>
-        </section>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
 
-        <section id="artists" class="portfolio-section content-wrapper">
-            <div class="text-center">
-                <h2 class="section-heading-primary">Featured Artists</h2>
-                <p class="section-paragraph-large">Discover the voices and visionaries featured in our community.</p>
-            </div>
-            
-            <div class="artist-grid">
-                <div class="artist-card">
-                    <div class="artist-info">
-                        <h3>Artist Name Placeholder</h3>
-                        <p>Artist bio placeholder. This space will highlight the artist's journey, sound, and message.</p>
-                        
-                        <div class="artist-links-container">
-                            <div class="link-group">
-                                <div class="link-group-title">Listen</div>
-                                <div class="social-links">
-                                    <a href="#" class="social-icon" target="_blank">Spotify</a>
-                                    <a href="#" class="social-icon" target="_blank">Apple Music</a>
-                                    <a href="#" class="social-icon" target="_blank">SoundCloud</a>
-                                </div>
-                            </div>
-                            
-                            <div class="link-group">
-                                <div class="link-group-title">Follow</div>
-                                <div class="social-links">
-                                    <a href="#" class="social-icon" target="_blank">Instagram</a>
-                                    <a href="#" class="social-icon" target="_blank">Twitter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="moodmix.html">MoodMix</a>
+            <a href="heritage.html">Heritage Project</a>
+            <a href="community.html">Community</a>
+
+            <div class="dropdown">
+                <a href="#" onclick="event.preventDefault()">About Me ▼</a>
+                <div class="dropdown-content">
+                    <a href="about.html">My Story</a>
+                    <a href="resume.html">Resume</a>
                 </div>
             </div>
-        </section>
 
-        <section id="production" class="portfolio-section portfolio-section-light">
-            <div class="content-wrapper text-center">
-                <h2 class="section-heading-primary">Production & Sound Design</h2>
-                <p class="section-paragraph-large">
-                    A dedicated space to highlight the producers, engineers, and sound designers crafting the music. Project showcases coming soon.
+            <div class="dropdown">
+                <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
+                <div class="dropdown-content">
+                    <a href="music.html">Music</a>
+                    <a href="veteran-resources.html">Vet Resources</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO (safe, isolated, won’t affect other pages) -->
+<section class="hero-portfolio hero-music" id="home">
+    <div class="hero-content-inner text-pop">
+        <h1>K.V.T. Music Corner</h1>
+        <p class="hero-subtext-index">Amplifying Independent Voices. Uplifting Through Sound.</p>
+    </div>
+</section>
+
+<!-- FEATURED ARTISTS (Option B: vertical list, medium photos) -->
+<section id="artists" class="portfolio-section content-wrapper">
+    <div class="text-center">
+        <h2 class="section-heading-primary">Featured Artists</h2>
+        <p class="section-paragraph-large">
+            Discover uplifting, independent artists whose music inspires healing, growth, and connection.
+        </p>
+    </div>
+
+    <div class="artist-list-vertical">
+
+        <!-- ARTIST ITEM -->
+        <div class="artist-vertical-card">
+            <img src="assets/placeholder-artist.jpg" alt="Artist Photo" class="artist-vertical-photo">
+
+            <div class="artist-vertical-info">
+                <h3>Artist Name Placeholder</h3>
+                <p>
+                    Short artist bio goes here. This section highlights their story, message, and the impact of their music.
                 </p>
-            </div>
-        </section>
 
-        <section id="shows" class="portfolio-section content-wrapper">
-            <div class="text-center">
-                <h2 class="section-heading-primary">Live Shows & Venues</h2>
-                <p class="section-paragraph-large">Catch the energy live. Explore upcoming performances and events.</p>
-                
-                <div class="shows-list">
-                    <div class="show-item">
-                        <div class="show-date">Nov 15, 2026</div>
-                        <div class="show-details">
-                            <h3>The Sound Room (Album Release)</h3>
-                            <p>Some Place, on Earth — 8:00 PM</p>
-                        </div>
-                        <div class="show-action">
-                            <a href="#" class="btn btn-secondary btn-secondary-primary-border">Get Tickets</a>
+                <div class="artist-links-container">
+                    <div class="link-group">
+                        <div class="link-group-title">Listen</div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">Spotify</a>
+                            <a href="#" class="social-icon">Apple Music</a>
+                            <a href="#" class="social-icon">SoundCloud</a>
                         </div>
                     </div>
-                    
-                    <div class="show-item">
-                        <div class="show-date">TBA</div>
-                        <div class="show-details">
-                            <h3>More Dates Coming Soon</h3>
-                            <p>Stay tuned for upcoming announcements.</p>
+
+                    <div class="link-group">
+                        <div class="link-group-title">Follow</div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">Instagram</a>
+                            <a href="#" class="social-icon">Twitter</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <footer class="footer">
-        <div class="footer-content footer-center-block">
-            <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
-            <div class="footer-links-style">
-                <a href="index.html">Home</a> |
-                <a href="moodmix.html">MoodMix</a> |
-                <a href="heritage.html">The Heritage Project</a> |
-                <a href="community.html">Community</a> |
-                <a href="about.html">My Story</a> |
-                <a href="resume.html">Professional Profile</a> |
-                <a href="index.html#contact">Contact</a>
+        <!-- Duplicate the above block for more artists -->
+
+    </div>
+</section>
+
+<!-- PRODUCTION SECTION -->
+<section id="production" class="portfolio-section portfolio-section-light">
+    <div class="content-wrapper text-center">
+        <h2 class="section-heading-primary">Production & Sound Design</h2>
+        <p class="section-paragraph-large">
+            Showcasing producers, engineers, and sound designers who shape the sonic landscape. Features coming soon.
+        </p>
+    </div>
+</section>
+
+<!-- LIVE SHOWS -->
+<section id="shows" class="portfolio-section content-wrapper">
+    <div class="text-center">
+        <h2 class="section-heading-primary">Live Shows & Events</h2>
+        <p class="section-paragraph-large">Experience the energy live. Explore upcoming performances.</p>
+
+        <div class="shows-list">
+            <div class="show-item">
+                <div class="show-date">Nov 15, 2026</div>
+                <div class="show-details">
+                    <h3>The Sound Room (Album Release)</h3>
+                    <p>Some Place, on Earth — 8:00 PM</p>
+                </div>
+                <div class="show-action">
+                    <a href="#" class="btn btn-secondary btn-secondary-primary-border">Get Tickets</a>
+                </div>
+            </div>
+
+            <div class="show-item">
+                <div class="show-date">TBA</div>
+                <div class="show-details">
+                    <h3>More Dates Coming Soon</h3>
+                    <p>Stay tuned for updates.</p>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="signature-content">
-                <p class="signature-text">Kier V. Turpin</p>
-                <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Logo" class="signature-logo">
-            </div>
-            <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="js/script.js"></script>
+</main>
+
+<!-- FOOTER (unchanged) -->
+<footer class="footer">
+    <div class="footer-content footer-center-block">
+        <p class="footer-tagline-style">K.V.T. — Level Up Through Creation</p>
+        <div class="footer-links-style">
+            <a href="index.html">Home</a> |
+            <a href="moodmix.html">MoodMix</a> |
+            <a href="heritage.html">The Heritage Project</a> |
+            <a href="community.html">Community</a> |
+            <a href="about.html">My Story</a> |
+            <a href="resume.html">Professional Profile</a> |
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="signature-content">
+            <p class="signature-text">Kier V. Turpin</p>
+            <img src="assets/K.V.T%20logo%20with%20blac.png" alt="K.V.T Logo" class="signature-logo">
+        </div>
+        <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>

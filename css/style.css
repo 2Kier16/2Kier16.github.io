@@ -222,7 +222,78 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-5px);
     box-shadow: var(--shadow);
 }
+/* --- MUSIC PAGE: VERTICAL ARTIST LIST (LANDSCAPE PHOTOS) --- */
 
+.artist-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+/* Each artist block */
+.artist-vertical-card {
+    display: flex;
+    gap: 2rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.artist-vertical-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary);
+}
+
+/* Landscape photo */
+.artist-vertical-photo {
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Text + links */
+.artist-vertical-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-vertical-info h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.artist-vertical-info p {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Link groups already exist in your CSS, but we add spacing for vertical layout */
+.artist-links-container {
+    margin-top: auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .artist-vertical-card {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .artist-vertical-photo {
+        width: 100%;
+        height: 200px;
+    }
+}
 /* --- 7. PAGE THEMES & SPECIFICS --- */
 #about-page {
     background-color: #1a1c2c !important;
