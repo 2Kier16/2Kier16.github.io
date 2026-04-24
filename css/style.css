@@ -185,9 +185,15 @@ h1, h2, h3, h4, h5, h6 {
     animation: moodMixGradient 15s ease infinite alternate, moodMixLogoMove 15s linear infinite;
 }
 
-.hero-veteran-resources::after, .hero-music::after {
+.hero-veteran-resources::after {
     background-image: url('../assets/gen.jpg');
     background-size: cover;
+}
+
+.hero-music::after {
+    background-image: url('../assets/music.jpg');
+    background-size: cover;
+    animation: crestPulse 8s infinite alternate ease-in-out;
 }
 
 /* --- 5. LOGO & IMAGE SIZING --- */
