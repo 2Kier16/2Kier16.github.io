@@ -581,6 +581,74 @@ h1, h2, h3, h4, h5, h6 {
 .music-p-line-height { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.8; }
 .music-p-mb-2_5 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 2.5rem; }
 
+/* Featured Artists Banner */
+#artists {
+    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/artist.jpg');
+    background-size: cover;
+    background-position: center center;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    margin: 4rem auto 1rem auto;
+}
+
+#artists .section-heading-primary,
+#artists .section-paragraph-large {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+#artists .section-heading-primary {
+    margin-bottom: 0.25rem;
+}
+
+.artist-list-container {
+    padding-top: 0;
+}
+
+/* Production & Sound Design Banner */
+#production {
+    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/producer.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+#production .content-wrapper {
+    padding: 2.5rem 0;
+}
+
+#production .section-heading-primary,
+#production .section-paragraph-large {
+    color: #ffffff;
+}
+
+/* Live Shows Banner */
+#shows {
+    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/livemusic.jpg');
+    background-color: #000000;
+    background-size: contain;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 1.5rem 2rem;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    margin: 4rem auto 1rem auto;
+}
+
+#shows .section-heading-primary,
+#shows .section-paragraph-large {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+#shows .section-heading-primary {
+    margin-bottom: 0.25rem;
+}
+
+.shows-list-container {
+    padding-top: 0;
+}
+
 /* Community Forms & Layouts */
 .symbolic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .spotlight-placeholder { background: var(--bg-white); padding: 3rem; border-radius: 12px; border: 2px dashed var(--primary); margin-top: 2rem; box-shadow: var(--shadow-sm); }
