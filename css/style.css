@@ -680,6 +680,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Tablet and Mobile Navigation Adjustments */
 @media (max-width: 991px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .logo-img {
+        height: 70px;
+        transform: scale(1.2);
+        transform-origin: left center;
+    }
+
     .mobile-menu-btn {
         display: block;
     }
