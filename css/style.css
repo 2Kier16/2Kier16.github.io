@@ -193,7 +193,19 @@ h1, h2, h3, h4, h5, h6 {
 .hero-music::after {
     background-image: url('../assets/music.jpg');
     background-size: cover;
-    animation: crestPulse 8s infinite alternate ease-in-out;
+    animation: crestPulse 8s infinite alternate ease-in-out, slideFade1 20s infinite;
+}
+
+.hero-music-slide2 {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    background-image: url('../assets/musicis.jpg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    animation: crestPulse 8s infinite alternate ease-in-out, slideFade2 20s infinite;
 }
 
 /* --- 5. LOGO & IMAGE SIZING --- */
@@ -484,6 +496,18 @@ h1, h2, h3, h4, h5, h6 {
     100% { background-position: 5% 5%; }
 }
 
+@keyframes slideFade1 {
+    0%, 40% { opacity: 1; }
+    50%, 90% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideFade2 {
+    0%, 40% { opacity: 0; }
+    50%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 @media (max-width: 768px) {
     .content-wrapper { padding: 2rem 0; }
     .hero-portfolio { min-height: 60vh; }
@@ -542,6 +566,11 @@ h1, h2, h3, h4, h5, h6 {
 .theater-container video { display: block; width: 100%; height: auto; }
 #moodmix-page .theater-container { max-width: 300px; border: none; background: transparent; box-shadow: none; margin-bottom: 0.5rem; }
 #moodmix-page .theater-container video { border-radius: 20px; box-shadow: var(--shadow); filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2)); }
+
+#moodmix-page .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1000px;
+}
 
 /* Highlights & Divs */
 .highlight-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--primary); padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
