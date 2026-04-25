@@ -73,42 +73,60 @@
             </div>
         </section>
         
-        <section class="portfolio-section content-wrapper">
-            <div class="text-center">
-                <h2 class="section-heading-primary">Community Spotlights</h2>
-                <p class="section-paragraph-large">Coming soon: This space will feature apps, foundations, and projects from creators across the globe. We are here to help you get what you want to share out to the world.</p>
-                
-                <div class="spotlight-placeholder">
-                    <p>Are you building something beautiful? We want to see it.</p>
-                    <a href="#submit" class="cta-button">Submit Your Project</a>
-                </div>
-            </div>
-        </section>
+   <section class="portfolio-section content-wrapper">
+    <div class="text-center">
+        <h2 class="section-heading-primary">Community Spotlights</h2>
+        <p class="section-paragraph-large">The latest featured additions from across our creative pathways.</p>
+        
+        <div id="dynamic-spotlights" class="spotlight-grid">
+            <p>Loading the latest creations...</p>
+        </div>
 
-        <section id="submit" class="submission-section content-wrapper">
-            <div class="text-center">
-                <h2 class="section-heading-primary">Share Your Creation</h2>
-                <form id="community-form" class="community-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-name">Project/App Name</label>
-                        <input type="text" id="project-name" name="project-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">What are you creating? (And how does it help people level up?)</label>
-                        <textarea id="description" name="description" rows="5" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="link">Project Link (Website/GitHub/App Store)</label>
-                        <input type="url" id="link" name="link">
-                    </div>
-                    <button type="submit" class="submit-btn">Send to K.V.T.</button>
-                </form>
+        <div class="mt-4">
+            <a href="#submit" class="cta-button">Submit Your Project</a>
+        </div>
+    </div>
+</section>
+
+<section id="submit" class="submission-section content-wrapper">
+    <div class="text-center">
+        <h2 class="section-heading-primary">Share Your Creation</h2>
+        <form id="community-form" class="community-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
-        </section>
+            
+            <div class="form-group">
+                <label for="category">Where does this belong?</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select a Pathway</option>
+                    <option value="Music">Music</option>
+                    <option value="Vet Resources">Vet Resources</option>
+                    <option value="Advocacy">Advocacy</option>
+                    <option value="Art Gallery">Art Gallery</option>
+                    <option value="Coffee Shop">Coffee Shop</option>
+                    <option value="Books n Books">Books n Books</option>
+                    <option value="Hobbiest">Hobbiest</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="project-name">Project/App Name</label>
+                <input type="text" id="project-name" name="project-name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">What are you creating?</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="link">Project Link (Website/GitHub/App Store)</label>
+                <input type="url" id="link" name="link">
+            </div>
+            <button type="submit" class="submit-btn">Send to K.V.T.</button>
+        </form>
+    </div>
+</section>
     </main>
 
     <footer class="footer">
@@ -133,6 +151,39 @@
         </div>
     </footer>
 
+   <script>
+        const communityForm = document.getElementById('community-form');
+
+        if (communityForm) {
+            communityForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                const formData = new FormData(this);
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbz_1xpdxHC0nm-W0rpK_qsjMP1r4YyxOqQ-_BB2h97kH7C_gvlZTLXTWwMaA6TUO7hm/exec';
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' 
+                })
+                .then(() => {
+                    alert('Success! Your creation has been sent to K.V.T. for approval.');
+                    communityForm.reset();
+                    submitBtn.textContent = 'Send to K.V.T.';
+                    submitBtn.disabled = false;
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

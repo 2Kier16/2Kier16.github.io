@@ -1,24 +1,16 @@
-// Smooth scrolling for navigation links
+// 1. Navigation & Animations
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href !== '#' && document.querySelector(href)) {
             e.preventDefault();
             const target = document.querySelector(href);
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -28,95 +20,107 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe feature cards and steps
-document.querySelectorAll('.feature-card, .step, .source').forEach(element => {
-    element.style.opacity = '0';
-    observer.observe(element);
+document.querySelectorAll('.feature-card, .step, .source').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
 });
 
-// Add fadeIn animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Typewriter Effect for Hero Title
-const heroTitle = document.querySelector('.hero-content .typing-target');
-if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    heroTitle.classList.add('typing-cursor'); // Add typing-cursor class to the h1
-    
-    const span = document.createElement('span');
-    span.classList.add('typing-cursor');
-    heroTitle.appendChild(span);
-    
-    let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            span.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 75); // Typing speed in ms
-        } else {
-            const subtext = document.querySelector('.hero-subtext');
-            if (subtext) subtext.classList.add('visible');
-        }
-    }
-    
-    setTimeout(typeWriter, 500); // 500ms start delay
-}
-
-// Mobile Menu Toggle
+// 2. Mobile Menu
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
-
 if (mobileBtn && navLinks) {
     mobileBtn.addEventListener('click', () => {
         mobileBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
-    
-    // Close mobile menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileBtn.classList.remove('active');
-            navLinks.classList.remove('active');
+}
+
+// 3. Google Drive Image Translator
+function cleanDriveLink(link) {
+    if (!link || link === "") return 'assets/gen.jpg'; 
+    const regex = /\/d\/([^\/]+)/;
+    const match = link.match(regex);
+    if (match && match[1]) {
+        return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+    }
+    return link; 
+}
+
+// 4. Data Loading Logic (Community Spotlights & Vet Resources)
+async function loadSheetData() {
+    // UPDATE THIS ID with your 1hO0apm... ID
+    const sheetID = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
+    const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json`;
+
+    try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const data = JSON.parse(text.substr(47).slice(0, -2));
+        const rows = data.table.rows;
+
+        // Logic for Community Page Spotlights
+        const spotlightContainer = document.getElementById('dynamic-spotlights');
+        if (spotlightContainer) {
+            spotlightContainer.innerHTML = '';
+            rows.forEach(row => {
+                const img = cleanDriveLink(row.c[4] ? row.c[4].v : null);
+                spotlightContainer.innerHTML += `
+                    <div class="feature-card">
+                        <img src="${img}" alt="Project" style="width:100%; border-radius:8px;" onerror="this.src='assets/gen.jpg';">
+                        <h3>${row.c[1] ? row.c[1].v : 'Untitled'}</h3>
+                        <p>${row.c[3] ? row.c[3].v : ''}</p>
+                    </div>`;
+            });
+        }
+
+        // Logic for Veteran Resources Page
+        const resourceContainer = document.getElementById('resource-container');
+        if (resourceContainer) {
+            resourceContainer.innerHTML = '';
+            rows.forEach(row => {
+                const img = cleanDriveLink(row.c[4] ? row.c[4].v : null);
+                resourceContainer.innerHTML += `
+                    <div class="resource-card">
+                        <div class="resource-img-container">
+                            <img src="${img}" alt="Resource" onerror="this.src='assets/gen.jpg';">
+                        </div>
+                        <div class="resource-content">
+                            <h3><a href="${row.c[5] ? row.c[5].v : '#'}" target="_blank">${row.c[1] ? row.c[1].v : 'Untitled'}</a></h3>
+                            <p>${row.c[3] ? row.c[3].v : ''}</p>
+                            <a href="${row.c[5] ? row.c[5].v : '#'}" target="_blank" class="read-more-btn">View Resource &rarr;</a>
+                        </div>
+                    </div>`;
+            });
+        }
+    } catch (e) { console.error("Sheet Load Error:", e); }
+}
+
+// 5. Community Form Submission (The Gatekeeper)
+const communityForm = document.getElementById('community-form');
+if (communityForm) {
+    communityForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.submit-btn');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        fetch('https://script.google.com/macros/s/AKfycbz_1xpdxHC0nm-W0rpK_qsjMP1r4YyxOqQ-_BB2h97kH7C_gvlZTLXTWwMaA6TUO7hm/exec', {
+            method: 'POST',
+            body: new FormData(this),
+            mode: 'no-cors'
+        }).then(() => {
+            alert('Success! Your creation has been sent to K.V.T. for approval.');
+            this.reset();
+            btn.textContent = 'Send to K.V.T.';
+            btn.disabled = false;
+        }).catch(err => {
+            alert('Error sending. Please try again.');
+            btn.disabled = false;
         });
     });
 }
 
-// Log when page loads
-console.log('MoodMix webpage loaded successfully!');
-
-// --- Back to Top Button ---
-const backToTopBtn = document.createElement('button');
-backToTopBtn.innerHTML = '↑';
-backToTopBtn.className = 'back-to-top';
-backToTopBtn.setAttribute('aria-label', 'Back to top');
-document.body.appendChild(backToTopBtn);
-
-window.addEventListener('scroll', () => {
-    // Show button after scrolling down 300px
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
-    }
-});
-
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    loadSheetData();
 });

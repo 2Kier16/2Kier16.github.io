@@ -324,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-/* Link groups already exist in your CSS, but we add spacing for vertical layout */
+/* Link groups already exist in your CSS, added spacing for vertical layout */
 .artist-links-container {
     margin-top: auto;
 }
