@@ -1,119 +1,83 @@
-# 🎵 MoodMix - Webpage
+💻 K.V.T. Software Development Portfolio
+A professional, responsive multi-page web presence showcasing software engineering projects, technical documentation, and the flagship MoodMix application.
 
-A modern, responsive landing page for the MoodMix app - an emotional music and journaling experience.
+🌟 Overview
+This repository serves as the official digital hub for the K.V.T. brand. It is designed to host project galleries, professional milestones, and landing pages for active software releases.
 
-## 📁 Project Structure
+Current Spotlight: MoodMix
 
-```
+"Find the words. A private space for your heart, soul, and mind."
+
+📁 Project Structure
+Plaintext
 kvtech/
-├── index.html          # Main landing page
+├── index.html          # Portfolio Home & Project Gallery
 ├── css/
-│   └── style.css       # All styling (responsive, modern design)
+│   └── style.css       # Global Design System (Mobile-First)
 ├── js/
-│   └── script.js       # Smooth scrolling & animations
-└── README.md           # This file
-```
+│   └── script.js       # Interactive UI Logic & Animations
+├── assets/             # Brand Identity & Media
+│   ├── logos/          # K.V.T. & MoodMix Branding
+│   └── screenshots/    # Visual Project Previews
+└── README.md           # Project Documentation
+🎵 MoodMix - "Find the words."
+The portfolio features a dedicated landing experience for MoodMix, an emotional music and journaling app.
 
-## 🚀 Deployment
+Status: Release ready for March 30, 2026.
 
-### Option 1: GitHub Pages (Recommended - Free)
+Access: The app source code is currently in a private repository.
 
-1. Create a GitHub repository called `kvtech` or similar
-2. Push the contents of this folder to the repository
-3. Go to Settings → Pages → Set source to "main branch"
-4. Your site will be live at `https://yourusername.github.io/kvtech`
+Try the App: Download MoodMix APK Here (Update with your link).
 
-### Option 2: Netlify (Free)
+Google Play Store: Official Link Coming Soon.
 
-1. Go to [netlify.com](https://netlify.com)
-2. Sign up with GitHub
-3. Create new site → Select repository → Deploy
-4. Your site will be live instantly with auto-deployment on updates
+🚀 Deployment & Future Scaling
+While currently hosted via GitHub, this project is architected for seamless migration to a custom domain.
 
-### Option 3: Traditional Hosting
+Option 1: GitHub Pages (Current)
+Push updates to the main branch.
 
-Simply upload all files to your web hosting service's public directory.
+Site automatically deploys to the GitHub Pages environment.
 
-## ✏️ Customization
+Option 2: Custom Domain / Netlify (Future)
+Connect the repository to Netlify.
 
-### Update Google Play Store Link
-Replace the placeholder links in `index.html`:
-```html
-<a href="https://play.google.com/store/apps/details?id=your.app.id">
-```
-Change `your.app.id` to your actual Google Play app ID.
+Configure DNS settings to point to a custom K.V.T. domain.
 
-### Add iOS App Store Link
-Once iOS version is ready, add to the hero section and other CTAs:
-```html
-<a href="https://apps.apple.com/app/moodmix/id..." class="btn btn-primary">
-    🍎 Get on App Store
-</a>
-```
+Benefit from automated builds and SSL management.
 
-### Update Colors
-Edit variables in `css/style.css`:
-```css
+🎨 Customization
+Brand Identity
+Global styles and themes are managed via CSS variables in css/style.css:
+
+CSS
 :root {
-    --primary: #6366f1;        /* Main brand color */
-    --secondary: #ec4899;      /* Accent color */
-    --text-dark: #1f2937;      /* Text color */
-    /* ... more variables ... */
+    --primary: #6366f1;   /* Brand Primary */
+    --secondary: #ec4899; /* Brand Accent */
+    --text-dark: #1f2937; /* Typography Base */
 }
-```
+Adding New Projects
+Create a new section in index.html.
 
-### Add Screenshots/Images
-Create an `assets/` folder and add:
-```
-assets/
-├── screenshots/
-│   ├── mood-selection.png
-│   ├── player.png
-│   └── journal.png
-└── logo.png
-```
+Add project imagery to assets/screenshots/.
 
-Then reference in HTML:
-```html
-<img src="assets/screenshots/mood-selection.png" alt="Mood Selection">
-```
+Link the technical documentation or live demo buttons.
 
-### Add Social Links
-Update footer section with:
-```html
-<a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-<a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
-```
+📱 Responsive Design
+The interface is fully optimized for a consistent experience across:
 
-## 📱 Responsive Design
+Desktop (1200px+)
 
-The page is fully responsive and tested for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (< 768px)
+Tablet (768px - 1199px)
 
-## 🎨 Features
+Mobile (< 768px)
 
-✅ Modern gradient design
-✅ Smooth animations & transitions
-✅ Mobile-responsive layout
-✅ Fast loading performance
-✅ SEO-friendly structure
-✅ Accessibility considerations
-✅ Easy to customize
+📅 Roadmap
+Q1 2026: Official launch of the K.V.T. Portfolio and MoodMix on Google Play.
 
-## 📅 Deadline
+Q2 2026: Integration of fellowship projects and broadcasting technology showcases.
 
-Ready for Google Play launch by March 30, 2026! 
+Future: Migration to a dedicated custom domain.
 
-## 📝 Next Steps
-
-1. Update actual Google Play Store link
-2. Add app screenshots in assets folder
-3. Deploy to GitHub Pages or Netlify
-4. Test on mobile & desktop
-5. Share with team for feedback
-
-## 📄 License
-
-© 2026 MoodMix Project. All rights reserved.
+📄 License
+© 2026 K.V.T. All rights reserved.
