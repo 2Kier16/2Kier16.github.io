@@ -1,6 +1,10 @@
 ﻿﻿import re
 
-files = ['about.html', 'community.html', 'heritage.html', 'index.html', 'moodmix.html', 'music.html', 'resume.html', 'story.html', 'veteran-resources.html']
+files = [
+    'about.html', 'advocacy.html', 'art-gallery.html', 'books-n-books.html', 
+    'coffee-shop.html', 'community.html', 'heritage.html', 'hobbiest.html', 
+    'index.html', 'moodmix.html', 'music.html', 'resume.html', 'story.html', 'veteran-resources.html'
+]
 
 for file in files:
     with open(file, 'r', encoding='utf-8') as f:
@@ -49,7 +53,7 @@ for file in files:
         new_nav += '                        <a href="art-gallery.html">Art Gallery</a>\n'
         new_nav += '                        <a href="coffee-shop.html">Coffee Shop</a>\n'
         new_nav += '                        <a href="books-n-books.html">Books n Books</a>\n'
-        new_nav += '                        <a href="hobbiest.html">The Hobbiest</a>\n'
+        new_nav += '                        <a href="hobbiest.html">Hobbiest</a>\n'
         new_nav += '                    </div>\n'
         new_nav += '                </div>\n'
         
