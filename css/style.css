@@ -624,6 +624,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/artist.jpg');
     background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
     padding: 2.5rem 2rem;
     border-radius: 16px;
     margin: 4rem auto 1rem auto;

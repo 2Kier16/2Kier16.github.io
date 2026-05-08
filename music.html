@@ -80,13 +80,45 @@
 </section>
 
 <!-- FEATURED ARTISTS LIST -->
+ 
 <section class="content-wrapper artist-list-container">
 
     <div class="artist-list-vertical">
 
-        <!-- ARTIST ITEM -->
+        <!-- FIRST ARTIST ITEM -->
         <div class="artist-vertical-card">
-            <img src="assets/placeholder-artist.jpg" alt="Artist Photo" class="artist-vertical-photo">
+            <img src="" alt="Artist Photo" class="artist-vertical-photo" id="artist-1-photo">
+            <div class="artist-vertical-info">
+                <h3>Artist Name Placeholder</h3>
+                <p>
+                    Short artist bio goes here. This section highlights their story, message, and the impact of their music.
+                </p>
+
+                <div class="artist-links-container">
+                    <div class="link-group">
+                        <div class="link-group-title">Listen</div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">Spotify</a>
+                            <a href="#" class="social-icon">Apple Music</a>
+                            <a href="#" class="social-icon">SoundCloud</a>
+                        </div>
+                    </div>
+
+                    <div class="link-group">
+                        <div class="link-group-title">Follow</div>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">Instagram</a>
+                            <a href="#" class="social-icon">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECOND ARTIST ITEM -->
+        <div class="artist-vertical-card">
+            <img src="" alt="Artist Photo" class="artist-vertical-photo" id="artist-2-photo">
+            
 
             <div class="artist-vertical-info">
                 <h3>Artist Name Placeholder</h3>
@@ -123,7 +155,7 @@
 <!-- PRODUCTION SECTION -->
 <section id="production" class="portfolio-section">
     <video autoplay loop muted playsinline class="production-bg-video">
-        <source src="assets/producer.mp4" type="video/mp4">
+        <source id="production-video-source" src="assets/producer.mp4" type="video/mp4">
     </video>
     <div class="content-wrapper text-center">
         <h2 class="section-heading-primary">Production & Sound Design</h2>
