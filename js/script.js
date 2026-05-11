@@ -92,3 +92,6 @@ async function loadSheetData() {
         console.error("Sheet Load Error:", e); 
     }
 }
+
+// Initialize data load when the DOM is ready
+document.addEventListener('DOMContentLoaded', loadSheetData);
