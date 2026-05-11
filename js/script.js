@@ -1,8 +1,10 @@
 // --- 1. Helper Function: Clean Google Drive Links ---
-function cleanDriveLink(img) {
-    if (!img) return '';
-    // Fix: Ensures we return 'img' and replace the link parts correctly
-    return img.replace('file/d/', 'uc?export=view&id=').replace('/view?usp=sharing', '').replace('/view', '');
+function cleanDriveLink(url) {
+    if (!url || typeof url !== 'string') return '';
+    // This fix handles both the full sharing link and just the ID
+    if (url.includes('id=')) return url; // Already a clean link
+    const idMatch = url.match(/[-\w]{25,}/);
+    return idMatch ? `https://drive.google.com/uc?export=view&id=${idMatch[0]}` : url;
 }
 
 // --- 2. Main Data Loading Logic ---
@@ -16,11 +18,13 @@ async function loadSheetData() {
         const data = JSON.parse(text.substr(47).slice(0, -2));
         const rows = data.table.rows;
 
-        // --- GLOBAL ELEMENT OVERRIDE  ---
+        // --- GLOBAL ELEMENT OVERRIDE ---
         rows.forEach(row => {
-            const selector = row.c[10] ? row.c[10].v : null; // Column K
-            const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); // Column E
+            // Check if Column K (Selector) has a value
+            const selector = row.c[10] ? row.c[10].v : null; 
+            const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); 
 
+            // ONLY run this if there is a specific CSS selector and a URL
             if (selector && selector !== 'none' && mediaUrl) {
                 const targetElements = document.querySelectorAll(selector);
                 
@@ -32,25 +36,27 @@ async function loadSheetData() {
                         source.src = mediaUrl;
                         targetElement.load();
                     } else {
-                        // For Hero backgrounds or div sections
+                        // For Hero backgrounds or sections
                         targetElement.style.backgroundImage = `url('${mediaUrl}')`;
-                        targetElement.style.backgroundSize = 'cover';
-                        targetElement.style.backgroundPosition = 'center';
                     }
                 });
             }
         });
 
-        // --- COMMUNITY PAGE: Dynamic Spotlights ---
+        // --- PAGE-SPECIFIC FILTERS ---
+        // Only run these if the specific container exists on the current page
+        
+        // 1. COMMUNITY PAGE: Only load rows labeled 'community' in Column J
         const spotlightContainer = document.getElementById('dynamic-spotlights');
         if (spotlightContainer) {
             spotlightContainer.innerHTML = '';
             rows.forEach(row => {
-                if(row.c[1] && row.c[1].v) { // Column B: Title
-                    const img = cleanDriveLink(row.c[4] ? row.c[4].v : null);
+                const target = row.c[9] ? row.c[9].v : ''; // Column J
+                if (target.includes('community') && row.c[1]) {
+                    const img = cleanDriveLink(row.c[4]?.v);
                     spotlightContainer.innerHTML += `
                         <div class="feature-card">
-                            <img src="${img}" alt="Project" style="width:100%; border-radius:8px;" onerror="this.src='assets/kvtlogowb.png';">
+                            <img src="${img}" alt="Project" style="width:100%; border-radius:8px;">
                             <h3>${row.c[1].v}</h3>
                             <p>${row.c[3] ? row.c[3].v : ''}</p>
                         </div>`;
@@ -58,18 +64,19 @@ async function loadSheetData() {
             });
         }
 
-        // --- VETERAN RESOURCES PAGE: Resource Cards ---
+        // 2. VETERAN RESOURCES: Only load rows labeled 'veteran-resource' in Column J
         const resourceContainer = document.getElementById('resource-container');
         if (resourceContainer) {
             resourceContainer.innerHTML = '';
             rows.forEach(row => {
-                if(row.c[1] && row.c[1].v) { // Column B: Title
-                    const img = cleanDriveLink(row.c[4] ? row.c[4].v : null);
-                    const link = row.c[5] ? row.c[5].v : '#'; // Column F: Link
+                const target = row.c[9] ? row.c[9].v : ''; // Column J
+                if (target.includes('veteran-resource') && row.c[1]) {
+                    const img = cleanDriveLink(row.c[4]?.v);
+                    const link = row.c[5] ? row.c[5].v : '#';
                     resourceContainer.innerHTML += `
                         <div class="resource-card">
                             <div class="resource-img-container">
-                                <img src="${img}" alt="Resource" onerror="this.src='assets/kvtlogowb.png';">
+                                <img src="${img}" alt="Resource">
                             </div>
                             <div class="resource-content">
                                 <h3><a href="${link}" target="_blank">${row.c[1].v}</a></h3>
@@ -85,16 +92,3 @@ async function loadSheetData() {
         console.error("Sheet Load Error:", e); 
     }
 }
-
-// --- 3. Initialize & Mobile Menu ---
-document.addEventListener('DOMContentLoaded', () => {
-    loadSheetData();
-
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
-});
