@@ -179,30 +179,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-index::after, .hero-heritage::after, .hero-advocacy::after {
-    background-image: url('../assets/mastercrest.png');
+    /* Row 12 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1A6WyBRCSMQwlyDnOsGdGt5YjP2h6-K6n');
     background-size: contain;
     animation: crestPulse 8s infinite alternate ease-in-out;
 }
 
 .hero-community::after {
-    background-image: url('../assets/com-crest.png');
+    /* Row 10 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1j_vR3hI9Vz_OP3k-O8Tn68ntQKtnY61z');
     background-size: contain;
     animation: crestPulse 8s infinite alternate ease-in-out;
 }
 
 .hero-moodmix::after {
-    background-image: url('../assets/MoodMix%20logo%20with%20re.png');
+    /* Row 19 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1jBN5zUdPBBrcXMlfcMsuGhUDJ9N4Lh8-');
     background-size: 60%;
     animation: moodMixGradient 20s ease infinite alternate, moodMixLogoMove 40s ease-in-out infinite;
 }
 
 .hero-veteran-resources::after {
-    background-image: url('../assets/gen.jpg');
+    /* Row 13 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1EvEELdl10p4Vo4xRp7ovknUwUrv');
     background-size: cover;
 }
 
 .hero-music::after {
-    background-image: url('../assets/music.jpg');
+    /* Row 14 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1xZsjnkQZdKMqoXT-bfJoHmNIWW');
     background-size: cover;
     animation: crestPulse 8s infinite alternate ease-in-out, slideFade1 20s infinite;
 }
@@ -211,7 +216,8 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 0;
-    background-image: url('../assets/musicis.jpg');
+    /* Row 15 in your Database */
+    background-image: url('https://drive.google.com/uc?export=view&id=1sfH-xT81nSzLtiYkGcP8zHNW_8d');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
