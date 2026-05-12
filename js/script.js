@@ -25,7 +25,7 @@ async function loadSheetData() {
             const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); 
 
             // ONLY run this if there is a CSS selector, a URL, and it's NOT a hardcoded section
-            const isHardcoded = selector.includes('.hero-') || selector.includes('#artist-');
+            const isHardcoded = selector ? (selector.includes('.hero-') || selector.includes('#artist-')) : false;
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
                 const targetElements = document.querySelectorAll(selector);
                 
