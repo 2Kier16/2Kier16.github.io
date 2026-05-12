@@ -24,9 +24,12 @@ async function loadSheetData() {
             const selector = row.c[10] ? row.c[10].v : null; 
             const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); 
 
-            // ONLY run this if there is a CSS selector, a URL, and it's NOT a hardcoded section
-            const isHardcoded = selector ? (selector.includes('.hero-') || selector.includes('#artist-')) : false;
-            if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
+            // --- TEMPORARILY COMMENTED OUT ALL OTHER IMAGES ---
+            // const isHardcoded = selector ? (selector.includes('.hero-') || selector.includes('#artist-')) : false;
+            // if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
+            
+            // ISOLATED TEST: Only pull the Master Crest
+            if (selector === '#home-mastercrest' && mediaUrl) {
                 const targetElements = document.querySelectorAll(selector);
                 
                 targetElements.forEach(targetElement => {
@@ -46,6 +49,8 @@ async function loadSheetData() {
 
         // --- PAGE-SPECIFIC FILTERS ---
         // Only run these if the specific container exists on the current page
+        
+        /* TEMPORARILY COMMENTED OUT FOR TESTING
         
         // 1. COMMUNITY PAGE: Only load rows labeled 'community' in Column J
         const spotlightContainer = document.getElementById('dynamic-spotlights');
@@ -88,6 +93,7 @@ async function loadSheetData() {
                 }
             });
         }
+        */
 
     } catch (e) { 
         console.error("Sheet Load Error:", e); 
