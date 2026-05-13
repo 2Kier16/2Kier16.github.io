@@ -180,14 +180,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-index::after, .hero-heritage::after, .hero-advocacy::after {
     /* Dynamic background with local fallback */
-    background-image: var(--hero-bg, none);
+    background-image: var(--hero-bg, url('../assets/mastercrest.png'));
     background-size: contain;
     animation: crestPulse 8s infinite alternate ease-in-out;
 }
 
 .hero-community::after {
     /* Dynamic background with local fallback */
-    background-image: var(--hero-bg, none);
+    background-image: var(--hero-bg, url('../assets/community.jpg'));
     background-size: contain;
     animation: crestPulse 8s infinite alternate ease-in-out;
 }
@@ -220,13 +220,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-veteran-resources::after {
     /* Dynamic background with local fallback */
-    background-image: var(--hero-bg, none);
+    background-image: var(--hero-bg, url('../assets/veterans.jpg'));
     background-size: cover;
 }
 
 .hero-music::after {
     /* Dynamic background with local fallback */
-    background-image: var(--hero-bg, none);
+    background-image: var(--hero-bg, url('../assets/music_hero.jpg'));
     background-size: cover;
     animation: crestPulse 8s infinite alternate ease-in-out, slideFade1 20s infinite;
 }
@@ -236,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 0;
     /* Dynamic background with local fallback */
-    background-image: var(--hero-bg, none);
+    background-image: var(--hero-bg, url('../assets/music_hero2.jpg'));
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -605,6 +605,13 @@ h1, h2, h3, h4, h5, h6 {
 #moodmix-page .theater-container { max-width: 300px; border: none; background: transparent; box-shadow: none; margin-bottom: 0.5rem; }
 #moodmix-page .theater-container video { border-radius: 20px; box-shadow: var(--shadow); filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2)); }
 
+.screenshot-title {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
 #moodmix-page .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: 1000px;
@@ -646,7 +653,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Featured Artists Banner */
 #artists {
-    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), var(--hero-bg, none);
+    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/artist.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -705,7 +712,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Live Shows Banner */
 #shows {
-    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), var(--hero-bg, none);
+    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/livemusic.jpg');
     background-color: #000000;
     background-size: contain;
     background-size: cover;

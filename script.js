@@ -36,21 +36,20 @@ async function loadSheetData() {
 
             // 2. MASTER CREST OVERRIDE: Guarantee the master crest is always applied to the home hero AND heritage page image
             if (title.toLowerCase().includes('mastercrest') && mediaUrl) {
-                // Use Google's direct image serving domain for backgrounds (more reliable for CSS)
+                  // Use Google's direct image serving domain for backgrounds (more reliable for CSS)
                 let finalCrestUrlForBackground = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
                 // Use the original cleaned Google Drive URL for <img> src (sometimes more compatible)
                 let finalCrestUrlForImg = mediaUrl; 
-                
-                // Apply to hero backgrounds
+                  // Apply to hero backgrounds
                 document.querySelectorAll('.hero-index, .hero-heritage, .hero-advocacy').forEach(element => {
-                    element.style.setProperty('--hero-bg', `url('${finalCrestUrlForBackground}')`);
+                                        element.style.setProperty('--hero-bg', `url('${finalCrestUrlForBackground}')`);
                 });
 
                 // Apply to the specific <img> tag on the heritage page
                 const heritageCrestImg = document.getElementById('heritage-mastercrest-image');
                 if (heritageCrestImg) {
                     heritageCrestImg.setAttribute('referrerpolicy', 'no-referrer');
-                    heritageCrestImg.src = finalCrestUrlForBackground; // Use the more reliable URL for img src
+                    heritageCrestImg.src = finalCrestUrlForImg;
                 }
             }
 
@@ -106,35 +105,18 @@ async function loadSheetData() {
                         if (targetElement.tagName === 'IMG') {
                             targetElement.setAttribute('referrerpolicy', 'no-referrer');
                             targetElement.src = finalUrl;
-                            // Add title for MoodMix screenshots
-                            if (targetElement.closest('.gallery-grid') && row.c[3] && row.c[3].v) { // Check if it's within the gallery and has a description
-                                let titleElement = document.createElement('p');
-                                titleElement.textContent = row.c[3].v; // Column D is brief/description
-                                titleElement.classList.add('screenshot-title'); // Add a class for styling
-                                targetElement.parentNode.appendChild(titleElement);
-                            }
                         } else if (targetElement.tagName === 'VIDEO') {
-                            if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
-                                finalUrl = finalUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
-                            }
-                            targetElement.setAttribute('referrerpolicy', 'no-referrer'); // Ensure referrer policy for video
-                            const source = targetElement.querySelector('source');
-                            if (source) { // Check if source element exists
-                                source.src = finalUrl;
-                            } else { // Fallback if no source tag, set directly on video
-                                targetElement.src = finalUrl;
-                            }
+                            const source = targetElement.querySelector('source') || targetElement;
+                            source.src = finalUrl;
                             targetElement.load();
                             // Guarantee the video auto-plays after fetching from Drive
                             targetElement.muted = true; // Fixes strict browser autoplay policies
                             targetElement.play().catch(err => console.log("Autoplay prevented:", err));
-                            // Special case for MoodMix demo video playback rate
-                            if (selector === '#moodmix-demo-video') {
-                                targetElement.playbackRate = 1.25;              
-                            }
-                        } else { // This 'else' handles non-IMG, non-VIDEO elements (like backgrounds)
-                            targetElement.style.backgroundImage = `url('${finalUrl}')`; // For Hero backgrounds or sections
-                            targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`); // Pass the image URL to CSS variables
+                        } else {
+                            // For Hero backgrounds or sections
+                            targetElement.style.backgroundImage = `url('${finalUrl}')`;
+                            // Pass the image URL to CSS variables so pseudo-elements (like ::after) can use it!
+                            targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`);
                         }
                     });
                 } catch (error) {
