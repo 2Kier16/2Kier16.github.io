@@ -24,24 +24,35 @@ async function loadSheetData() {
             const selector = row.c[10] ? row.c[10].v : null; 
             const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); 
 
-            // --- TEMPORARILY COMMENTED OUT ALL OTHER IMAGES ---
-            // const isHardcoded = selector ? (selector.includes('.hero-') || selector.includes('#artist-')) : false;
-            // if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
+            // Check if it's an artist section you want to keep hardcoded
+            const isHardcoded = selector ? selector.includes('#artist-') : false;
             
-            // ISOLATED TEST: Only pull the Master Crest
-            if (selector === '#home-mastercrest' && mediaUrl) {
+            // ENABLE ALL IMAGES: Allow everything except specifically hardcoded sections
+            if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
                 const targetElements = document.querySelectorAll(selector);
                 
                 targetElements.forEach(targetElement => {
+                    let finalUrl = mediaUrl;
+                    
+                    // If it's an image or background, swap to Google's reliable image delivery network to bypass 403 blocks
+                    if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
+                        if (targetElement.tagName === 'IMG' || targetElement.tagName !== 'VIDEO') {
+                            finalUrl = finalUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                        }
+                    }
+
                     if (targetElement.tagName === 'IMG') {
-                        targetElement.src = mediaUrl;
+                        targetElement.setAttribute('referrerpolicy', 'no-referrer');
+                        targetElement.src = finalUrl;
                     } else if (targetElement.tagName === 'VIDEO') {
                         const source = targetElement.querySelector('source') || targetElement;
-                        source.src = mediaUrl;
+                        source.src = finalUrl;
                         targetElement.load();
                     } else {
                         // For Hero backgrounds or sections
-                        targetElement.style.backgroundImage = `url('${mediaUrl}')`;
+                        targetElement.style.backgroundImage = `url('${finalUrl}')`;
+                        // Pass the image URL to CSS variables so pseudo-elements (like ::after) can use it!
+                        targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`);
                     }
                 });
             }
@@ -50,7 +61,6 @@ async function loadSheetData() {
         // --- PAGE-SPECIFIC FILTERS ---
         // Only run these if the specific container exists on the current page
         
-        /* TEMPORARILY COMMENTED OUT FOR TESTING
         
         // 1. COMMUNITY PAGE: Only load rows labeled 'community' in Column J
         const spotlightContainer = document.getElementById('dynamic-spotlights');
@@ -93,7 +103,6 @@ async function loadSheetData() {
                 }
             });
         }
-        */
 
     } catch (e) { 
         console.error("Sheet Load Error:", e); 

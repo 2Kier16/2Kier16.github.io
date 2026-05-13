@@ -13,6 +13,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html"><img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img"></a>
+                <a href="index.html"><img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img" id="nav-logo-main"></a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
                 <span class="hamburger-line"></span>
@@ -97,6 +98,7 @@
             <div class="signature-content">
                 <p class="signature-text">Kier V. Turpin</p>
                 <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo">
+                <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo" id="footer-signature-logo">
             </div>
             <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>
@@ -131,6 +133,11 @@
             container.innerHTML = ''; // Clear "Loading..." message
 
             rows.forEach(row => {
+                const targetPage = (row.c[9] && row.c[9].v) ? String(row.c[9].v) : '';
+                const selector = (row.c[10] && row.c[10].v) ? String(row.c[10].v) : '';
+
+                // Only load rows marked for veteran-resources that are NOT specific element targets
+                if (targetPage.includes('veteran-resource') && (!selector || selector === 'none' || selector.trim() === '')) {
                 // Mapping the spreadsheet columns to your website card
                 const item = {
                     title: row.c[1] ? row.c[1].v : "Untitled",
@@ -158,6 +165,7 @@
                     </div>
                 `;
                 container.appendChild(card);
+                }
             });
         } catch (error) {
             console.error("Error loading resources:", error);
