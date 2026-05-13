@@ -34,8 +34,44 @@ async function loadSheetData() {
                 });
             }
 
-            // Check if it's an artist section you want to keep hardcoded
-            const isHardcoded = selector ? selector.includes('#artist-') : false;
+            // 2. MASTER CREST OVERRIDE: Guarantee the master crest is always applied to the home hero
+            if (title.toLowerCase().includes('mastercrest') && mediaUrl) {
+                let finalCrestUrl = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                document.querySelectorAll('.hero-index, .hero-heritage, .hero-advocacy').forEach(hero => {
+                    hero.style.setProperty('--hero-bg', `url('${finalCrestUrl}')`);
+                });
+            }
+
+            // 3. COMMUNITY CREST VIDEO OVERRIDE: Play video once before showing overlay and text
+            if (title.toLowerCase().includes('comcrestanimated') && mediaUrl) {
+                const comVid = document.getElementById('community-hero-vid');
+                const comHero = document.querySelector('.community-hero-exclusive');
+                
+                if (comVid && comHero) {
+                    comVid.setAttribute('referrerpolicy', 'no-referrer');
+                    
+                    // Use a source element for better mobile browser compatibility
+                    let source = comVid.querySelector('source');
+                    if (!source) {
+                        source = document.createElement('source');
+                        source.type = 'video/mp4';
+                        comVid.appendChild(source);
+                    }
+                    source.src = mediaUrl;
+                    
+                    comVid.load();
+                    comVid.muted = true;
+                    comVid.playsInline = true;
+                    comVid.loop = true;
+                    
+                    comHero.classList.add('has-video');
+                    comVid.play().catch(err => console.log("Autoplay prevented:", err));
+                }
+            }
+
+            // HARDCODE LOCK: Protect artists and ALL hero background images from being overwritten by the API.
+            // Exception: Allow '#hero-community' specifically so the static crest image on the community page can load.
+            const isHardcoded = selector ? (selector.includes('#artist-') || (selector.includes('hero') && selector !== '#hero-community')) : false;
             
             // ENABLE ALL IMAGES: Allow everything except specifically hardcoded sections
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
@@ -86,18 +122,26 @@ async function loadSheetData() {
         const spotlightContainer = document.getElementById('dynamic-spotlights');
         if (spotlightContainer) {
             spotlightContainer.innerHTML = '';
+            let hasSpotlights = false;
             rows.forEach(row => {
                 const target = row.c[9] ? row.c[9].v : ''; // Column J
-                if (target.includes('community') && row.c[1]) {
+                const selector = row.c[10] ? row.c[10].v : ''; // Column K
+                
+                // Filter out the hero background video and crest from showing up as spotlights
+                if (target.includes('community') && row.c[1] && !selector.includes('hero')) {
                     const img = cleanDriveLink(row.c[4]?.v);
                     spotlightContainer.innerHTML += `
                         <div class="feature-card">
-                            <img src="${img}" alt="Project" style="width:100%; border-radius:8px;">
+                            ${img ? `<img src="${img}" alt="Project" style="width:100%; border-radius:8px; margin-bottom:1rem;">` : ''}
                             <h3>${row.c[1].v}</h3>
                             <p>${row.c[3] ? row.c[3].v : ''}</p>
                         </div>`;
+                    hasSpotlights = true;
                 }
             });
+            if (!hasSpotlights) {
+                spotlightContainer.innerHTML = '<p class="text-center" style="width:100%; grid-column: 1 / -1; color: var(--text-light);">No community projects submitted yet. Be the first!</p>';
+            }
         }
 
         // 2. VETERAN RESOURCES: Only load rows labeled 'veteran-resource' in Column J
@@ -106,13 +150,16 @@ async function loadSheetData() {
             resourceContainer.innerHTML = '';
             rows.forEach(row => {
                 const target = row.c[9] ? row.c[9].v : ''; // Column J
-                if (target.includes('veteran-resource') && row.c[1]) {
+                const selector = row.c[10] ? row.c[10].v : ''; // Column K
+                
+                // Filter out the veteran hero background from the resources list
+                if (target.includes('veteran-resource') && row.c[1] && !selector.includes('hero')) {
                     const img = cleanDriveLink(row.c[4]?.v);
                     const link = row.c[5] ? row.c[5].v : '#';
                     resourceContainer.innerHTML += `
                         <div class="resource-card">
                             <div class="resource-img-container">
-                                <img src="${img}" alt="Resource">
+                                ${img ? `<img src="${img}" alt="Resource">` : ''}
                             </div>
                             <div class="resource-content">
                                 <h3><a href="${link}" target="_blank">${row.c[1].v}</a></h3>
