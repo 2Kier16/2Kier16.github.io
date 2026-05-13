@@ -20,41 +20,61 @@ async function loadSheetData() {
 
         // --- GLOBAL ELEMENT OVERRIDE ---
         rows.forEach(row => {
+            const title = row.c[1] ? row.c[1].v : ''; // Column B (Title)
             // Check if Column K (Selector) has a value
             const selector = row.c[10] ? row.c[10].v : null; 
             const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); 
+
+            // 1. GLOBAL LOGO OVERRIDE: Automatically apply the K.V.T. logo to header and footer
+            if ((title.toLowerCase().includes('kvtlogowb') || title.toLowerCase().includes('k.v.t logo') || title.toLowerCase().includes('site logo')) && mediaUrl) {
+                let finalLogoUrl = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                document.querySelectorAll('.logo-img, .signature-logo').forEach(img => {
+                    img.setAttribute('referrerpolicy', 'no-referrer');
+                    img.src = finalLogoUrl;
+                });
+            }
 
             // Check if it's an artist section you want to keep hardcoded
             const isHardcoded = selector ? selector.includes('#artist-') : false;
             
             // ENABLE ALL IMAGES: Allow everything except specifically hardcoded sections
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
-                const targetElements = document.querySelectorAll(selector);
-                
-                targetElements.forEach(targetElement => {
-                    let finalUrl = mediaUrl;
-                    
-                    // If it's an image or background, swap to Google's reliable image delivery network to bypass 403 blocks
-                    if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
-                        if (targetElement.tagName === 'IMG' || targetElement.tagName !== 'VIDEO') {
-                            finalUrl = finalUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
-                        }
-                    }
+                // Prevent Google Sheet errors (like #N/A or #REF!) from crashing the query selector
+                if (selector.includes('#N/A') || selector.includes('#REF!')) return;
 
-                    if (targetElement.tagName === 'IMG') {
-                        targetElement.setAttribute('referrerpolicy', 'no-referrer');
-                        targetElement.src = finalUrl;
-                    } else if (targetElement.tagName === 'VIDEO') {
-                        const source = targetElement.querySelector('source') || targetElement;
-                        source.src = finalUrl;
-                        targetElement.load();
-                    } else {
-                        // For Hero backgrounds or sections
-                        targetElement.style.backgroundImage = `url('${finalUrl}')`;
-                        // Pass the image URL to CSS variables so pseudo-elements (like ::after) can use it!
-                        targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`);
-                    }
-                });
+                try {
+                    const targetElements = document.querySelectorAll(selector);
+                    
+                    targetElements.forEach(targetElement => {
+                        let finalUrl = mediaUrl;
+                        
+                        // If it's an image or background, swap to Google's reliable image delivery network to bypass 403 blocks
+                        if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
+                            if (targetElement.tagName === 'IMG' || targetElement.tagName !== 'VIDEO') {
+                                finalUrl = finalUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                            }
+                        }
+
+                        if (targetElement.tagName === 'IMG') {
+                            targetElement.setAttribute('referrerpolicy', 'no-referrer');
+                            targetElement.src = finalUrl;
+                        } else if (targetElement.tagName === 'VIDEO') {
+                            const source = targetElement.querySelector('source') || targetElement;
+                            source.src = finalUrl;
+                            targetElement.load();
+                            // Guarantee the video auto-plays after fetching from Drive
+                            targetElement.muted = true; // Fixes strict browser autoplay policies
+                            targetElement.play().catch(err => console.log("Autoplay prevented:", err));
+                        } else {
+                            // For Hero backgrounds or sections
+                            targetElement.style.backgroundImage = `url('${finalUrl}')`;
+                            // Pass the image URL to CSS variables so pseudo-elements (like ::after) can use it!
+                            targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`);
+                        }
+                    });
+                } catch (error) {
+                    console.warn(`Skipping invalid database selector: ${selector}`, error);
+                }
             }
         });
 
