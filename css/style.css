@@ -630,8 +630,7 @@ h1, h2, h3, h4, h5, h6 {
 .moodmix-hero-content { display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 0; position: relative; z-index: 10; flex-grow: 1; min-height: 100vh; width: 100%; }
 .hero-top-text { padding-top: 4rem; margin-top: 0; display: flex; flex-direction: column; flex-grow: 1; width: 100%; }
 #moodmix-page .cta-buttons { padding-bottom: 6rem; margin-bottom: 0; justify-content: center; }
-.hero-moodmix::before, .hero-about::before { display: none !important; }
-.moodmix-hero-content h1 { color: #fdfbf7; text-shadow: 0 0 15px var(--primary), 0 0 25px var(--secondary); font-size: 3.5rem; margin-bottom: auto; line-height: 1.2; }
+.hero-moodmix::before, .hero-about::before, .hero-community::before { display: none !important; }
 .moodmix-hero-content .hero-subtext-index { color: #fdfbf7; text-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary); font-weight: 700; margin-bottom: 2rem; }
 #moodmix-page .content-wrapper { padding: 1.5rem 0; }
 
