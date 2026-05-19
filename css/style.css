@@ -197,6 +197,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center;
     overflow: hidden; text-align: center; background-color: #111827;
 }
+.community-hero-exclusive::before, .community-hero-exclusive::after {
+    display: none;
+}
 .community-exclusive-vid {
     position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover;
     transform: translate(-50%, -50%); z-index: 0; opacity: 0; transition: opacity 1s ease;
@@ -377,7 +380,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* --- 7. PAGE THEMES & SPECIFICS --- */
 #about-page {
-    background-color: #1a1c2c !important;
+    background-color: #1a1c2c !important;    
+    background-color: transparent !important; /* Was #1a1c2c, now handled by video overlay */
     background-image: none !important;
     color: #f3f4f6 !important;
 }
