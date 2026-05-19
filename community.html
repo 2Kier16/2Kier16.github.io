@@ -12,7 +12,7 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html"><img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img"></a>
+                <a href="index.html"><img alt="K.V.T Company Logo" class="logo-img"></a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
                 <span class="hamburger-line"></span>
@@ -49,18 +49,24 @@
     </header>
 
     <main>
-        <section class="community-hero-exclusive" id="home">
-            <video class="community-exclusive-vid" id="community-hero-vid" muted playsinline></video>
-            <div class="community-exclusive-overlay"></div>
-            <div class="community-exclusive-content text-pop">
-                <h1>Creation, Collaboration, Elevation</h1>
-                <p class="hero-subtext-index">A safe space to level up through creation. We believe in giving credit where it is due and highlighting the genius that often goes unnoticed.</p>
+        <!-- Community Hero Section -->
+        <header class="hero-portfolio community-hero-exclusive">
+            <!-- This video element is targeted by the 'comcrestanimated' override in script.js -->
+            <video class="community-exclusive-vid" id="community-hero-vid" autoplay loop muted playsinline>
+                <source type="video/mp4">
+            </video>
+            <div class="community-exclusive-content hero-content-inner text-pop">
+                <h1>A Safe Space to Share and Level Up Together</h1>
+                <p class="hero-subtext-index">This is a place for us to showcase our work, share our stories, and build a network of support. Whether you're a developer, artist, writer, or musician, your creations have a home here.</p>
+                <div class="cta-buttons justify-center">
+                    <a href="#submit-work" class="btn btn-primary btn-large">Submit Your Work</a>
+                    <a href="#spotlights" class="btn btn-secondary btn-large">View Spotlights</a>
+                </div>
             </div>
-        </section>
-
+        </header>
         <section class="portfolio-section">
             <div class="about-container">
-                <img src="assets/com-crest.png" alt="K.V.T. Community Crest" class="embedded-crest left" id="hero-community">
+                <img alt="K.V.T. Community Crest" class="embedded-crest left" id="hero-community">
                 <h2 class="section-heading-primary">The Community Philosophy</h2>
                 <div class="about-content">
                     <p>The K.V.T. Community is built on the belief that true progress happens when we stop competing and start citing. While the Master Crest represents my personal DNA and heritage, this Community Crest represents our collective future. It is a symbol of <strong>Global Interconnection</strong>—a bridge between our unified past and a future defined by what we build together.</p>
@@ -151,7 +157,7 @@
         <div class="footer-bottom">
             <div class="signature-content">
                 <p class="signature-text">Kier V. Turpin</p>
-                <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo">
+                <img alt="K.V.T Logo" class="signature-logo">
             </div>
             <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>

@@ -51,55 +51,41 @@ async function loadSheetData() {
                 if (heritageCrestImg) {
                     heritageCrestImg.setAttribute('referrerpolicy', 'no-referrer');
                     heritageCrestImg.src = finalCrestUrlForBackground; // Use the more reliable URL for img src
-                }
+                    }
             }
 
-            // 3. COMMUNITY CREST VIDEO OVERRIDE: A looping video background with text moved below.
-            if (selector && title.toLowerCase().includes('comcrestanimated') && mediaUrl) {
-                const heroContainer = document.querySelector(selector);
-
-                if (heroContainer) {
-                    // Find the actual container that holds the video and content, which might be a child of heroContainer
-                    // This assumes the structure is <div class="hero-community"><div class="community-hero-exclusive">...</div></div>
-                    // Or, if .community-hero-exclusive is not present, it defaults to heroContainer itself.
-                    const actualVideoContentWrapper = heroContainer.querySelector('.community-hero-exclusive') || heroContainer;
-
-                    const videoElement = actualVideoContentWrapper.querySelector('video');
-                    const contentElement = actualVideoContentWrapper.querySelector('.community-exclusive-content, .hero-content-inner');
- 
-                    // Move the text content to appear *after* the hero video container
-                    if (contentElement && heroContainer.parentNode) {
-                        heroContainer.parentNode.insertBefore(contentElement, heroContainer.nextSibling);
+            // 3. COMMUNITY CREST VIDEO OVERRIDE: Play video once before showing overlay and text
+            if (title.toLowerCase().includes('comcrestanimated')) { // No longer depends on mediaUrl from sheet
+                const comVid = document.getElementById('community-hero-vid');
+                const comHero = document.querySelector('.community-hero-exclusive');
+                
+                if (comVid && comHero) {
+                    // Video source is now hardcoded to a local file for reliability.
+                    const finalVideoUrl = 'assets/videos/ComCrestAnimated.mp4';
+                    
+                    // Use a source element for better mobile browser compatibility
+                    let source = comVid.querySelector('source');
+                    if (!source) {
+                        source = document.createElement('source');
+                        source.type = 'video/mp4';
+                        comVid.appendChild(source);
                     }
- 
-                    // Only proceed if a video element is found
-                    if (videoElement) {
-                        // Add the 'has-video' class to the element that the CSS rule targets for video opacity
-                        actualVideoContentWrapper.classList.add('has-video');
-                        videoElement.setAttribute('referrerpolicy', 'no-referrer');
+                    source.src = finalVideoUrl;
+                    
+                    comVid.load();
+                    comVid.muted = true;
+                    comVid.playsInline = true;
+                    comVid.loop = false; // Initially false so 'ended' fires
+                    
+                    comVid.addEventListener('ended', function onFirstEnd() {
+                        comHero.classList.add('content-revealed');
+                        comVid.loop = true; // Set to loop continuously
+                        comVid.play().catch(err => console.log("Autoplay prevented:", err));
+                        comVid.removeEventListener('ended', onFirstEnd);
+                    });
 
-                        // Use a source element for better mobile browser compatibility
-                        let source = videoElement.querySelector('source');
-                        if (!source) {
-                            source = document.createElement('source');
-                            source.type = 'video/mp4';
-                            videoElement.appendChild(source);
-                        }
-
-                        // Use Google's direct content delivery network for reliability
-                        let finalVideoUrl = mediaUrl;
-                        if (finalVideoUrl.includes('drive.google.com/uc?export=view&id=')) {
-                            finalVideoUrl = finalVideoUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
-                        }
-                        source.src = finalVideoUrl;
-
-                        videoElement.load();
-                        videoElement.muted = true;
-                        videoElement.playsInline = true;
-                        videoElement.loop = true; // Set to loop continuously as requested
-
-                        videoElement.play().catch(err => console.log("Autoplay prevented:", err));
-                    }
+                    comHero.classList.add('has-video');
+                    comVid.play().catch(err => console.log("Autoplay prevented:", err));
                 }
             }
 
@@ -137,7 +123,7 @@ async function loadSheetData() {
                             }
                         } else if (targetElement.tagName === 'VIDEO') {
                             if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
-                                finalUrl = finalUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                                finalUrl = finalUrl.replace('export=view', 'export=download');
                             }
                             targetElement.setAttribute('referrerpolicy', 'no-referrer'); // Ensure referrer policy for video
                             const source = targetElement.querySelector('source');

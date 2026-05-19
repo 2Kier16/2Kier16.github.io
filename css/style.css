@@ -202,13 +202,22 @@ h1, h2, h3, h4, h5, h6 {
     transform: translate(-50%, -50%); z-index: 0; opacity: 0; transition: opacity 1s ease;
 }
 .community-hero-exclusive.has-video .community-exclusive-vid { opacity: 1; }
+
 .community-exclusive-overlay { display: none; }
-.community-exclusive-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.community-hero-exclusive.content-revealed .community-exclusive-overlay { display: block; position: absolute; inset: 0; background: rgba(17, 24, 39, 0.7); z-index: 1; opacity: 0; animation: fadeInElements 2.5s ease-out forwards; }
+.community-exclusive-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; opacity: 0; pointer-events: none; }
+.community-hero-exclusive.content-revealed .community-exclusive-content { opacity: 1; pointer-events: auto; }
 .community-exclusive-content h1 {
-    display: inline-block; clip-path: inset(0 100% 0 0); animation: typeReveal 2.5s steps(40, end) forwards; margin-bottom: 1.5rem;
+    display: inline-block; clip-path: inset(0 100% 0 0); margin-bottom: 1.5rem;
+}
+.community-hero-exclusive.content-revealed .community-exclusive-content h1 {
+    animation: typeReveal 2.5s steps(40, end) forwards;
 }
 .community-exclusive-content > *:not(h1) {
-    opacity: 0; animation: fadeInElements 0.8s ease-out 2.5s forwards;
+    opacity: 0; 
+}
+.community-hero-exclusive.content-revealed .community-exclusive-content > *:not(h1) {
+    animation: fadeInElements 0.8s ease-out 2.5s forwards;
 }
 
 .hero-moodmix::after {
@@ -924,4 +933,26 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0.5rem 1.5rem;
         font-size: 1.05rem;
     }
+}
+
+/* --- 11. Community Page Video Section (Isolated) --- */
+/* This section is designed to replace the complex hero logic for debugging. */
+.community-video-section {
+    background-color: #111827; /* Dark background to make the video visible */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.community-video-section video {
+    max-width: 100%;
+    width: 800px; /* A clear width to make it visible */
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--primary-dark);
+    box-shadow: var(--shadow);
+}
+
+/* As requested, hide the text content within this section for now */
+.community-video-section .community-exclusive-content {
+    display: none;
 }

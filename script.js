@@ -61,6 +61,11 @@ async function loadSheetData() {
                 if (comVid && comHero) {
                     comVid.setAttribute('referrerpolicy', 'no-referrer');
                     
+                    let finalVideoUrl = mediaUrl;
+                    if (finalVideoUrl.includes('drive.google.com/uc?export=view&id=')) {
+                        finalVideoUrl = finalVideoUrl.replace('export=view', 'export=download');
+                    }
+                    
                     // Use a source element for better mobile browser compatibility
                     let source = comVid.querySelector('source');
                     if (!source) {
@@ -68,13 +73,20 @@ async function loadSheetData() {
                         source.type = 'video/mp4';
                         comVid.appendChild(source);
                     }
-                    source.src = mediaUrl;
+                    source.src = finalVideoUrl;
                     
                     comVid.load();
                     comVid.muted = true;
                     comVid.playsInline = true;
-                    comVid.loop = true;
+                    comVid.loop = false; // Initially false so 'ended' fires
                     
+                    comVid.addEventListener('ended', function onFirstEnd() {
+                        comHero.classList.add('content-revealed');
+                        comVid.loop = true; // Set to loop continuously
+                        comVid.play().catch(err => console.log("Autoplay prevented:", err));
+                        comVid.removeEventListener('ended', onFirstEnd);
+                    });
+
                     comHero.classList.add('has-video');
                     comVid.play().catch(err => console.log("Autoplay prevented:", err));
                 }
@@ -106,7 +118,9 @@ async function loadSheetData() {
                             targetElement.setAttribute('referrerpolicy', 'no-referrer');
                             targetElement.src = finalUrl;
                         } else if (targetElement.tagName === 'VIDEO') {
-                            const source = targetElement.querySelector('source') || targetElement;
+                            if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
+                                finalUrl = finalUrl.replace('export=view', 'export=download');
+                            }
                             source.src = finalUrl;
                             targetElement.load();
                             // Guarantee the video auto-plays after fetching from Drive
