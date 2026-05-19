@@ -122,8 +122,14 @@ async function loadSheetData() {
                                 targetElement.parentNode.appendChild(titleElement);
                             }
                         } else if (targetElement.tagName === 'VIDEO') {
-                            if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
-                                finalUrl = finalUrl.replace('export=view', 'export=download');
+                            // Special case for MoodMix demo video: use local file and set playback rate
+                            if (selector === '#moodmix-demo-video') {
+                                finalUrl = 'assets/videos/demovid.mp4';
+                                targetElement.playbackRate = 1.25;
+                            } else {
+                                if (finalUrl.includes('drive.google.com/uc?export=view&id=')) {
+                                    finalUrl = finalUrl.replace('export=view', 'export=download');
+                                }
                             }
                             targetElement.setAttribute('referrerpolicy', 'no-referrer'); // Ensure referrer policy for video
                             const source = targetElement.querySelector('source');
@@ -133,13 +139,8 @@ async function loadSheetData() {
                                 targetElement.src = finalUrl;
                             }
                             targetElement.load();
-                            // Guarantee the video auto-plays after fetching from Drive
                             targetElement.muted = true; // Fixes strict browser autoplay policies
                             targetElement.play().catch(err => console.log("Autoplay prevented:", err));
-                            // Special case for MoodMix demo video playback rate
-                            if (selector === '#moodmix-demo-video') {
-                                targetElement.playbackRate = 1.25;              
-                            }
                         } else { // This 'else' handles non-IMG, non-VIDEO elements (like backgrounds)
                             targetElement.style.backgroundImage = `url('${finalUrl}')`; // For Hero backgrounds or sections
                             targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`); // Pass the image URL to CSS variables
