@@ -86,9 +86,21 @@ async function loadSheetData() {
                 }
             }
 
-            // HARDCODE LOCK: Protect artists and ALL hero background images from being overwritten by the API.
-            // Exception: '#hero-community' is allowed so the static crest image can load as a fallback.
-            const isHardcoded = selector ? (selector.includes('#artist-') || (selector.includes('hero') && selector !== '#hero-community')) : false;
+            // 4. MUSIC PAGE SPECIAL OVERRIDES: Handle specific media placements that are incorrect in the database
+            if (document.body.contains(document.getElementById('production'))) { // A check to only run this on the music page
+                // Handle 'livemusic' image for the #shows section background
+                if (title.toLowerCase().includes('livemusic') && mediaUrl) {
+                    const showsSection = document.getElementById('shows');
+                    if (showsSection) {
+                        let finalUrl = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                        showsSection.style.backgroundImage = `url('${finalUrl}')`;
+                    }
+                }
+            }
+
+            // HARDCODE LOCK: Protect most hero backgrounds from the API, but allow music page heroes.
+            // Artist images on the music page are also allowed to be dynamic.
+            const isHardcoded = selector ? (selector.includes('hero') && !selector.includes('hero-music') && selector !== '#hero-community') : false;
             
             // ENABLE ALL IMAGES: Process entries that map to valid selectors
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {

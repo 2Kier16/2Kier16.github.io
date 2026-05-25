@@ -664,7 +664,7 @@ h1, h2, h3, h4, h5, h6 {
 .music-p-mb-2_5 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 2.5rem; }
 
 /* Featured Artists Banner */
-#artists {
+#artist {
     background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('../assets/artist.jpg');
     background-size: cover;
     background-position: center center;
@@ -674,13 +674,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 4rem auto 1rem auto;
 }
 
-#artists .section-heading-primary,
-#artists .section-paragraph-large {
+#artist .section-heading-primary,
+#artist .section-paragraph-large {
     color: #ffffff;
     margin-bottom: 0;
 }
 
-#artists .section-heading-primary {
+#artist .section-heading-primary {
     margin-bottom: 0.25rem;
 }
 
