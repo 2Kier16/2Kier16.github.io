@@ -940,7 +940,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- 11. Community Page Video Section (Isolated) --- */
-/* This section is designed to replace the complex hero logic for debugging. */
+/*  replaced the complex hero logic for debugging. */
 .community-video-section {
     background-color: #111827; /* Dark background to make the video visible */
     padding: 4rem 2rem;
@@ -949,7 +949,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .community-video-section video {
     max-width: 100%;
-    width: 800px; /* A clear width to make it visible */
+    width: 800px; /* Clear width to make it visible */
     height: auto;
     border-radius: 12px;
     border: 1px solid var(--primary-dark);
