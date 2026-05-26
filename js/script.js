@@ -16,6 +16,7 @@ async function loadSheetData() {
         const response = await fetch(url);
         const text = await response.text();
         const data = JSON.parse(text.substr(47).slice(0, -2));
+        let defaultVetResourceImage = 'assets/gen.jpg'; // Default fallback
         const rows = data.table.rows;
 
         // --- GLOBAL ELEMENT OVERRIDE ---
@@ -23,6 +24,21 @@ async function loadSheetData() {
             const title = row.c[1] ? row.c[1].v : ''; // Column B: Title
             const selector = row.c[10] ? row.c[10].v : null; // Column K: CSS Selector
             const mediaUrl = cleanDriveLink(row.c[4] ? row.c[4].v : null); // Column E: Media URL
+            const targetPage = row.c[9] ? row.c[9].v : ''; // Column J: Page Target
+
+            // Find and set the default veteran resource image from the sheet
+            if (selector === '#us-mbranches' && mediaUrl) {
+                defaultVetResourceImage = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+            }
+
+            // VETERAN RESOURCES HERO OVERRIDE: The database entry for 'branches' has the wrong selector, so this forces it to the hero background.
+            if (targetPage.includes('veteran-resource') && title.toLowerCase().includes('branches') && mediaUrl) {
+                const vetHero = document.querySelector('.hero-veteran-resources');
+                if (vetHero) {
+                    let finalUrl = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                    vetHero.style.setProperty('--hero-bg', `url('${finalUrl}')`);
+                }
+            }
 
             // 1. GLOBAL LOGO OVERRIDE: Applies the K.V.T. logo to site-wide header and footer
             if ((title.toLowerCase().includes('kvtlogowb') || title.toLowerCase().includes('k.v.t logo') || title.toLowerCase().includes('site logo')) && mediaUrl) {
@@ -100,7 +116,7 @@ async function loadSheetData() {
 
             // HARDCODE LOCK: Protect most hero backgrounds from the API, but allow music page heroes.
             // Artist images on the music page are also allowed to be dynamic.
-            const isHardcoded = selector ? (selector.includes('hero') && !selector.includes('hero-music') && selector !== '#hero-community') : false;
+            const isHardcoded = selector ? (selector.includes('hero') && !selector.includes('hero-music') && !selector.includes('hero-veteran-resources') && selector !== '#hero-community') : false;
             
             // ENABLE ALL IMAGES: Process entries that map to valid selectors
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
@@ -201,17 +217,23 @@ async function loadSheetData() {
                 const target = row.c[9] ? row.c[9].v : ''; // Column J: Page Target
                 const selector = row.c[10] ? row.c[10].v : ''; // Column K: CSS Selector
                 
-                // Exclude the hero background from the resources list
-                if (target.includes('veteran-resource') && row.c[1] && !selector.includes('hero')) {
-                    const img = cleanDriveLink(row.c[4]?.v);
+                // Only create cards for 'veteran-resource' items that do NOT have a specific element selector.
+                if (target.includes('veteran-resource') && row.c[1] && (!selector || selector.trim() === '' || selector.trim().toLowerCase() === 'none')) {
+                    const title = row.c[1].v;
+                    let imageUrl = cleanDriveLink(row.c[4]?.v);
+                    if (imageUrl) {
+                        // Use the more reliable Google content domain for images
+                        imageUrl = imageUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
+                    }
+
                     const link = row.c[5] ? row.c[5].v : '#';
                     resourceContainer.innerHTML += `
                         <div class="resource-card">
                             <div class="resource-img-container">
-                                ${img ? `<img src="${img}" alt="Resource">` : ''}
+                                <img src="${imageUrl || defaultVetResourceImage}" alt="${title}">
                             </div>
                             <div class="resource-content">
-                                <h3><a href="${link}" target="_blank">${row.c[1].v}</a></h3>
+                                <h3><a href="${link}" target="_blank">${title}</a></h3>
                                 <p>${row.c[3] ? row.c[3].v : ''}</p>
                                 <a href="${link}" target="_blank" class="read-more-btn">View Resource &rarr;</a>
                             </div>

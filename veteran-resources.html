@@ -12,7 +12,6 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html"><img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img"></a>
                 <a href="index.html"><img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img" id="nav-logo-main"></a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
@@ -72,6 +71,9 @@
 
    
         <section class="portfolio-section portfolio-section-vet-resources content-wrapper">
+            <div class="text-center">
+                <h2 class="section-heading-primary">Resource Library</h2>
+            </div>
             <div class="resource-grid" id="resource-container">
                 <div class="loading-message-style">
                     Loading resources...
@@ -97,84 +99,12 @@
         <div class="footer-bottom">
             <div class="signature-content">
                 <p class="signature-text">Kier V. Turpin</p>
-                <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo">
                 <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo" id="footer-signature-logo">
             </div>
             <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
         </div>
     </footer>
 
-
-  <script>
-    // 1. The translator for Google Drive images
-    function cleanDriveLink(link) {
-        if (!link || link === "") return 'assets/gen.jpg';
-        const regex = /\/d\/([^\/]+)/;
-        const match = link.match(regex);
-        if (match && match[1]) {
-            return `https://drive.google.com/uc?export=view&id=${match[1]}`;
-        }
-        return link; 
-    }
-
-    // 2. The function to pull data from Google Sheets
-    async function fetchResources() {
-        const sheetID = '1hO0apmZIVnENyl6Mlh8AtCX5vS9Amp6Jn9k9L0Eu7T0';
-        const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json`;
-
-        try {
-            const response = await fetch(url);
-            const text = await response.text();
-            // This cleans the Google-specific data format
-            const json = JSON.parse(text.substr(47).slice(0, -2));
-            const rows = json.table.rows;
-
-            const container = document.getElementById('resource-container');
-            container.innerHTML = ''; // Clear "Loading..." message
-
-            rows.forEach(row => {
-                const targetPage = (row.c[9] && row.c[9].v) ? String(row.c[9].v) : '';
-                const selector = (row.c[10] && row.c[10].v) ? String(row.c[10].v) : '';
-
-                // Only load rows marked for veteran-resources that are NOT specific element targets
-                if (targetPage.includes('veteran-resource') && (!selector || selector === 'none' || selector.trim() === '')) {
-                // Mapping the spreadsheet columns to your website card
-                const item = {
-                    title: row.c[1] ? row.c[1].v : "Untitled",
-                    category: row.c[2] ? row.c[2].v : "General",
-                    brief: row.c[3] ? row.c[3].v : "",
-                    image: row.c[4] ? row.c[4].v : "",
-                    link: row.c[5] ? row.c[5].v : "#"
-                };
-
-                const imageUrl = cleanDriveLink(item.image);
-                const placeholderImage = 'assets/gen.jpg';
-
-                const card = document.createElement('div');
-                card.className = 'resource-card';
-                card.innerHTML = `
-                    <div class="resource-img-container">
-                        <img src="${imageUrl}" alt="${item.title}" onerror="this.src='${placeholderImage}';">
-                    </div>
-                    <div class="resource-content">
-                        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                        <p>${item.brief}</p>
-                        <a href="${item.link}" target="_blank" class="read-more-btn">
-                            View Resource &rarr;
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-                }
-            });
-        } catch (error) {
-            console.error("Error loading resources:", error);
-            document.getElementById('resource-container').innerHTML = "Failed to load resources.";
-        }
-    }
-
-    // 3. Run the function when the page loads
-    document.addEventListener('DOMContentLoaded', fetchResources);
-</script>
+    <script src="js/script.js"></script>
 </body>
 </html>
