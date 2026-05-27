@@ -55,7 +55,7 @@ async function loadSheetData() {
                 let finalCrestUrlForBackground = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
                 
                 // Apply to hero backgrounds
-                document.querySelectorAll('.hero-index, .hero-heritage, .hero-advocacy').forEach(element => {
+                document.querySelectorAll('.hero-index, .hero-heritage').forEach(element => {
                     element.style.setProperty('--hero-bg', `url('${finalCrestUrlForBackground}')`);
                 });
 
@@ -116,7 +116,7 @@ async function loadSheetData() {
 
             // HARDCODE LOCK: Protect most hero backgrounds from the API, but allow music page heroes.
             // Artist images on the music page are also allowed to be dynamic.
-            const isHardcoded = selector ? (selector.includes('hero') && !selector.includes('hero-music') && !selector.includes('hero-veteran-resources') && selector !== '#hero-community') : false;
+            const isHardcoded = selector ? (selector.includes('hero') && !selector.includes('hero-music') && !selector.includes('hero-veteran-resources') && selector !== '#hero-community' && selector !== '#ad-hero') : false;
             
             // ENABLE ALL IMAGES: Process entries that map to valid selectors
             if (selector && selector !== 'none' && mediaUrl && !isHardcoded) {
@@ -177,7 +177,9 @@ async function loadSheetData() {
                             targetElement.play().catch(err => console.log("Autoplay prevented:", err));
                         } else { 
                             // Handle non-media tags (like divs) by applying the image as a background
-                            targetElement.style.backgroundImage = `url('${finalUrl}')`;
+                            if (!targetElement.classList.contains('hero-portfolio')) {
+                                targetElement.style.backgroundImage = `url('${finalUrl}')`;
+                            }
                             targetElement.style.setProperty('--hero-bg', `url('${finalUrl}')`);
                         }
                     });
@@ -255,4 +257,31 @@ async function loadSheetData() {
 }
 
 // Bootstrap the data loading flow once the document is ready
-document.addEventListener('DOMContentLoaded', loadSheetData);
+document.addEventListener('DOMContentLoaded', () => {
+    loadSheetData();
+
+    // --- 3. Mobile Navigation Logic ---
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Handle mobile dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        if (link) {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+    });
+});
