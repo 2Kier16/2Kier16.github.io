@@ -137,8 +137,15 @@ async function loadSheetData() {
                         }
 
                         if (targetElement.tagName === 'IMG') {
-                            targetElement.setAttribute('referrerpolicy', 'no-referrer');
-                            targetElement.src = finalUrl;
+                            // Check if the URL is a valid image source before applying to prevent broken images
+                            const isDirectImage = finalUrl && (finalUrl.match(/\.(jpeg|jpg|gif|png|webp|svg)/i) || finalUrl.includes('lh3.googleusercontent.com'));
+
+                            if (isDirectImage) {
+                                targetElement.setAttribute('referrerpolicy', 'no-referrer');
+                                targetElement.src = finalUrl;
+                            } else {
+                                console.warn(`URL for selector '${selector}' is not a direct image link: ${finalUrl}. Placeholder will be used.`);
+                            }
                             
                             // Append dynamic titles under MoodMix gallery screenshots
                             if (targetElement.closest('.gallery-grid') && row.c[3] && row.c[3].v) {

@@ -243,6 +243,16 @@ h1, h2, h3, h4, h5, h6 {
     /* Animation removed to simplify to a single static image */
 }
 
+#art_artist {
+    min-height: 55vh;
+}
+
+#art_artist::after {
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+}
+
 /* --- 5. LOGO & IMAGE SIZING --- */
 .logo-featured-responsive {
     width: 100%;
@@ -934,4 +944,26 @@ h1, h2, h3, h4, h5, h6 {
 /* As requested, hide the text content within this section for now */
 .community-video-section .community-exclusive-content {
     display: none;
+}
+
+/* --- Artist Gallery Images --- */
+.artist-social-links-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.artist-social-links-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.artist-social-links-gallery img:hover {
+    transform: scale(1.05);
 }
