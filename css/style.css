@@ -967,3 +967,19 @@ h1, h2, h3, h4, h5, h6 {
 .artist-social-links-gallery img:hover {
     transform: scale(1.05);
 }
+
+/* --- Advocacy Page Images --- */
+.advocacy-list-container .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    max-width: none; /* Override default 600px */
+    justify-items: center;
+}
+
+.advocacy-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
