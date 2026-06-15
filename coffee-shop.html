@@ -8,7 +8,10 @@
     <title>Coffee Shop - K.V.T.</title>
     <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
-<body>
+
+<!-- PAGE-SPECIFIC ID FOR SCOPED CSS -->
+<body id="coffee-shop-page">
+
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -16,16 +19,19 @@
                     <img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img">
                 </a>
             </div>
+
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
+
             <nav class="nav-links">
                 <a href="index.html#home">Home</a>
                 <a href="moodmix.html">MoodMix</a>
                 <a href="heritage.html">Heritage Project</a>
                 <a href="community.html">Community</a>
+
                 <div class="dropdown">
                     <a href="#" onclick="event.preventDefault()">About Me ▼</a>
                     <div class="dropdown-content">
@@ -33,6 +39,7 @@
                         <a href="resume.html">Resume</a>
                     </div>
                 </div>
+
                 <div class="dropdown">
                     <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
                     <div class="dropdown-content">
@@ -45,30 +52,74 @@
                         <a href="hobbiest.html">Hobbiest</a>
                     </div>
                 </div>
+
                 <a href="index.html#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero-portfolio" id="home">
-            <div class="hero-content-inner text-pop"> 
-                <h1>Coffee Shop</h1>
-                <p class="hero-subtext-index">A cozy digital corner for coffee art, brewing tips-n-tricks, specialty coffee shops, beans, roaster, or sippin.</p>
+
+    <section class="hero-portfolio coffee-hero">
+        <div class="hero-content-inner text-pop">
+            <h1>Coffee Shop
+                <p> THIS PAGE IS CURRENTLY UNDER CONSTRUCTION </p>
+            </h1>
+            <p class="hero-subtext-index">
+                A cozy digital corner for learning About Coffee,latte art, specialty cafés, and the craft of coffee.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- LEARNING CENTER SECTION -->
+    <section class="learning-center content-wrapper">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 class="section-heading-primary">Learning Center</h2>
+            <p class="section-paragraph-large">
+                Get a better understanding of the world of coffee with this education center about coffee.
+            </p>
+        </div>
+
+        <div class="learning-list-container" id="learning-center-grid">
+            <!-- Cards will be injected dynamically -->
+        </div>
+    </section>
+    
+    <main class="content-wrapper coffee-content">
+
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 class="section-heading-primary">The Coffee Shops, I've Visited</h2>
+            <p class="section-paragraph-large">
+                <i>“Travel and change of place impart new vigor to the mind.” — Seneca</i><br>
+                <i>“The world is a book and those who do not travel read only one page.” — St. Augustine</i><br>
+                <i>“Coffee is a language in itself.” — Jackie Kennedy Onassis</i>
+            </p>
+        </div>
+        
+        <!-- DYNAMIC LOCATION CONTAINER -->
+        <div id="coffee-locations-container"></div>
+
+        <!-- GALLERY COLLECTION -->
+        <section class="gallery-collection">
+            <h2 class="gallery-title">The Gallery Collection</h2>
+
+            <div class="gallery-grid coffee-gallery-grid">
+                <!-- replace these with your Google Drive image URLs later -->
+                <img src="assets/gallery1.jpg" alt="">
+                <img src="assets/gallery2.jpg" alt="">
+                <img src="assets/gallery3.jpg" alt="">
+                <img src="assets/gallery4.jpg" alt="">
+                <img src="assets/gallery5.jpg" alt="">
+                <img src="assets/gallery6.jpg" alt="">
+                <img src="assets/gallery7.jpg" alt="">
+                <img src="assets/gallery8.jpg" alt="">
+                <img src="assets/gallery9.jpg" alt="">
+                <img src="assets/gallery10.jpg" alt="">
+                <img src="assets/gallery11.jpg" alt="">
+                <img src="assets/gallery12.jpg" alt="">
             </div>
         </section>
 
-        <section class="portfolio-section content-wrapper">
-            <div class="text-center">
-                <div class="under-construction-badge">
-                    🚧 Content Under Development
-                </div>
-                <h2 class="section-heading-primary">Coming Soon</h2>
-                <p class="section-paragraph-large">
-                    Grab a cup and get comfortable. This space is currently being built.
-                </p>
-            </div>
-        </section>
     </main>
 
     <footer class="footer">
@@ -84,6 +135,7 @@
                 <a href="index.html#contact">Contact</a>
             </div>
         </div>
+
         <div class="footer-bottom">
             <div class="signature-content">
                 <p class="signature-text">Kier V. Turpin</p>
@@ -94,5 +146,90 @@
     </footer>
 
     <script src="js/script.js?v=2.0"></script>
+
+    <!-- COFFEE PAGE-SPECIFIC DYNAMIC LEARNING CENTER SCRIPT -->
+    <script>
+const learningCenterItems = [
+    {
+        title: "Brewing Basics",
+        description: "Learn essential brewing methods like pour over, espresso, and French press.",
+        image: "assets/learn-brewing.jpg",
+        link: "brew-tech.html",
+        id: "brewing",
+        icon: "🫖"
+    },
+    {
+        title: "Coffee Origins",
+        description: "Explore the history and regions of coffee from Ethiopia to Latin America.",
+        image: "assets/learn-origins.jpg",
+        link: "coffee-origins.html",
+        id: "origins",
+        icon: "🌱"
+    },
+    {
+        title: "Latte Art & Beyond",
+        description: "Master milk frothing, latte art, and the science of texture.",
+        image: "assets/learn-latte-art.jpg",
+        link: "latte-art.html",
+        id: "free-pour",
+        icon: "🎨"
+    }
+];
+
+const learningGrid = document.getElementById("learning-center-grid");
+
+learningCenterItems.forEach(item => {
+    learningGrid.innerHTML += `
+        <div class="learning-row-card">
+            <div class="learning-row-content">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <div><a href="${item.link}" class="btn btn-primary">${item.icon} Learn More</a></div>
+            </div>
+            <div class="learning-row-img">
+                <img src="${item.image}" alt="${item.title}" id="${item.id}">
+            </div>
+        </div>
+    `;
+});
+</script>
+
+    <!-- COFFEE PAGE-SPECIFIC DYNAMIC LOCATION SCRIPT -->
+    <script>
+        const coffeeLocations = [
+            {
+                name: "The Daily Grind",
+                summary: "A cozy neighborhood café known for its friendly atmosphere and expertly crafted drinks.",
+                image: "assets/latte1.jpg"
+            },
+            {
+                name: "Panther Coffee",
+                summary: "Trendy espresso bar specializing in artisan coffee and locally roasted beans.",
+                image: "assets/latte2.jpg"
+            },
+            {
+                name: "Harbor Brews",
+                summary: "A waterfront spot perfect for relaxing with a view and a delicious brew.",
+                image: "assets/latte3.jpg"
+            }
+        ];
+
+        const container = document.getElementById("coffee-locations-container");
+
+        coffeeLocations.forEach(loc => {
+            container.innerHTML += `
+                <section class="coffee-location">
+                    <h2 class="coffee-location-title">${loc.name}</h2>
+                    <p class="coffee-location-summary">${loc.summary}</p>
+
+                    <div class="latte-art-feature">
+                        <img src="${loc.image}" alt="${loc.name} Latte Art">
+                    </div>
+                </section>
+            `;
+        });
+    </script>
+
 </body>
+</html>
 </html>
