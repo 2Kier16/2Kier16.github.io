@@ -895,6 +895,8 @@ h1, h2, h3, h4, h5, h6 {
 #coffee-shop-page .latte-art-feature img {
     width: 100%;
     height: auto;
+    height: 160px; /* Thin banner style */
+    object-fit: cover;
     display: block;
 }
 

@@ -198,32 +198,115 @@ learningCenterItems.forEach(item => {
     <script>
         const coffeeLocations = [
             {
-                name: "The Daily Grind",
-                summary: "A cozy neighborhood café known for its friendly atmosphere and expertly crafted drinks.",
-                image: "assets/latte1.jpg"
+                name: "Breezeblock Coffee",
+                summary: "Located in the lobby of The Alea building in Downtown Miami, Breezeblock is a trendy specialty coffee bar known for its welcoming staff, beautiful coffee presentations, and treats like their ham and cheese croissants.",
+                notes: "*Street parking is available, but it is best to take the Metro Mover or ride-sharing service to get there, because parking can be an issue.*",
+                address: "230 NE 4th St, Miami, FL 33132",
+                website: "https://www.breezeblockcoffee.com/",
+                instagram: "https://www.instagram.com/breezeblockcoffee/",
+                image: "https://images.squarespace-cdn.com/content/v1/6434453c5f4413633f121b38/c56a19d4-a6a3-4789-a56a-7f5a1c313264/Breezeblock-4.jpg"
             },
             {
-                name: "Panther Coffee",
-                summary: "Trendy espresso bar specializing in artisan coffee and locally roasted beans.",
-                image: "assets/latte2.jpg"
+                name: "Naughty Coffee",
+                summary: "Originally known for their vintage Volkswagen van coffee bars inside Miami malls, Naughty Coffee recently opened this flagship roastery-cafe in Downtown Miami. They focus on manual brews of rare, single-origin coffees alongside an exceptional espresso program.",
+                notes: "*Located just steps from the First Street Metromover station. A must-visit for coffee enthusiasts who appreciate beautifully crafted hand brews.*",
+                address: "101 NE 2nd Ave, Miami, FL 33132",
+                website: "https://www.naughtycoffee.com/",
+                instagram: "https://www.instagram.com/naughtycoffee/",
+                image: "https://images.unsplash.com/photo-1521017430205-025b0e408ec2?auto=format&fit=crop&q=80&w=1000"
             },
             {
-                name: "Harbor Brews",
-                summary: "A waterfront spot perfect for relaxing with a view and a delicious brew.",
-                image: "assets/latte3.jpg"
+                name: "Café Grumpy",
+                summary: "A Brooklyn-based shop serving excellent coffee, tea, and local pastries in a welcoming space. This Coral Gables spot marks their very first location outside of New York!",
+                notes: "*Street parking is available but may be limited depending on the time of day, so consider using a ride-sharing service or public transportation.*",
+                address: "2516 Ponce de Leon Blvd, Coral Gables, FL 33134",
+                website: "https://cafegrumpy.com/",
+                instagram: "https://www.instagram.com/cafegrumpy/",
+                image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "Onyx Tonics",
+                summary: "A specialty coffee bar offering a rotating selection of single-origin coffees brewed to exacting standards by an award-winning coffee taster.",
+                notes: "*Why drive when you can walk and enjoy the local scenery? However there is plenty of paid parking in downtown Burlington, VT.*",
+                address: "126 College St, Burlington, VT 05401",
+                website: "https://onyxtonics.com/",
+                instagram: "https://www.instagram.com/onyxtonics/",
+                image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "Vivid Coffee Roasters",
+                summary: "A bright and welcoming cafe in downtown Burlington, known for roasting their own high-quality beans and providing a vibrant atmosphere.",
+                notes: "*Located just a block off Church Street, it's a great spot to grab a pour-over and get some work done or catch up with friends. They also roast in house!*",
+                address: "150 Cherry St, Burlington, VT 05401",
+                website: "https://vividcoffee.com/",
+                instagram: "https://www.instagram.com/vividcoffee/",
+                image: "https://images.unsplash.com/photo-1495474472201-4efa183b5faa?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "Kru Coffee",
+                summary: "Located right on the Church Street Marketplace, Kru Coffee offers meticulously roasted beans, expertly crafted espresso beverages, and a cozy place to relax.",
+                notes: "*Perfect location to grab a coffee while strolling down Church Street. Their seasonal drinks and fresh pastries are definitely worth a try.*",
+                address: "2 Church St, Burlington, VT 05401",
+                website: "https://www.krucoffee.com/",
+                instagram: "https://www.instagram.com/krucoffee/",
+                image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "Peregrine Espresso",
+                summary: "A staple of the DC coffee scene located inside the bustling Union Market. Known for their focus on quality, sustainability, and education, serving up excellent espresso and pour-overs.",
+                notes: "*A perfect spot to grab a beautifully crafted coffee before exploring the incredible variety of food stalls within Union Market.*",
+                address: "1309 5th St NE, Washington, DC 20002",
+                website: "https://peregrineespresso.com/",
+                instagram: "https://www.instagram.com/peregrinedc/",
+                image: "https://images.unsplash.com/photo-1442512595305-8b14e918fb5f?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "DUA DC Coffee",
+                summary: "Washington DC's first Indonesian specialty coffee shop, offering single-origin beans sourced directly from the different islands of Indonesia. A fantastic local and woman-owned spot.",
+                notes: "*Their signature drinks are thoughtfully crafted. The Klavee (coconut water with espresso) and Aren Latte are absolute must-tries!*",
+                address: "923 15th St NW, Washington, DC 20005",
+                website: "https://duadc.com/",
+                instagram: "https://www.instagram.com/duadccoffee/",
+                image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "CFS Coffee For The Soul",
+                summary: "A warm and welcoming Latin-fusion coffee shop bringing a taste of Colombian tradition with a healthy, modern twist. They serve 100% Colombian coffee alongside artisanal drinks and wholesome all-day breakfast items.",
+                notes: "*Located on the beautiful Giralda Plaza pedestrian street, making it a perfect spot to sit outside and enjoy the Coral Gables ambiance.*",
+                address: "256 Giralda Ave, Coral Gables, FL 33134",
+                website: "https://www.cfscoffee.com/",
+                instagram: "https://www.instagram.com/cfscoffee/",
+                image: "https://images.unsplash.com/photo-1498603536246-15572faa67a6?auto=format&fit=crop&q=80&w=1000"
+            },
+            {
+                name: "GROU Coffee + Cowork",
+                summary: "A community-focused specialty coffee shop and coworking space in Coral Gables. They source from local Miami roasters and offer excellent espresso, plant-based foods, and a curated affogato bar.",
+                notes: "*The perfect destination if you need to bring your laptop to get some work done. It features a bustling, welcoming café alongside dedicated, quiet coworking spaces.*",
+                address: "4100 Salzedo St STE 5, Coral Gables, FL 33146",
+                website: "https://www.groucommunity.com/",
+                instagram: "https://www.instagram.com/groucommunity/",
+                image: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?auto=format&fit=crop&q=80&w=1000"
             }
         ];
 
         const container = document.getElementById("coffee-locations-container");
 
         coffeeLocations.forEach(loc => {
+            let linksHtml = '';
+            if (loc.website && loc.website !== '#') linksHtml += `<a href="${loc.website}" target="_blank" class="social-icon">Website</a>`;
+            if (loc.instagram && loc.instagram !== '#') linksHtml += `<a href="${loc.instagram}" target="_blank" class="social-icon">Instagram</a>`;
+
             container.innerHTML += `
                 <section class="coffee-location">
                     <h2 class="coffee-location-title">${loc.name}</h2>
+                    ${loc.address ? `<p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">📍 ${loc.address}</p>` : ''}
                     <p class="coffee-location-summary">${loc.summary}</p>
+                    ${loc.notes ? `<p style="font-size: 0.95rem; color: var(--text-light); margin-top: -1rem; margin-bottom: 1.5rem;">${loc.notes}</p>` : ''}
+
+                    ${linksHtml ? `<div class="social-links" style="margin-bottom: 2rem;">${linksHtml}</div>` : ''}
 
                     <div class="latte-art-feature">
-                        <img src="${loc.image}" alt="${loc.name} Latte Art">
+                        <img src="${loc.image}" alt="${loc.name}">
                     </div>
                 </section>
             `;
