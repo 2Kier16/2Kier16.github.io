@@ -28,8 +28,8 @@ body {
     padding-top: 90px;
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: #e7d8db;
-    background-image: radial-gradient(rgba(75, 85, 99, 0.15) 1.5px, transparent 1.5px);
+    background-color: #f0f4f8;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
 }
 
@@ -838,17 +838,19 @@ h1, h2, h3, h4, h5, h6 {
 /* --- COFFEE SHOP PAGE (SCOPED, SAFE, PAGE-SPECIFIC) --- */
 /* ------------------------------------------------------ */
 
-#coffee-shop-page {
-    background-color: #f0e6d2; /* Warm latte/coffee background */
-    background-image: radial-gradient(rgba(111, 78, 55, 0.12) 1.5px, transparent 1.5px);
-    background-size: 24px 24px;
-}
-
 /* HERO OVERRIDE (subtle coffee texture overlay) */
 #coffee-shop-page .coffee-hero::after {
     background-image: url('../assets/mastercrest.png');
     background-size: contain;
-    opacity: 0.15;
+    opacity: 0.05;
+}
+
+#coffee-shop-page .section-heading-primary {
+    color: var(--primary-dark) !important;
+}
+
+#coffee-shop-page .section-paragraph-large {
+    color: var(--text-dark) !important;
 }
 
 /* MAIN CONTENT WRAPPER */
@@ -911,6 +913,17 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', serif;
     color: var(--primary-dark);
     margin-bottom: 2rem;
+}
+
+#coffee-shop-page .social-icon {
+    background: var(--bg-white);
+    color: var(--text-dark);
+    border: 1px solid var(--border);
+}
+#coffee-shop-page .social-icon:hover {
+    background: #6366f1;
+    color: white;
+    border-color: #6366f1;
 }
 
 /* GALLERY GRID */
