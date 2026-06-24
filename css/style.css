@@ -1664,12 +1664,14 @@ h1, h2, h3, h4, h5, h6 {
     background: #4f46e5;
 }
 
+/* --- Global 3 Page Learning Center Page Backgrounds --- */
 #brew-tech-page, #coffee-origins-page, #latte-art-page { 
     background-color: #f0f4f8; 
 }
 
-/* --- Side-by-Side Rectangular Brew Card Update --- */
-.brew-grid .brew-card {
+/* --- Card Layout Containers --- */
+.brew-grid .brew-card,
+.origins-grid .origin-card {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
@@ -1678,45 +1680,24 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-.brew-grid .brew-text-box {
+/* --- Card Content & Typography Layouts --- */
+.brew-grid .brew-text-box,
+.origins-grid .origin-card > h3, 
+.origins-grid .origin-card > p {
     flex: 1;
     background-color: #1f2937;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 4px -15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%; 
 }
-/* Special override to crop the tall vertical images so they match the rest */
-.brew-grid .brew-image-box img#pour,
-.brew-grid .brew-image-box img#coldbrew {
-    aspect-ratio: 4 / 3; /* Forces them into a landscape frame matching the others */
-    max-height: 320px;   /* Caps their height so they don't blow out the container */
-    object-fit: cover;    /* Ensures they fill the box without distortion */
-}
 
-
-.brew-grid .brew-image-box {
-    width: 20%;
-    min-width: 150px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.brew-grid .brew-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: var(--cup-position, center);
-    display: block;
-    overflow: hidden;
-}
-
-.brew-text-box h3 {
+.brew-text-box h3,
+.origins-grid .origin-card h3 {
     margin-top: 0;
     font-size: 1.4rem;
     color: #ffffff; 
@@ -1729,17 +1710,80 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-.brew-details p {
+.brew-details p,
+.origins-grid .origin-card p {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 0.75rem;
     color: #d1d5db;
 }
 
+.brew-details p:last-child {
+    margin-bottom: 0;
+}
+
 .brew-details strong {
     color: #ffffff; 
 }
 
+.brew-text-box .brew-action {
+    margin-top: 1.5rem;
+    align-self: flex-start;
+}
+
+/* --- Unified 35% Image Container Size (All 3 Pages) --- */
+.brew-grid .brew-image-box,
+.brew-grid .latte-image-box,
+.origins-grid .origin-card img {
+    width: 35%;
+    min-width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* --- Origins Page: Portrait Images Fill Full Vertical Height --- */
+#coffee-origins-page .brew-grid .latte-image-box img,
+#coffee-origins-page .origins-grid .origin-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--cup-position, center);
+    display: block;
+}
+
+/* --- Brew Tech & Latte Art: Landscape Frames --- */
+#brew-tech-page .brew-image-box img,
+#latte-art-page .latte-image-box img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 380px;
+    object-fit: cover;
+    object-position: var(--cup-position, center);
+    display: block;
+}
+
+/* --- Special Component Modifiers & Background Separation --- */
+.brew-grid .latte-image-box img#microfoam,
+.brew-grid .latte-image-box img#heart {
+    filter: brightness(93%);
+}
+
+/* --- Breathing Room for Related Topics Section --- */
+.origins-related, 
+.latte-related,
+.brew-related {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+.related-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
 /* ==========================================================================
    9. SITE FOOTER RECOVERY
    ========================================================================== */
