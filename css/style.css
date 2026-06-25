@@ -1427,14 +1427,15 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     box-shadow: var(--shadow);
     border: 2px solid rgba(0,0,0,0.08);
+    background-color: #000000;
 }
 
 #coffee-shop-page .latte-art-feature img {
     width: 100%;
-    height: 160px; 
-    object-fit: cover;
-    object-position: var(--cup-position, center);
+    height: 160px;
     display: block;
+    object-fit: var(--cup-size, cover);
+    object-position: var(--cup-position, center);
 }
 
 #coffee-shop-page .gallery-collection {
