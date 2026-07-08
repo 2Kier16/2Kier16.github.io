@@ -8,10 +8,7 @@
     <title>Coffee Shop - K.V.T.</title>
     <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
-
-<!-- PAGE-SPECIFIC ID FOR SCOPED CSS -->
-<body id="coffee-shop-page">
-
+<body id="picshop-page">
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -19,29 +16,25 @@
                     <img src="assets/kvtlogowb.png" alt="K.V.T Company Logo" class="logo-img">
                 </a>
             </div>
-
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-
             <nav class="nav-links">
                 <a href="index.html#home">Home</a>
                 <a href="moodmix.html">MoodMix</a>
                 <a href="heritage.html">Heritage Project</a>
                 <a href="community.html">Community</a>
-
                 <div class="dropdown">
-                    <a href="#" onclick="event.preventDefault()">About Me ▼</a>
+                    <a href="#" onclick="event.preventDefault()">About Me  ▼ </a>
                     <div class="dropdown-content">
                         <a href="about.html">My Story</a>
                         <a href="resume.html">Resume</a>
                     </div>
                 </div>
-
                 <div class="dropdown">
-                    <a href="#" onclick="event.preventDefault()">Pathways ▼</a>
+                    <a href="#" onclick="event.preventDefault()">Pathways  ▼ </a>
                     <div class="dropdown-content">
                         <a href="music.html">Music</a>
                         <a href="veteran-resources.html">Vet Resources</a>
@@ -52,13 +45,11 @@
                         <a href="hobbiest.html">Hobbiest</a>
                     </div>
                 </div>
-
                 <a href="index.html#contact">Contact</a>
             </nav>
         </div>
     </header>
-
-
+    
     <section class="hero-portfolio coffee-hero">
         <video autoplay loop muted playsinline class="production-bg-video">
             <source src="assets/videos/theshop.mp4" type="video/mp4">
@@ -66,13 +57,11 @@
         <div class="hero-content-inner text-pop">
             <h1>The COFFEE SHOP</h1>
             <p class="hero-subtext-index">
-                A cozy digital corner for learning About Coffee,latte art, specialty cafés, and the craft of coffee.
+                A cozy digital corner for learning About Coffee, latte art, specialty cafés, and the craft of coffee.
             </p>
         </div>
     </section>
 
-
-    <!-- LEARNING CENTER SECTION -->
     <section class="learning-center content-wrapper">
         <div class="text-center" style="margin-bottom: 3rem;">
             <h2 class="section-heading-primary">Learning Center</h2>
@@ -80,14 +69,11 @@
                 Get a better understanding of the world of coffee with this education center about coffee.
             </p>
         </div>
-
         <div class="learning-list-container" id="learning-center-grid">
-            <!-- Cards will be injected dynamically -->
-        </div>
+            </div>
     </section>
-    
-    <main class="content-wrapper coffee-content">
 
+    <main class="content-wrapper coffee-content">
         <div class="text-center" style="margin-bottom: 3rem;">
             <h2 class="section-heading-primary">The Coffee Shops, I've Visited</h2>
             <p class="section-paragraph-large">
@@ -96,39 +82,24 @@
                 <i>“Coffee is a language in itself.” — Jackie Kennedy Onassis</i>
             </p>
         </div>
-        
-        <!-- DYNAMIC LOCATION CONTAINER -->
+
         <div id="coffee-locations-container"></div>
-
-          <!-- GALLERY COLLECTION -->
-        <!-- <section class="gallery-collection">
+        
+        <section class="gallery-collection">
             <h2 class="gallery-title">The Gallery Collection</h2>
-
-            <p class="section-paragraph-large">UNDER CONTRUCTION: This gallery is a work in progress, and I will be adding more images as I continue to explore the world of coffee.
-                Explore a collection of free-pour latte art and specialty drinks crafted by baristas across various coffee shops. Whether you find them aesthetically perfect or beautifully unique, every cup represents a dedication to the craft—from beginners practicing to pros perfecting their technique. This gallery is a sincere thank you to the baristas who pour their time, effort, and passion into every single cup. It didn’t just look great; it tasted amazing!
+            <p class="section-paragraph-large">
+                Explore a collection of free-pour latte art and specialty drinks crafted by baristas across various coffee shops.
+                Whether you find them aesthetically perfect or beautifully unique, every cup represents a dedication to the craft—from beginners practicing to pros perfecting their technique.
+                This gallery is a sincere thank you to the baristas who pour their time, effort, and passion into every single cup.
+                It didn’t just look great; it tasted amazing!
             </p>
-            
+
             <p class="section-paragraph-large" style="margin-bottom: 3rem;">
-                <i>P.S. I even tried my hand at it, and let me tell you—it is NOT easy! If you’re wondering which pictures are my attempts, look closely at the first two!</i>
+                <i>P.S. I even tried my hand at it, and let me tell you—it is NOT easy!</i>
             </p>
 
-            <div class="gallery-grid coffee-gallery-grid">
-                
-                <img src="assets/gallery1.jpg" alt="">
-                <img src="assets/gallery2.jpg" alt="">
-                <img src="assets/gallery3.jpg" alt="">
-                <img src="assets/gallery4.jpg" alt="">
-                <img src="assets/gallery5.jpg" alt="">
-                <img src="assets/gallery6.jpg" alt="">
-                <img src="assets/gallery7.jpg" alt="">
-                <img src="assets/gallery8.jpg" alt="">
-                <img src="assets/gallery9.jpg" alt="">
-                <img src="assets/gallery10.jpg" alt="">
-                <img src="assets/gallery11.jpg" alt="">
-                <img src="assets/gallery12.jpg" alt="">
-            </div>   
-        </section>  -->
-
+            <div class="picgallery-grid"></div> 
+        </section>
     </main>
 
     <footer class="footer">
@@ -144,66 +115,61 @@
                 <a href="index.html#contact">Contact</a>
             </div>
         </div>
-
         <div class="footer-bottom">
             <div class="signature-content">
                 <p class="signature-text">Kier V. Turpin</p>
                 <img src="assets/kvtlogowb.png" alt="K.V.T Logo" class="signature-logo">
             </div>
-            <p>&copy; 2026 K.V.T. All Rights Reserved.</p>
+            <p>© 2026 K.V.T. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/script.js?v=2.0"></script>
 
-    <!-- COFFEE PAGE-SPECIFIC DYNAMIC LEARNING CENTER SCRIPT -->
     <script>
-const learningCenterItems = [
-    {
-        title: "Brewing Basics",
-        description: "Learn essential brewing methods like pour over, espresso, and French press.",
-        image: "assets/learn-brewing.jpg",
-        link: "brew-tech.html",
-        id: "brewing",
-        icon: "🫖"
-    },
-    {
-        title: "Coffee Origins",
-        description: "Explore the history and regions of coffee from Ethiopia to Latin America.",
-        image: "assets/learn-origins.jpg",
-        link: "coffee-origins.html",
-        id: "origins",
-        icon: "🌱"
-    },
-    {
-        title: "Latte Art & Beyond",
-        description: "Master milk frothing, latte art, and the science of texture.",
-        image: "assets/learn-latte-art.jpg",
-        link: "latte-art.html",
-        id: "free-pour",
-        icon: "🎨"
-    }
-];
+        const learningCenterItems = [
+            {
+                title: "Brewing Basics",
+                description: "Learn essential brewing methods like pour over, espresso, and French press.",
+                image: "assets/learn-brewing.jpg",
+                link: "brew-tech.html",
+                id: "brewing",
+                icon: " 🫖 "
+            },
+            {
+                title: "Coffee Origins",
+                description: "Explore the history and regions of coffee from Ethiopia to Latin America.",
+                image: "assets/learn-origins.jpg",
+                link: "coffee-origins.html",
+                id: "origins",
+                icon: " 🌱 "
+            },
+            {
+                title: "Latte Art & Beyond",
+                description: "Master milk frothing, latte art, and the science of texture.",
+                image: "assets/learn-latte-art.jpg",
+                link: "latte-art.html",
+                id: "free-pour",
+                icon: " 🎨 "
+            }
+        ];
+        const learningGrid = document.getElementById("learning-center-grid");
+        learningCenterItems.forEach(item => {
+            learningGrid.innerHTML += `
+                <div class="learning-row-card">
+                    <div class="learning-row-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div><a href="${item.link}" class="btn btn-primary">${item.icon} Learn More</a></div>
+                    </div>
+                    <div class="learning-row-img">
+                        <img src="${item.image}" alt="${item.title}" id="${item.id}">
+                    </div>
+                </div>
+            `;
+        });
+    </script>
 
-const learningGrid = document.getElementById("learning-center-grid");
-
-learningCenterItems.forEach(item => {
-    learningGrid.innerHTML += `
-        <div class="learning-row-card">
-            <div class="learning-row-content">
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <div><a href="${item.link}" class="btn btn-primary">${item.icon} Learn More</a></div>
-            </div>
-            <div class="learning-row-img">
-                <img src="${item.image}" alt="${item.title}" id="${item.id}">
-            </div>
-        </div>
-    `;
-});
-</script>
-
-    <!-- COFFEE PAGE-SPECIFIC DYNAMIC LOCATION SCRIPT -->
     <script>
         const coffeeLocations = [
             {
@@ -215,7 +181,7 @@ learningCenterItems.forEach(item => {
                 instagram: "https://www.instagram.com/breezeblockcoffee/",
                 image: "https://lh3.googleusercontent.com/d/1X6RKdw7AjUydNJY-WpVQHPBKpjBZ-euH",
                 id: "breeze",
-                position: "center 2%" //
+                position: "center 2%"
             },
             {
                 name: "Naughty Coffee",
@@ -227,18 +193,18 @@ learningCenterItems.forEach(item => {
                 facebook: "https://www.facebook.com/CoffeeTruckVW/",
                 image: "https://lh3.googleusercontent.com/d/19pimggmMp6I_T_Rbjkmf3nVXaJYuQnSN",
                 id: "naughty",
-                position: "center center" //
+                position: "center center"
             },
             {
                 name: "Café Grumpy",
-                summary: "A Brooklyn-born café bringing its craft to Coral Gables, serving exceptional coffee, tea, and locally made pastries in a space that feels like home. They use organic ingredients, handcraft their own syrups, and even make coffee‑infused soaps. This marks their first location outside of New York, carrying that same creative spirit south.",
+                summary: "A Brooklyn-born café bringing its craft to Coral Gables, serving exceptional coffee, tea, and locally made pastries in a space that feels like home. They use organic ingredients, handcraft their own syrups, and even make coffee ‑ infused soaps. This marks their first location outside of New York, carrying that same creative spirit south.",
                 notes: " Latte Art Classes:They occasionally host weekend classes—a perfect treat for anyone curious about the craft. Parking & Transit: Street parking is available but can be limited during peak hours. Consider ridesharing or public transit for a hassle-free visit.",
                 address: "2516 Ponce de Leon Blvd, Coral Gables, FL 33134",
                 website: "https://cafegrumpy.com/",
                 instagram: "https://www.instagram.com/cafegrumpy/",
                 image: "https://lh3.googleusercontent.com/d/1fV5gzhbUIO3hOhTVvqYcVpwFA78Fxio5",
                 id: "grumpy",
-                position: "center 50%" //
+                position: "center 50%"
             },
             {
                 name: "Onyx Tonics",
@@ -249,8 +215,8 @@ learningCenterItems.forEach(item => {
                 instagram: "https://www.instagram.com/onyxtonics/",
                 image: "https://lh3.googleusercontent.com/d/1MtPhJ5atVNpVN0YgBCdR3_yCxs9rKO8R",
                 id: "onyx",
-                position: "center center", 
-                size: "contain"//
+                position: "center center",
+                size: "contain"
             },
             {
                 name: "Vivid Coffee Roasters",
@@ -261,7 +227,7 @@ learningCenterItems.forEach(item => {
                 instagram: "https://www.instagram.com/vividcoffee/",
                 image: "https://lh3.googleusercontent.com/d/1wr-9ITpSCfGD35llXtkLiBkAWv3gk408",
                 id: "vivid",
-                position: "center 25%" //
+                position: "center 25%"
             },
             {
                 name: "Kru Coffee",
@@ -273,7 +239,7 @@ learningCenterItems.forEach(item => {
                 image: "https://lh3.googleusercontent.com/d/1znGgtAxzFJeDLGKl79k7QKlWH70wJkNq",
                 id: "kru",
                 position: "center center",
-                size: "contain" //
+                size: "contain"
             },
             {
                 name: "Peregrine Espresso",
@@ -284,7 +250,7 @@ learningCenterItems.forEach(item => {
                 instagram: "https://www.instagram.com/peregrinedc/",
                 image: "https://lh3.googleusercontent.com/d/1K_-dnMzxNjzeFUt68Qt4Xxx--wyihS3j",
                 id: "peregrine",
-                position: "center center" //
+                position: "center center"
             },
             {
                 name: "DUA DC Coffee",
@@ -295,7 +261,7 @@ learningCenterItems.forEach(item => {
                 instagram: "https://www.instagram.com/duadccoffee/",
                 image: "https://lh3.googleusercontent.com/d/11E83OVbBrC9RAirOi0HzycCAoQ0L9Mgh",
                 id: "dua",
-                position: "center 2%" //
+                position: "center 2%"
             },
             {
                 name: " (CFS) Coffee For The Soul",
@@ -307,7 +273,7 @@ learningCenterItems.forEach(item => {
                 image: "https://lh3.googleusercontent.com/d/1DUDZEQuGx2Juhoanox24FkLlq-91BRmU",
                 id: "cfs",
                 position: "center center",
-                size: "contain"//
+                size: "contain"
             },
             {
                 name: "GROU Coffee + Cowork",
@@ -319,58 +285,46 @@ learningCenterItems.forEach(item => {
                 image: "https://lh3.googleusercontent.com/d/1PUrj0gRRhxLRXFaaJmQ_g6RkCpPmMXuV",
                 id: "grou",
                 position: "center center",
-                size: "contain" //
+                size: "contain"
             }
         ];
 
         const container = document.getElementById("coffee-locations-container");
-
         coffeeLocations.forEach(loc => {
             let linksHtml = '';
             if (loc.website && loc.website !== '#') linksHtml += `<a href="${loc.website}" target="_blank" class="social-icon">Website</a>`;
             if (loc.instagram && loc.instagram !== '#') linksHtml += `<a href="${loc.instagram}" target="_blank" class="social-icon">Instagram</a>`;
-
-            // Logic to format notes: split by sentence, bold text before colon, no bullet points
+            
             let formattedNotes = '';
             if (loc.notes) {
-                // Split by period, question mark, or exclamation mark, but keep the punctuation with the sentence.
-                // The split occurs after the punctuation if followed by whitespace and an uppercase letter or asterisk.
-                const sentenceSegments = loc.notes.split(/(?<=[.?!])\s*(?=[A-Z*])/);
-
-                // Filter out any empty strings and trim whitespace from each segment
+                const sentenceSegments = loc.notes.split(/(?<=[.?!])\s*(?=\[A-Z\*\])/);
                 const validSentenceSegments = sentenceSegments.filter(segment => segment.trim() !== '');
-
                 if (validSentenceSegments.length > 0) {
                     let processedSentences = validSentenceSegments.map(segment => {
                         let trimmedSegment = segment.trim();
                         const firstColonIndex = trimmedSegment.indexOf(':');
                         if (firstColonIndex > -1) {
-                            // Bold the text before the first colon, including the colon itself
                             const boldPart = trimmedSegment.substring(0, firstColonIndex + 1);
                             const restOfNote = trimmedSegment.substring(firstColonIndex + 1);
                             return `<strong>${boldPart.trim()}</strong>${restOfNote.trim()}`;
                         } else {
-                            // If no colon, return the segment as is
                             return trimmedSegment;
                         }
-                    }).join('<br>'); // Join sentences with a <br> tag for line breaks
-                    
+                    }).join('<br>');
+
                     formattedNotes = `<p style="font-size: 0.95rem; color: var(--text-light); margin-top: -1rem; margin-bottom: 1.5rem;">${processedSentences}</p>`;
                 } else {
-                    // Fallback if splitting doesn't produce valid segments, or if notes is just one long string without clear key:value pairs
                     formattedNotes = `<p style="font-size: 0.95rem; color: var(--text-light); margin-top: -1rem; margin-bottom: 1.5rem;">${loc.notes}</p>`;
                 }
             }
 
-           container.innerHTML += `
-                <section class="coffee-location">
-                    <h2 class="coffee-location-title">${loc.name}</h2>
-                    ${loc.address ? `<p style="color: #6366f1; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">📍 ${loc.address}</p>` : ''}
-                    <p class="coffee-location-summary">${loc.summary}</p>
+            container.innerHTML += `
+                <section class="piclocation">
+                    <h2 class="piclocation-title">${loc.name}</h2>
+                    ${loc.address ? `<p style="color: #6366f1; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;"> 📍  ${loc.address}</p>` : ''}
+                    <p class="piclocation-summary">${loc.summary}</p>
                     ${formattedNotes}
-
                     ${linksHtml ? `<div class="social-links" style="margin-bottom: 2rem;">${linksHtml}</div>` : ''}
-
                     <div class="latte-art-feature">
                         <img src="${loc.image}" alt="${loc.name}" id="${loc.id || ''}" style="--cup-position: ${loc.position || 'center'}; --cup-size: ${loc.size || 'cover'};">
                     </div>
@@ -379,6 +333,546 @@ learningCenterItems.forEach(item => {
         });
     </script>
 
+    <script>
+
+        // 1. Map your Picture IDs directly to your true Google Drive File IDs from your database
+        const galleryDatabase = [
+            { picNum: 1, driveId: "1X6RKdw7AjUydNJY-WpVQHPBKpjBZ-euH" },
+            { picNum: 2, driveId: "1VQpMBnBbN_0-YSOL37EOk1d2-ewa_X_h" },
+            { picNum: 3, driveId: "1pZc-8Eq5gzqgDELvPSz5OHeJ0A_jTCVI" },
+            { picNum: 4, driveId: "1yrf6wkEHLFsyiSN_Y2xBss5fUp676FY4" },
+            { picNum: 5, driveId: "1hIZ4krK4_ZNsj3V5SkUH0q5nOOf8HOJa" },
+            { picNum: 6, driveId: "1jfnYsOj5pAg6xIgH-FwUUAmg9wySVH04" },
+            { picNum: 7, driveId: "1ByzkXIJGkiLaaNjkf04seDLvWrcKxmh2" },
+            { picNum: 8, driveId: "1dmDZKhqXKQ5H4Ioi2Q-R6CIYJESVJWCW" },
+            { picNum: 9, driveId: "1-k9TU1XFJbzj9NC7Cq4LfVuLJfPEdAM3" },
+            { picNum: 10, driveId: "1iYwbNAXx3u2vjjyLDYlp-NUq_3ivcW4p" },
+            { picNum: 11, driveId: "1NvPQnrFtQDYCtpGcuqdeoPaVcd_EyGuz" },
+            { picNum: 12, driveId: "1fGygJHEn4sa0Iav4r9vOa46p_lvI8zJ3" },
+            { picNum: 13, driveId: "1N0tIphaqsEmGH0C9rKRjg-RTXKmrzRmu" },
+            { picNum: 14, driveId: "1eANah6mm7Z7g8lqSWxM-6UwPfOLXHk2H" },
+            { picNum: 15, driveId: "1W6ZeqS_K1ZAwLcXPBAmQNxt_QsCJQ_jn" },
+            { picNum: 16, driveId: "1rlUSb81yVwkNs0yxnrzBjZVZy9tEV2_q" },
+            { picNum: 17, driveId: "1LlFxJDPKpFtyY_SoxEBexzvHeg9B6WRY" },
+            { picNum: 18, driveId: "17FgOarj25skPTuN73sZXHiWqkNs0u8HL" },
+            { picNum: 19, driveId: "1hQ9bXFsJoiN6MQS3FjvmhZ4wm2-tMDlZ" },
+            { picNum: 20, driveId: "1tTuCyOFZdphCvEBI1kaRTjmEupeSFUDt" },
+            { picNum: 21, driveId: "1sV8PNgPUEp4BsFlgpwb7YzIJBbuTWYrw" },
+            { picNum: 22, driveId: "1PYxdtbpkskhXWWJxVMhXiv3z6tdwH1SY" },
+            { picNum: 23, driveId: "17TP8dPp0PhHXc9CZ3AyssI2jsXb_6Uu6" },
+            { picNum: 24, driveId: "1m2-j4niP7mgPsj9nFLb8HkBcDqqMImxf" },
+            { picNum: 25, driveId: "13cYP3xkbjhHYrPq6EAEHycAyUNAs6fNb" },
+            { picNum: 26, driveId: "1IkoqjkEmJF8KOnUYQOShktYI6cOxkbai" },
+            { picNum: 27, driveId: "10rFWLuLk9TzCFnJgx4cAjPo1W3PWio8b" },
+            { picNum: 28, driveId: "1E4_MnnP7ockt0XD-OxSFpE7PbEbtaVij" },
+            { picNum: 29, driveId: "1oAI9icRYcUDh0_0nyf8tpHXo0H0i_GL_" },
+            { picNum: 30, driveId: "1SkIU3nM0tAphNFyykQxH_gQ53_4JVPq4" },
+            { picNum: 31, driveId: "1S6JxB2QcLiEpWQjI9GUdCMrTgAlAPQE9" },
+            { picNum: 32, driveId: "1_1aBnucWAPaoDLx3GrqhTysgS_1DtL7k" },
+            { picNum: 33, driveId: "1fNpnMBcGUQ_lYk0sHUUFIEvN2wooi-X6" },
+            { picNum: 34, driveId: "1c5ILfeTBOjzt59APTQUq8iBJmO4jzKNT" },
+            { picNum: 35, driveId: "1U3WqIPR0k4l5CWHUSGoKs1AQcTTSfF_0" },
+            { picNum: 36, driveId: "1kzL4WcTVYsy-7rhxXpjE6wAxeau949BO" },
+            { picNum: 37, driveId: "145QuDMPIJWBisRAFjAUQPmtNb1cvR81b" },
+            { picNum: 38, driveId: "1PGXXjo12MxXxBDKDSkvWVEuCtmUQbVH2" },
+            { picNum: 39, driveId: "1aO2-ccpBzzab8r5YNz3a62FZWI9nQxtV" },
+            { picNum: 40, driveId: "14iR-H7X-Kjnma4TNQhdDp6GGOQv8T6kR" },
+            { picNum: 41, driveId: "15g2J9CrA0gggnzrH7n8QBqJsPW53fDoI" },
+            { picNum: 42, driveId: "1U-dPkDeJWjkTIx-0rtGFiLDjgVTQYKTP" },
+            { picNum: 43, driveId: "1fHsNn4C_meli2ECflSa-VVhYFxv7Uqs0" },
+            { picNum: 44, driveId: "13gBpnUzIHqkKO9p7K6KsVji_xqcfi4uT" },
+            { picNum: 45, driveId: "1tkWuWlKW8Plrj-8SuQknSJfBcRsbgsQq" },
+            { picNum: 46, driveId: "1qtKqeAaIdmQdQJCU9wTJFNJQwWEWE04S" },
+            { picNum: 47, driveId: "1N4MvnBe7v2DJOGflKbrrKeYmL9w7fAsx" },
+            { picNum: 48, driveId: "1-V_ne7XAy0i2ecF8PY_9C_2w03b0E6cS" },
+            { picNum: 49, driveId: "1GgkzhAbE63tnH4JdrhiUc5yJ3BrhvDqx" },
+            { picNum: 50, driveId: "1qnByfQ1ostopgHxZfQDWdOdB5kh3A-Xx" },
+            { picNum: 51, driveId: "1RJHYrWszrIGrZYGEkSc8bsoQrNQqWw7E" },
+            { picNum: 52, driveId: "1znoXdp44iIKYgjUh71d1M4bWO4OcZYGC" },
+            { picNum: 53, driveId: "1nbfGchQB1-5-5_TNh9-W6pBm12mdS2Bo" },
+            { picNum: 54, driveId: "1ilnEqNCEHXum1nDEqOXMsEeC26AiU6P7" },
+            { picNum: 55, driveId: "1wPPLYj5BT9BUG7Ryw6pFACiGb0Nht-Te" },
+            { picNum: 56, driveId: "13DDQ5QGqYUW-Z3Rbv0a06ZXrF2iKVixa" },
+            { picNum: 57, driveId: "1u3SdLN0GgZ1S5fNDBFrCSvdNGxt_2ccF" },
+            { picNum: 58, driveId: "1piyFemq5QUsF7EP6DH1wslK32BjqXMtl" },
+            { picNum: 59, driveId: "1REkDfuaFAhb7O9YBcOBTNjrfVdm4jNke" },
+            { picNum: 60, driveId: "1TRQ32A6fqjcqA2qnGIlWc1mgPpU2zQdI" },
+            { picNum: 61, driveId: "1hBI-JMoPvR3PBjCP9V0q2W34Ktf8myEX" },
+            { picNum: 62, driveId: "1dw_5-H4U7IQfHlbL6aRGPmpwwf_HGT2e" },
+            { picNum: 63, driveId: "1cdw5db_INW8eQiM4zCNpR55MzoQRIQ9S" },
+            { picNum: 64, driveId: "1wSX6t0gIZheVcE-fNFEuKAAyIFJN_WhP" },
+            { picNum: 65, driveId: "1kW1IrD-x8HsuSJbdmM6FJlLlsvEtGRvJ" },
+            { picNum: 66, driveId: "1L7ToW5FX24wHmr_J6Ob3Z9F2cXK_f7L9" },
+            { picNum: 67, driveId: "1CBQVqinXLEpVG4GOCItUrRiwxYCxXfuQ" },
+            { picNum: 68, driveId: "1_dDlKQXhTtaMALGNSjF0NcBs8I2jrY4v" },
+            { picNum: 69, driveId: "1vMZG9_coH3h9WkxjvzK5ppM6tL2RFfYm" },
+            { picNum: 70, driveId: "1ln3eDDdXsrui5Bo4CenJygZiU_6P29QI" },
+            { picNum: 71, driveId: "11GYbAs39kgMIa-7Cu0xu3Gb8dmx9ZBjQ" },
+            { picNum: 72, driveId: "1XNN2nuMs7-CxqP-Bi6WfVkj7GfKZ5v8u" },
+            { picNum: 73, driveId: "149E5XZTszfuK3953UHav3rft5fqjZXrp" },
+            { picNum: 74, driveId: "1Xl3NvF1oBGwq2f7SP9bLDjD9NfnFJwAs" },
+            { picNum: 75, driveId: "1_uDYOulDssv-v4vVFfFd7d85ZCDmKyvX" },
+            { picNum: 76, driveId: "1GXx_OuNvLCSZuLtukt9d2MyRxYJnnB6W" },
+            { picNum: 77, driveId: "1svEboMtba7KsIP1fP2sr_VolIIIXmpRX" },
+            { picNum: 78, driveId: "1RjfY82w_-bIe7Du5vhNTyyCKe9GjDtHf" },
+            { picNum: 79, driveId: "1OhHYcex_SX7UImiW2wcYzgFDOSin3fZV" },
+            { picNum: 80, driveId: "1HupUc1WStxYEe0vYvNC9ZwToOikYmTk5" },
+            { picNum: 81, driveId: "1p9Pz190xXW-2MAbkVtit7dYjJFH5mbMP" },
+            { picNum: 82, driveId: "1boS3dOrQiguRIBXtIUwrQc9NmwX9SWlP" },
+            { picNum: 83, driveId: "1AtR3FB_2FITQTAW1i_5ZdvQl8XRjF3Q6" },
+            { picNum: 84, driveId: "11L5DxroDchBd01qSePFaqCRi5is5xOWL" },
+            { picNum: 85, driveId: "1IHq-nMz1PIzC8IVRLh0Ng9ciBbhnEGTR" },
+            { picNum: 86, driveId: "194pgkBAZbojroS7Y6ntjYhCqqQ-wn4GD" },
+            { picNum: 87, driveId: "1pXT1TmhH6-AETKyjCxzkcuSbGMNUgl28" },
+            { picNum: 88, driveId: "1ps7f_IfJP4mdhUy3e9m2KupSyPtBUFbY" },
+            { picNum: 89, driveId: "1gjrARmviQBGe_avmcOHwRbt0FIoPwLo7" },
+            { picNum: 90, driveId: "12WCuR_Yh6Ai7AAlKhm_qhi_DBQsViIpl" },
+            { picNum: 91, driveId: "19mGwrRgaMyt1_8Pww5RsAmc0S-4t_HNp" },
+            { picNum: 92, driveId: "1sgxWnt-YKaHqHurrge6k9OAUjWnl5vsf" },
+            { picNum: 93, driveId: "1GJ3jn4UjZ40rOOaGC6AH483XUoRPw9Ns" },
+            { picNum: 94, driveId: "1aSBrxk2hyZ3ajEXAhpLGctDruJgA5VF1" },
+            { picNum: 95, driveId: "1DRihlFbyOn9z0TzwfEidxeunvSt_QFU4" },
+            { picNum: 96, driveId: "1vTG3U9cBZYlG-GX_SdFt3YrJCU5tFFh8" },
+            { picNum: 97, driveId: "1QHgvjJTzSfsDPo9Bt8gBeb0Rq5XLywf3" },
+            { picNum: 98, driveId: "1PsPhWE5MefRDcwNjQeYAYzeUws3F1DrM" },
+            { picNum: 99, driveId: "1RxMMuu5VWgYYR1ydUuenrnkstCI5X8XF" },
+            { picNum: 100, driveId: "1wCEAT0tui2MOgGIF8-0UgJ4utj3S0t6D" },
+            { picNum: 101, driveId: "1QebU8ospFXf6rSXoiYrT9_6_655lkYjb" },
+            { picNum: 102, driveId: "18elG7yrog3LBuyVeBzd3IMD9BJ4KNtF9" },
+            { picNum: 103, driveId: "1g4_fR60v1wnLZ27oRlvPXpzrw_rdzcQ7" },
+            { picNum: 104, driveId: "1JWPiRiCuX1e-mCoAuGLtDhB6sIbXm-0K" },
+            { picNum: 105, driveId: "1kga6o7YxCrpS4dy_0sxSQ15daKsfI40B" },
+            { picNum: 106, driveId: "13mByHWhgm4D7t5oncEgPjUHz5L9FJTnL" },
+            { picNum: 107, driveId: "1s13PgNIogx6hNeCI6kX486NZdFQ4jHiX" },
+            { picNum: 108, driveId: "1tnyjjdwD_RHbOm_Rv8njP_vaLuk2CC02" },
+            { picNum: 109, driveId: "1pjgRChrzvgVwe7Xc5_vRBuevNkm8hWG7" },
+            { picNum: 110, driveId: "1J6_k5udRjF9eDxi9bOOLnCfViqje1JJO" },
+            { picNum: 111, driveId: "1PJSyGxciGDVJ4_4Yu29CxOHd9raI1slg" },
+            { picNum: 112, driveId: "1BaFFhW2xdcYUcJp5VI-opekhOCpKV26M" },
+            { picNum: 113, driveId: "1B7h9Wx0rk3cxak6P2qgXmPJTHYzoIJih" },
+            { picNum: 114, driveId: "1VPewUgGHT3VRuL--Sz3Byzu-zkopfpsZ" },
+            { picNum: 115, driveId: "1s5DiSlAwY4AiLh5IvjWzoCs-xIAYBkQJ" },
+            { picNum: 116, driveId: "1pLkD0mI6DKkCZOPj050pYeCNZZ2Wk98W" },
+            { picNum: 117, driveId: "1Bpj5j_D2MAdy4H0hdpNHW41ecfrmAYyQ" },
+            { picNum: 118, driveId: "1fCdrKNI_et1e1ghqiHZ_2KvJvMR-d-5u" },
+            { picNum: 119, driveId: "1D9Rr4Ey6r34ngtNp5iu8j7sYNcF-BGWe" },
+            { picNum: 120, driveId: "1VLyWeId6zwt55sDUgMNwY4Ak6x9Mdhg5" },
+            { picNum: 121, driveId: "1OERhAGFYgeXlO4b9srjeXy0mdRbcA2lv" },
+            { picNum: 122, driveId: "1wqquBKmt1MHdlpjcWFhZXxFRfHdZut1l" },
+            { picNum: 123, driveId: "1B6dn9u2mOmXy1ZvC0UjJ-QvvMgfB_yJL" },
+            { picNum: 124, driveId: "15PAndReFn0VsvqPesXNUrsBGOTDxkQOR" },
+            { picNum: 125, driveId: "12HHmO6Qpi-6Y7xLU8Z6OXGBgVHPQvmUY" },
+            { picNum: 126, driveId: "16zobLeIakxS8-z_l7hWYrVMsMcIhH1KH" },
+            { picNum: 127, driveId: "1fHqhch8Bh5ckN709IxzulcuoIFrp-OHF" },
+            { picNum: 128, driveId: "1UcWtjh_0OB_14GLbNhWsVUSgVv6TM9_W" },
+            { picNum: 129, driveId: "1rd47WabySjJ_q1tpNso5lhjG8quKKdHA" },
+            { picNum: 130, driveId: "1jOR8UrYQljIDD8zV7YeY0MM73D0Evudg" },
+            { picNum: 131, driveId: "1HE2RLfilyQLGt4wQtA_q_YCmu5NOKO5n" },
+            { picNum: 132, driveId: "1jqjhpPWRKI0Xq50A2aajiQI37fc335C1" },
+            { picNum: 133, driveId: "1RhWHET9-qzAHIcYh-CauEcVPMRihDU9J" },
+            { picNum: 134, driveId: "1sCHoVUOMKmgZN4cM_OAYsaoaNpVkJZpG" },
+            { picNum: 135, driveId: "1qdm-FHu2FHwg2bQWeNlQ5twpe9oyKr3P" },
+            { picNum: 136, driveId: "1LGww3i_pZqIMcDqi4BHBmPdb_1yWsJgZ" },
+            { picNum: 137, driveId: "1peMSgFMxBnpQCxTu4oeUvIFH1DAQu2pV" },
+            { picNum: 138, driveId: "1VQU4gdf-KY2qBE8LdO-kn6IS-weSoEM6" },
+            { picNum: 139, driveId: "1lZ253z8bSKh-nhHtooV3FVnhdPTTFw6-" },
+            { picNum: 140, driveId: "1FnMOdMEPcuIr1ydZV2W2vHttNIGp5nEi" },
+            { picNum: 141, driveId: "15Khn3pNtkQfLoWghaLxAt5PJepZB0xWe" },
+            { picNum: 142, driveId: "1P9_Tk3kUFLVStduNliZU_no_VLOX-Q20" },
+            { picNum: 143, driveId: "1Qto1NGYJWYTwiAbczn86_QJWa7iJlMvK" },
+            { picNum: 144, driveId: "1_F9hvKTxu2fADttc1pKoQYVjFwLdzJum" },
+            { picNum: 145, driveId: "1-_MV9Aj2fxtxQdKIRlNjWRUCweh86BhX" },
+            { picNum: 146, driveId: "1IDXY5XxFcOyC7G6qE6fswCZd5ooWp4E4" },
+            { picNum: 147, driveId: "14c-vILQel6ha5_oF4L1wXHH1IICSl50z" },
+            { picNum: 148, driveId: "15Qv6PgTCNuda_NhVS3VKn8huz66t5rlJ" },
+            { picNum: 149, driveId: "1VttFZbB3TOPBNQv2mJoEUSKh-ZeyV9Bz" },
+            { picNum: 150, driveId: "1m1Gjqbe1msFZBlIASZreOiZKibUREgB6" },
+            { picNum: 151, driveId: "1KyL-7qvpRtgzGa5oUAKxdX5vUL36uYUF" },
+            { picNum: 152, driveId: "1tMMB_GQPsfmc3jsnGs0Y2N3H4Kop87Qc" },
+            { picNum: 153, driveId: "1zmLKAxNGAQU_SgbDiXHP1zK64unKF4Lb" },
+            { picNum: 154, driveId: "1_prMFh_LnZIgkuX5UzfsX6ehNaCDes5a" },
+            { picNum: 155, driveId: "1AkGxBs3vHwmeIyiLylIsMTiDO5NRvLtG" },
+            { picNum: 156, driveId: "146SLZSVb0e0M8m8FaZ6-Vr1Fwiij9nu1" },
+            { picNum: 157, driveId: "1TqDmzaQqBkuSwc2EZ_NP_kk5Dv2nC18I" },
+            { picNum: 158, driveId: "14rFxpn6x_7UoxQ8yaBAU1P3Mr_BlGbM7" },
+            { picNum: 159, driveId: "1aj3L3VoB3JDwczV597Czy-lp0jKjvQq1" },
+            { picNum: 160, driveId: "1kEPyHeKtEX-JXQq1D550fhvxk6ivX7_E" },
+            { picNum: 161, driveId: "1YGz7GvW6EUIZLZcvnAQvNXF2nud2yvhl" },
+            { picNum: 162, driveId: "1rWgm1G0fN151erd5Dad6ytCriYOqnt9b" },
+            { picNum: 163, driveId: "15tZ8FgrbFln0rjsiz6ra3wjmFoehfeQI" },
+            { picNum: 164, driveId: "1hN_uSUkW7W89kJ0q7i2Oo0KJ1xZrED6Y" },
+            { picNum: 165, driveId: "1UZ7OpRCrEzt_xn5zQiRwrYQAL3YnptC0" },
+            { picNum: 166, driveId: "1OMeSOkeagfw25xBgL7XBHsmVeiiavfRt" },
+            { picNum: 167, driveId: "1twIdD9uux7cWdbTxH_tqVZwgyOLqg02Q" },
+            { picNum: 168, driveId: "1UWxEdf3CRePwOkNBJbEmbRCNYn_4vNjs" },
+            { picNum: 169, driveId: "1SdYLOWzG49S7AWHuSEzL4GSjLHXKNHMT" },
+            { picNum: 170, driveId: "1TFASwboiAF1ZoxwD4Lc03BUWEIRhePyf" },
+            { picNum: 171, driveId: "1n4jyO0DKaLr3nHV2hXddVex2Dj-3ZJCZ" },
+            { picNum: 172, driveId: "1chotEGt_6E3oCxBb7zUx7NlCRremWkGm" },
+            { picNum: 173, driveId: "1Eh1YH3WJUgxeRFEXklOW_7hgLn7SW0cM" },
+            { picNum: 174, driveId: "1IPec6BlbKr-AiRwAYS5UaMlmUDA7nDCZ" },
+            { picNum: 175, driveId: "1snNv0Lzjmx8VQ1OHVZB-caWkHu2YHsY-" },
+            { picNum: 176, driveId: "1LErG1CLrli_Y1uKUua_AAweLHCBCs0GK" },
+            { picNum: 177, driveId: "1kFCmKkiNXRtasVtVI2FLXpOwV8i15JhD" },
+            { picNum: 178, driveId: "1b6mOQpdR-v2AhleYRlfv6LNy5uzvldOR" },
+            { picNum: 179, driveId: "1T77FTSs2kuRHVqnRVCc79sekVDsNCMOB" },
+            { picNum: 180, driveId: "1oD0TS-cUinkgZ6R3diH0F5bffa0OvALh" },
+            { picNum: 181, driveId: "1R3HS4sCs1Wz18bIFaXEis7JhrI3O9YFF" },
+            { picNum: 182, driveId: "1PbjS8GswZm1HvwpfTVQlcTvVPFTUl93j" },
+            { picNum: 183, driveId: "1v8f5_FA5jyDN1Qh-XUJKF-GX4io4TW6C" },
+            { picNum: 184, driveId: "1YjtR3_2o_o2HkKZsuCbgGEE7YF8bwFBj" },
+            { picNum: 185, driveId: "1FChORgaiwfSfmqVvddMCY7Emfy5UU8a2" },
+            { picNum: 186, driveId: "1knXPjCD-EAFtXEdp0ExAG0osuCO6EQn0" },
+            { picNum: 187, driveId: "1ZSfrrSjfR-2NCS-QfjDndiozc_RiHbCD" },
+            { picNum: 188, driveId: "1l-p5F71ViRU_koqgLGgYAYhPa6L1ppyL" },
+            { picNum: 189, driveId: "1aZomB2kkFHuaXCJ6dABMR6bJb2vM46TR" },
+            { picNum: 190, driveId: "14xig8wosUfEXyE_B_5E75tyjXe_xgRD7" },
+            { picNum: 191, driveId: "1dL3ljeFgkXt--AzdaQ8dVXE5E9FLHpme" },
+            { picNum: 192, driveId: "1j2z-eQAoVGTL1jq0u2qovYSz3e5wy30K" },
+            { picNum: 193, driveId: "17vFnFZYQ15Iv_mjc_cw-roDlO9Ms-wFP" },
+            { picNum: 194, driveId: "1O9kTxmCAb9RfIju2LA-MYtNIT4v7rZnP" },
+            { picNum: 195, driveId: "1ZHfuVbZ-OPK5ozI3YLnD8SDUlP03T7l0" },
+            { picNum: 196, driveId: "1KuMBgwLHjd-rcB-vAHTqoDrwwGppRe8B" },
+            { picNum: 197, driveId: "1RS6kD0u42p3qbOfmq1xsTzkRgMFArBwQ" },
+            { picNum: 198, driveId: "1DMY1dr4IJReOlocjL35zoeqk7DDjTvPt" },
+            { picNum: 199, driveId: "18AK-F8lTCkq_fBThbF7jcyOyQd3vbNsj" },
+            { picNum: 200, driveId: "1vzGRbFU6CjUYuoT7lMt1LGz8krSX5qgZ" },
+            { picNum: 201, driveId: "1rwBscUgmIEZB9FMfleAFTf1iKPUktKkr" },
+            { picNum: 202, driveId: "1GPG-1UbDSYuKfN0vOr2wXf18Cp5cg5zp" },
+            { picNum: 203, driveId: "1rziRC2CRtU1Evm6pYE7VxxZwx2ZelRw5" },
+            { picNum: 204, driveId: "1UuWPX2kfnshsG4qZp0eshXL9bXu2a-tJ" },
+            { picNum: 205, driveId: "11y9ms9KBaJX8rTIAmtuG51kFNutCTvCO" },
+            { picNum: 206, driveId: "1spXKbJu-jr52-GpiLj6hDyEcHsyOg-Cj" },
+            { picNum: 207, driveId: "1xaeKxfkLm8OtuR18q-ApKiExFVFJjKgN" },
+            { picNum: 208, driveId: "14jA3b_Rsb7uWkz83ocEuugwTEmoRYkz7" },
+            { picNum: 209, driveId: "1QrWPr_CQmxg2gJgZrqUKko5b6aMasBn-" },
+            { picNum: 210, driveId: "1-kc0wgxt-gyjgHwqUh4jbmSbMZUjxACc" },
+            { picNum: 211, driveId: "1TS5uyRglPNfflBb36HgYse6z1zBfy46k" },
+            { picNum: 212, driveId: "1LteEKxBNOXFv8nlXd2i42cMv6nt8QiBl" },
+            { picNum: 213, driveId: "1-sZEBxSIvpujwJT2KltGp8rwKSAkWrV7" },
+            { picNum: 214, driveId: "1K8GUvFn8wBu9FvlFrbxIEEUhmJ0un7al" },
+            { picNum: 215, driveId: "1KIfMfd1xUgQMWPzj9cBIsld2DwsqRSMv" },
+            { picNum: 216, driveId: "1Dyju3r6LE9uxaKoeHxQ7ceV6J6YD_as8" },
+            { picNum: 217, driveId: "1_0HyHGDsIbdCv4w7Ed1bZA1IKPL0HQlF" },
+            { picNum: 218, driveId: "1TCrSdyWI_nKeJA0xB1O4AcDi7ZKqXCdg" },
+            { picNum: 219, driveId: "168qI4YUfyLVO3abZFYImjgJxYgS1POO8" },
+            { picNum: 220, driveId: "1oQUsXVGdECIb5OcXjtthJNq9NGuaWOPX" },
+            { picNum: 221, driveId: "1_fR-3NyM7m1t2_hVy5KJqh3IQS4ojBCF" },
+            { picNum: 222, driveId: "1uK-w2G0rqajzZ9DCpolHVGBD3cTzW7Wi" },
+            { picNum: 223, driveId: "1PjyHMt8G70lgD5M8g-uinwA4E1EWITkU" },
+            { picNum: 224, driveId: "1Gf_fGamCmkqx6FTiHXF9dI1sJCtJWmP_" },
+            { picNum: 225, driveId: "1CNE9pbXeiYmedR0DKDmayk6gqXYoCAwh" },
+            { picNum: 226, driveId: "1c-I1mDIokPD3SIAX6eWl_uYsNRgahOd9" },
+            { picNum: 227, driveId: "1hsyJ2ZCACfqlQkCuHLqbqIaUXWkwSSaj" },
+            { picNum: 228, driveId: "1dB54lcGIfoMMugUMnx9A2rA0eSgKJz0k" },
+            { picNum: 229, driveId: "1tG86ewxR6_28-XRMc9CUfhWjvhrVkY-J" },
+            { picNum: 230, driveId: "1yqZgSmR5jVS09eLEhZobJI5dfcTOX3JP" },
+            { picNum: 231, driveId: "1jhBNGV_Ej5JQbKqsNZ2NyUgEe1KA1pW9" },
+            { picNum: 232, driveId: "10Xs8k-u6aQxBe-8N2mCu802U8_s-SDVT" },
+            { picNum: 233, driveId: "1C74kGIe0F8UDtWRNcRmbrvoPMLLklMpy" },
+            { picNum: 234, driveId: "11mXfBu9H1RKfDjEBG3bD1ZclsJcx0uFi" },
+            { picNum: 235, driveId: "1Ge_g5SSoslDivDBCcz2GRi2XkiVlL01n" },
+            { picNum: 236, driveId: "1QNvhZpHYA1NMu1t9XLu0cemUA_Nx3yCD" },
+            { picNum: 237, driveId: "13sQc-NUNeUHP6kv_LW5tnOt1yz4ZDUlK" },
+            { picNum: 238, driveId: "1pyiwknNBsDuuut5mC28pkGl8feSx1Wf9" },
+            { picNum: 239, driveId: "19WWUJQptT3Mq7uF59zeDhby11iCxAKWi" },
+            { picNum: 240, driveId: "1PJyZlBJXxkZyqa4k_GUFxN0HX0D87IyO" },
+            { picNum: 241, driveId: "17jqj6FQMY5DMJ-NpKWA1deZ3Go71KG0S" },
+            { picNum: 242, driveId: "1vnkyEEPm1tlT6wedJvEfzfS9UpBlTYC8" },
+            { picNum: 243, driveId: "11c6-MxgIoIx-jxtH7NaMidxX6w7-US57" },
+            { picNum: 244, driveId: "1CzfCmtLXLav_ZlSpWD5no1-NgiAffEH4" },
+            { picNum: 245, driveId: "1WfKjHdTTYiK6sZsoQb19AcSgch79qh8s" },
+            { picNum: 246, driveId: "1HjuJPgFvBinnkZvGXW4VIrEhjKIJlB3Y" },
+            { picNum: 247, driveId: "15rrUvkiH_JDNo18R9e7n7POls4vXgKlO" },
+            { picNum: 248, driveId: "1toJWGmQizxWc7nJNcaiORIan9m0C9AJT" },
+            { picNum: 249, driveId: "1MgsqQrSQ5wvA0gafPuSCHpujTAveuVMM" },
+            { picNum: 250, driveId: "1PqiMP5Rpu_hb62lc3XVjj72GpRppzYgT" },
+            { picNum: 251, driveId: "1SE5-yP2YWqZqxxLner0e8xqfvQ6yNAWm" },
+            { picNum: 252, driveId: "1Oy723lZ5_VD03X3RiNMmUGF_tVblOYYr" },
+            { picNum: 253, driveId: "12jz__ht9EGnaOYtqZhD_0V6fsFwyv_J_" },
+            { picNum: 254, driveId: "1b_SunXjjU1I-fAgj8z5xMYjTXgI7AOdN" },
+            { picNum: 255, driveId: "1mDuHvAn_VTTy3p6Pj8rDOopH2U_R33bW" },
+            { picNum: 256, driveId: "1skcfVqmsc4s_Y7LZcJeN2Mx64DRQg8OH" },
+            { picNum: 257, driveId: "1vf4xxl07Q0KNOyfeXHicpof6tEmcVKH5" },
+            { picNum: 258, driveId: "1aFtA8FW_2Q_K0_V_naPNedjlNH7XlrGh" },
+            { picNum: 259, driveId: "14SLVr_-ISau0O05u5DBn7uyTXkKfFOPZ" },
+            { picNum: 260, driveId: "14MX2BqUHo0JvgDvLPMw2GtkOuu0y7pXC" },
+            { picNum: 261, driveId: "1KMr5J4rZH5t4hf2KWRTuJsmaiqgb4TR1" },
+            { picNum: 262, driveId: "1rWww_l-EresBkJkhqvrIgy-6qQd_XDhg" },
+            { picNum: 263, driveId: "1Je2Bv7OktVgHxNRn58RsnNKN4WlcLmaH" },
+            { picNum: 264, driveId: "1_ScuvMt6LSdiiuUywev9YvY2reAM94sS" },
+            { picNum: 265, driveId: "1ApUYHKe5JIDWpGmuANWB_c9Pw20loD2x" },
+            { picNum: 266, driveId: "1fN58b6VpLhncUXs7Fq-4xSdKtO_LnWMc" },
+            { picNum: 267, driveId: "1ZbqEG4jKDLmPDB3wPbysKLaLU1kHLdc8" },
+            { picNum: 268, driveId: "19cN5AcHTpyUTj3ubHx9PTHlPKt2TzE8e" },
+            { picNum: 269, driveId: "1Q313wr5TKbY4edFcjIeZeHn6HyBjltf5" },
+            { picNum: 270, driveId: "17kZL_i4syfDCfSEoWss9YH0dAC_E1wp9" },
+            { picNum: 271, driveId: "1s5OJN1qKfbVj8-E7nXzdlWcSvtSxyNhE" },
+            { picNum: 272, driveId: "1Zi7l6Z0xbGV5A38g6GA-C5iNIJA6s0nv" },
+            { picNum: 273, driveId: "16EpN_erTJCYfID4a03TfhCCK4ieo1mkM" },
+            { picNum: 274, driveId: "1_1hb-FRPs8zru878o8w_zC1ER6iJrD1a" },
+            { picNum: 275, driveId: "1skhGNCsV6R9774musp32ztob4wfodvcb" },
+            { picNum: 276, driveId: "14nImSoU3qXyvRjR-iYWGSAkrzg750md0" },
+            { picNum: 277, driveId: "19IGm1j-2l4Jlqrd3MEq8Ku1x4HQZHLF0" },
+            { picNum: 278, driveId: "1uaxFbBnZT51hMjsh3lw4ELoqgsbsxiv3" },
+            { picNum: 279, driveId: "1BBwZJkS5p6pMN95xpgJjfT6VLdLAv_xI" },
+            { picNum: 280, driveId: "1HKV-l2wm0UTUusMOgTF4umH0IMP-oasS" },
+            { picNum: 281, driveId: "13leHs6vaZzt4F03ea7cExzSDVAEk97bj" },
+            { picNum: 282, driveId: "1OLH5VLKTWmYFzSl3q-BRiBGRAZhlPVXR" },
+            { picNum: 283, driveId: "1HQekprbkl3c9c1z5bIL3fY_-_IGnLiLe" },
+            { picNum: 284, driveId: "1az7sfgEtWI855R6yZvGyAAPeDU8yOhkg" },
+            { picNum: 285, driveId: "1CkI2AAQPxr8JSvTm2zf4fjMKFb2XENnF" },
+            { picNum: 286, driveId: "1dpX1S8Nbm8tPy24J9KHDuSGs1A4n_Lz8" },
+            { picNum: 287, driveId: "1ZnLYk7eC_q5PGe7iDykzCuW4Bf_dL-8F" },
+            { picNum: 288, driveId: "1Sw5WGFAtVFHNwaMCuF_NLJbtq28xilC1" },
+            { picNum: 289, driveId: "1_1BKynVhPCdYfFEgKwlxeJBvFI6rBTZP" },
+            { picNum: 290, driveId: "1Jjlodece5vtbue7A5ZqvAdbN_qGisPna" },
+            { picNum: 291, driveId: "1telH9qJw78tsKJiWEaM_A7eLRDRczZAd" },
+            { picNum: 292, driveId: "1gHSV_Oqcl-ZM0V2uDN9GPawA14w3fpjF" },
+            { picNum: 293, driveId: "1G-Ivu5xCqaH12Q0X8AuBID6oaS4bNc21" },
+            { picNum: 294, driveId: "1PZSRFEJNGoRIGyueURqIf1ae760X8px6" },
+            { picNum: 295, driveId: "1W_p3npEqmGUaZG7VuRhzpSrtvWPZDhCW" },
+            { picNum: 296, driveId: "1vVPO4Pj7ZtNdVBsOse02TzPazjgWraiJ" },
+            { picNum: 297, driveId: "12oR1GqOgdrZIOQ1EZp0_n_UOmpYDlVEn" },
+            { picNum: 298, driveId: "1EBDiwjeZYaktthbyxqBq4AATHHW1p9Qq" },
+            { picNum: 299, driveId: "1SGPJRuFjE_hJX7aJURlbHJ-AjApnbi3r" },
+            { picNum: 300, driveId: "1-k_Q_srgnzUwCPYolc8_BvEJtlmOyMOv" },
+            { picNum: 301, driveId: "14t0boxqXIV_fCw_S1eV2ICBEfhi7cdSE" },
+            { picNum: 302, driveId: "1vOAE14wYjkACFJnWI-B7aXQN7A0OmKlr" },
+            { picNum: 303, driveId: "1gWingqYIbkbdFuEvHYXwZ2HDXsp2E8ke" },
+            { picNum: 304, driveId: "1CrHFe3XNitCgDqrOSXUsb8J1o-7BMseB" },
+            { picNum: 305, driveId: "10pep7Ad0Bc6IGPIqHo0nLq9lbBD7qOGx" },
+            { picNum: 306, driveId: "1Jb_of7Rja21IEBo8aIBCE8eQUhen_FNZ" },
+            { picNum: 307, driveId: "1V336wlzYXlil9TqyrDJ8I5thfPEDUxNp" },
+            { picNum: 308, driveId: "1qcPeZuMj0TkiQ0OsPvECaLeytrdJxCLC" },
+            { picNum: 309, driveId: "1XvhbsVdjztGqgOt2lS6aI1HCzopCBG5V" },
+            { picNum: 310, driveId: "1vd2bPLaDqXWAnYgWsyztIrUDg0XeWrpf" },
+            { picNum: 311, driveId: "1ZNlcuiZ-DXjfg0soi0v6t_1KDHGQ-X3T" },
+            { picNum: 312, driveId: "1KSRz6p79qX-DWxzwXFVF-sDEzBkQrwxo" },
+            { picNum: 313, driveId: "1SgMVVi0Qub1VUNN1-y-07tKu6Emotf61" },
+            { picNum: 314, driveId: "1BzGUG7SquTLe53hGLsTfTONdTtUceWDK" },
+            { picNum: 315, driveId: "1sZZR7wX0WiRByKYo7qfyRjGx02rEC1Nn" },
+            { picNum: 316, driveId: "1eKk6_9uWvS6PLByzyuG5bcm8HG0o8VBZ" },
+            { picNum: 317, driveId: "1oF10Ra3-YgyvKRPMexOW_baNI8E_UIuJ" },
+            { picNum: 318, driveId: "1V2_ADnMqvvHXaoWdq5IoDopcLken6Bs8" },
+            { picNum: 319, driveId: "1hC5J2eW4x2T8MnLu2X7U_UDdrxfwN7Gt" },
+            { picNum: 320, driveId: "1aMWdMAdjDgCZHjFUArpzT_P6luZ8dTQp" },
+            { picNum: 321, driveId: "1PZi5rp0_NzkOUcHG7WTlZi58SUFNa3WW" },
+            { picNum: 322, driveId: "19r7r58MweyQ2ayiyU9LaypKDvDvem51g" },
+            { picNum: 323, driveId: "1v_FFRvJvabGLGdHgtFRaZS6XWt9NR9BG" },
+            { picNum: 324, driveId: "1GXpDPOdzMuyFI2Ew3HFGkahTYGOAE9O3" },
+            { picNum: 325, driveId: "19VBmk0PnwTTpYtaj39YLShH4ZQJ4vwXh" },
+            { picNum: 326, driveId: "1kGFBL_KHr79nqq1PBn242n9UrIS1OVGM" },
+            { picNum: 327, driveId: "1TpFR9QwDw-PwqAvCIHtRzYc1eY8aaSKz" },
+            { picNum: 328, driveId: "1qUSnYPm05X8i4-BQsn_GJEFPO1oNnxQS" },
+            { picNum: 329, driveId: "1C1lxGYQ689nf4bpeR4KZm_ovmeSX7F0H" },
+            { picNum: 330, driveId: "1L4DRoehDmmUWHbwTAn8I4km6d5JXqkVr" },
+            { picNum: 331, driveId: "1FKPEeLZ7tUc_v9WXllkbWxcs2xomcQK7" },
+            { picNum: 332, driveId: "19EKfqM72YBU2aH-IVeSP1f88wOt_u68K" },
+            { picNum: 333, driveId: "1Ms_UIRMygP0V4PnRikBUOZGRWNOEO1vU" },
+            { picNum: 334, driveId: "1tBxqcyUDmJO9ASXliIsJLbWrG41dXVzc" },
+            { picNum: 335, driveId: "12uGAMAPjHd9FwgtrAhMUjKNKYE5cLs7r" },
+            { picNum: 336, driveId: "1mpGv6wDvEGDNj78dL5BtEt5jVd0TBDyo" },
+            { picNum: 337, driveId: "1wzDPbucN-I1V5G0x1CLrb0jLvdrdNG2H" },
+            { picNum: 338, driveId: "1tl-i_tcEXFjVXsEvDvH4Qs9C_A0_Gg8s" },
+            { picNum: 339, driveId: "1d9Q498NGhd5TxqLkvZG8hMx_IVN9t799" },
+            { picNum: 340, driveId: "1hCDOV8LlNjXziPeNSZS1JIKRyMaTzUia" },
+            { picNum: 341, driveId: "1ze_B1Xl4rKn9qmkTSx64leX8BcmfvWKJ" },
+            { picNum: 342, driveId: "1cLCPtkGJvo7cFtA8H_tZ5W76k_yChsFM" },
+            { picNum: 343, driveId: "1ida5BR02mKPmVS3B-E6k4NEnPrSJKFNG" },
+            { picNum: 344, driveId: "1n7GGDOcOrHvs7Up2HWIIR7aVf7sTuPbf" },
+            { picNum: 345, driveId: "1Jp9f8q_MaFahEiCIkt6xQ1mHnkxrkWUB" },
+            { picNum: 346, driveId: "1tbBvnzbdrpwTsQuE6-84_8RWCJFLfSDl" },
+            { picNum: 347, driveId: "1nphZumZOJ3O3cUQekmr1hyt0l5LsxxnP" },
+            { picNum: 348, driveId: "11I70DSRribbG5zfyNPG0gORot-aS3Ljp" },
+            { picNum: 349, driveId: "1_MqZRvOTKNnjgsJ13If651oEw6a0Cf8E" },
+            { picNum: 350, driveId: "1AQ6LTth1HpW3IZfz14MdE9rK708SJLjp" },
+            { picNum: 351, driveId: "1lzUqorzIKOle0EXDNSxqwugotsV9o94V" },
+            { picNum: 352, driveId: "1GuEEo9Yd1ER0gKkTE8YyBbBfbZ-p98AE" },
+            { picNum: 353, driveId: "18KUWPQa9c4KfJe8ppwcLifeMxizDeVLy" },
+            { picNum: 354, driveId: "17H2fCJ2k4hFSWI7pP5AiyW7atxUu4omr" },
+            { picNum: 355, driveId: "1DwOSMWSFTMdLvgsn1BpgvZjWKaI7ddPN" },
+            { picNum: 356, driveId: "1qiY7u3-ocRJJr0PpjMFMiUoauAnh68lO" },
+            { picNum: 357, driveId: "1H_dFSygAlb8gcaR85RBc3Y4GQ61KzfnY" },
+            { picNum: 358, driveId: "1My9wmEVBuBQ22g79Vg4t4m3QFbtlL0Ml" },
+            { picNum: 359, driveId: "1SFDi4ZbBBdNzwh7eNBcDfrYPXxoZDHEF" },
+            { picNum: 360, driveId: "133ePBPd1L0_XN-YxtW1ViLpOIxrA5F27" },
+            { picNum: 361, driveId: "1GieyZQDqpJV5xn5WXI_K5bygUKyi_vaJ" },
+            { picNum: 362, driveId: "1voRqCkHl-dkNBHRBuzKjFGcbYcUhamCC" },
+            { picNum: 363, driveId: "1cr2GYYJ2XH2HrIHK_ueSj1GPvyRs28Vm" },
+            { picNum: 364, driveId: "1GTPEfXXhxOywwlsJEYv9FXwhyre5ARFg" },
+            { picNum: 365, driveId: "1-JKpJfKB24bRQmhHX4KeJqp1JB2XFKKR" },
+            { picNum: 366, driveId: "1DORHZw2s4KSb8GlIviMb5g3ReqNBpHNn" },
+            { picNum: 367, driveId: "1j3Zx1vytKdYh22m-8lSSBMtEHSlBvwC3" },
+            { picNum: 368, driveId: "1SHnbFWxL12jhSrF2o2UsG1iyscqO9lIC" },
+            { picNum: 369, driveId: "1S7svl_-b_rJieuWyR7GoVZgxB3tPSXMw" },
+            { picNum: 370, driveId: "1ST7Db5Px6s1U3-kRJAYe5GvPgesRFK1O" },
+            { picNum: 371, driveId: "1F3L56wzINUQGTzluQHHH-RDjyVu-LzFf" },
+            { picNum: 372, driveId: "1i7M2kfEkLJ6IO5uiSIrB5JeHQ765a0gE" },
+            { picNum: 373, driveId: "1fXpUwP-ND7kbpOrMi6IIwjzNAnkyVc6H" },
+            { picNum: 374, driveId: "17HgpQzWuhTC3Kgw__n9XXrqImrzk-2iA" },
+            { picNum: 375, driveId: "1BhhhHWmyzGj-SRH0mi667HSd4niNIpAW" },
+            { picNum: 376, driveId: "1YiaVYdijlqFCVt4R6iWW3uhjBJv4xNqz" },
+            { picNum: 377, driveId: "1WBFW78StkvgVlgQbZb4YYtlIfT4mXrhD" },
+            { picNum: 378, driveId: "1Y16ZMPOpwEjGhjFs7W7PmEOin7vjC0WH" },
+            { picNum: 379, driveId: "1UWNlHB8Wsgrv8v1u0ONMhwrybfaGWVLp" },
+            { picNum: 380, driveId: "1W7rEt3ygAfTjxvrDRMKxeeIorVjFgwYv" },
+            { picNum: 381, driveId: "1n_g8i_dNHXKktjWoHv7R5_GOnrIBGMK0" },
+            { picNum: 382, driveId: "1LZiM7R6P6Ngii98dUUn6dogzF1sDiHhL" },
+            { picNum: 383, driveId: "16SXxvWa5vn8iOaIdyVMRWlU-09v5GUWM" },
+            { picNum: 384, driveId: "11ColABYNUjUdFoB-J9YWbf_DI5qAN6gN" },
+            { picNum: 385, driveId: "16mnNH8K3OSKM-IDp9R9u-8uFujXJ2SfE" },
+            { picNum: 386, driveId: "1D__Wn19LTDK8ggRhXmFzP4TaGmRzXXCS" },
+            { picNum: 387, driveId: "1g6VErgY19TUL-ewjWUeZvKREKDiWstmU" },
+            { picNum: 388, driveId: "1Asy5frAHWsGA1rAd5yrUtrvHORLsPurE" },
+            { picNum: 389, driveId: "1go910EzlalOmfUHGIJ_InEM9Zb1tOMr8" },
+            { picNum: 390, driveId: "1oroGh3iOmbVqH0IzBj6fsgoGEDd04H_6" },
+            { picNum: 391, driveId: "1vKHpS9HGotj-ltlIm7nL9SN8cGmQ3Wf2" },
+            { picNum: 392, driveId: "1hjU9zMEWy5Eu4rx67Q1RianEtTyN3JAj" },
+            { picNum: 393, driveId: "1O8MxUvmgL5AkPcDStteuVObfrimMmopx" },
+            { picNum: 394, driveId: "1_63qiNtDPkE05tcsecodeUCD7amJ6Sgj" },
+            { picNum: 395, driveId: "1C_wEEJF0YQLXFAKpdOSW9eF86Klw6izz" },
+            { picNum: 396, driveId: "1iIlYj4Jhh23Xtd7m1eeaT3eEY9xphoSi" },
+            { picNum: 397, driveId: "1WOpYsdjqmUkwdNbFiumMuY8stC0wgxWj" },
+            { picNum: 398, driveId: "1iMrKKhk99XmxUR4nb6Y8UTdqbTsi03CL" },
+            { picNum: 399, driveId: "1NYH-tl5klbt0UxMMSqWUaIkLL_DYRayw" },
+            { picNum: 400, driveId: "1Qe-Ci6wQETg0a-f-dKPxAuBfvFh25Z2s" },
+            { picNum: 401, driveId: "15MIN4Zd6W2c2fh73gkdk-S99Q2909bnX" },
+            { picNum: 402, driveId: "1TdRbkRgsbYn-0Pnrayv5Y0I-ZKQ3bG3h" },
+            { picNum: 403, driveId: "1WCDEgWONiWrQyRRG1bPRnUrCvd_RORjl" },
+            { picNum: 404, driveId: "1YHB0HTkvSjoPCiaWqPJT1kwmZubM85sG" },
+            { picNum: 405, driveId: "1ZDRxS0H7_jZ5KAs4scfI9oxoKBXt16LI" },
+            { picNum: 406, driveId: "1yJb86uKZvO6D7ir3ZpaIiu8TgAMQHpo_" },
+            { picNum: 407, driveId: "19zjKgfkOX6O3srBCXoAmoZZezxlheeIS" },
+            { picNum: 408, driveId: "17Mq5EzeZE2FpSOw7Eyj9CS7lBDDZA4IH" },
+            { picNum: 409, driveId: "1XeVMbE8-N-GZe2JQms6oNSxScEjiypB-" },
+            { picNum: 410, driveId: "14XlExXHEneb8zoh_YTJUlBgKiGh3dJmh" },
+            { picNum: 411, driveId: "1rnnLK1NzNDRKOl9TwVubcKxIkkrc_EtR" },
+            { picNum: 412, driveId: "1zcBsiIma1ULgqIYWH9p0iPz-PheliH4q" },
+            { picNum: 413, driveId: "1RlE6H_rgnsbNvmp4ZIfuXtz_eHUW3ioR" },
+            { picNum: 414, driveId: "1HJZc6rk3XP_w-rYrEYbUuuCf4EQ6vKBh" },
+            { picNum: 415, driveId: "1IF12jKEfsyei3ErguRBi4xR6V_rxeOhB" },
+            { picNum: 416, driveId: "147xB2u3k0rwtplj0XHxT0Zwg3Xch_d8i" },
+            { picNum: 417, driveId: "1rNkJ3VVG3-7gos5HBW4j3S3blPooFiI8" },
+            { picNum: 418, driveId: "1KcIwJskbHCDnDDrhBVWHDDp43FIYtM5G" },
+            { picNum: 419, driveId: "1lLFAOwZLQhNJqsmXp6LnmhCKC7i_-u_Y" },
+            { picNum: 420, driveId: "1HygP_a7YPhyEhqwSAD87pJ2aYZRzkAm_" },
+            { picNum: 421, driveId: "1sIAvh5xaGPa2E3n7olw2uVIEBlhHzky5" },
+            { picNum: 422, driveId: "1IUag9zMeDvPSStuBJt1Nh18zI__tKir5" },
+            { picNum: 423, driveId: "1pwj50ak5XNLD7VQ7G2pijSapQQ8bXCDL" },
+            { picNum: 424, driveId: "1zcxdm8uSFNi73__Wd4x4oIydQyYLWoo3" },
+            { picNum: 425, driveId: "154hkAMXzELgyHexQvpAif0RBHSBUjs79" },
+            { picNum: 426, driveId: "1BT3qI7DYG_pBYhb_tVxHHfnFvFjHjuMV" },
+            { picNum: 427, driveId: "133tUFhrq-g0UeTy6QIXHHGIqjaBchWwf" },
+            { picNum: 428, driveId: "1D2CTcheJA-2P2g1isWagNt-xJLpHca7x" },
+            { picNum: 429, driveId: "1BFnC8SAQiDCgouNzttarOW-qXrrzXaLm" },
+            { picNum: 430, driveId: "1FtIVhYzZx1WMfLnhTWxvPshYq0h-_Dje" },
+            { picNum: 431, driveId: "1vrvAMRHYo2vCPVH01afP5ySt6ZEcxe5K" },
+            { picNum: 432, driveId: "1pbw61BUR2IUHcAJciE41aIuiEOcbew-x" },
+            { picNum: 433, driveId: "1bkq7yfiRCaQ3Xt7TotVMI2jUtwBARBzl" },
+            { picNum: 434, driveId: "1lxfeHNt_Ss-nN8R1yjvl5Wrk_Wd3TaGw" },
+            { picNum: 435, driveId: "1dJsfR3RHkaAyovEMxCePfFh05LCKbzLb" },
+            { picNum: 436, driveId: "1Yf9Xz_5YFzh5wV8N8i5t6M0WgaRSpx4t" },
+            { picNum: 437, driveId: "1ggseeRMTf4UvHrkQ7csJkP_K7jqH6huX" },
+            { picNum: 438, driveId: "1QYzt5kzTJPnbLDu6VXP1p7SBhYK7hiDm" },
+            { picNum: 439, driveId: "1sJAUXKcQEyU6kA-kidN3FO4LVm61X3Xm" },
+            { picNum: 440, driveId: "1hy5SJL1Ow4HxFuK383wBSBcN-LFJFcWT" },
+            { picNum: 441, driveId: "1XYWO8nwh9e9QBTumYc_36K-KDOFYRBWl" },
+            { picNum: 442, driveId: "13LDcJZB6loVjDW1gJpiln64lBoiJm34y" },
+            { picNum: 443, driveId: "1IdD39psV9e2hXOyHI8aMpE_-d_AmkVRT" },
+            { picNum: 444, driveId: "1RHrKmhHNxevcGqt9wsyccPzyDg9D9o_C" },
+            { picNum: 445, driveId: "1s5qjx6f-9zZK2q5tUJUYjC7GC40ntdym" },
+            { picNum: 446, driveId: "183yXfuZ-zpY9GsmHj9aHiv6TsNEfIV3R" },
+            { picNum: 447, driveId: "1SV-yYBQajPatUPV50c9ixuFvyz8voxuM" },
+            { picNum: 448, driveId: "1TnKr8YBiMbWgiQnwg_vSX57dar-d9l1a" },
+            { picNum: 449, driveId: "1lrE__rRt_bB6opvW_ng0MLuBQMkKXDUV" },
+            { picNum: 450, driveId: "1F9v53qbpLTpNY2HJgIjUO19um1EGVwJL" },
+            { picNum: 451, driveId: "1cKvoYjhfYQbv_MzaxxzBEGwbfow_qm86" },
+            { picNum: 452, driveId: "1H8pmE0viLXQ75Ay9SeSPC8Z835AC3m0n" },
+            { picNum: 453, driveId: "1QXTstJFIjjJhUOn1DV66Gdb8OTLlQxaZ" },
+            { picNum: 454, driveId: "1n6o1kRKEbhiWTNfNrOzw5iKDowgEGGEk" },
+            { picNum: 455, driveId: "178s_njclouOW7M2gPqi8uSvVhhnlPbUW" },
+            { picNum: 456, driveId: "1QLD85vDSszwHvUjP9wTSr35RH8-2yqYr" },
+            { picNum: 457, driveId: "1DZmq8AL8_XGsvr9E6FQ4FbjJUGxdoeDU" },
+            { picNum: 458, driveId: "1geVKuHAbEPxD7KaD36GqD_k24jmJoZD6" },
+            { picNum: 459, driveId: "1XvLGs8AFW72C7AYvJwJuvvTbivCjeUQ9" },
+            { picNum: 460, driveId: "1SuuGoi8h6jmPqzEnwUWJDw8vopdS1k16" },
+            { picNum: 461, driveId: "1bJISY4HRFoeFlAHwg9dfGfokH0nlK6L-" },
+            { picNum: 462, driveId: "1SmL-QdjCV2ZxdTXHws6PJU-oNen-qoT6" },
+            { picNum: 463, driveId: "1Jgjw3-gei9l4FlSCnl3OX-MWKgVnfBme" },
+            { picNum: 464, driveId: "1N73ut2Z6sv8GRkVep97PJXub3g1tRRRK" },
+            { picNum: 465, driveId: "1_LHNHdy7lGV-Nc7R6fYIFK-b-CnZRqh3" },
+            { picNum: 466, driveId: "1qlr18hbveyNGncWPEvnq51Ng7-Y_Wlh_" },
+            { picNum: 467, driveId: "194n0MwW53Vt0iADu4GRraENMHZHlyM4L" },
+            { picNum: 468, driveId: "1zzKcnS-_ksvxqZdDWcyYpKY3tUpWYkIv" },
+            { picNum: 469, driveId: "1gyeeJ2exrbvspgjfSVwkFkWxXDvRySmq" },
+            { picNum: 470, driveId: "1qzRc6QHJIIcIOozevxDXL3TOvQ3NRELs" },
+            { picNum: 471, driveId: "1WHkyz3AdaOUP_oLuC6nqmqTrqYMAAymw" },
+            { picNum: 472, driveId: "15qJJWs14ao4tsKe0u2YzJ2z9vGX8DvqE" },
+            { picNum: 473, driveId: "1OeUH6we0pXJIvuPDeWEDAPtij6uC8rDz" },
+            { picNum: 474, driveId: "1DVgiO8k2LEiaXX6q3GnBIK0mp4kmHS6t" },
+            { picNum: 475, driveId: "1Y6d60WXkTmrTmMkIWj2cggx7pOQUiGSN" },
+            { picNum: 476, driveId: "155FviJHA1g6KvvIcMJD0HH7GZifJV7i-" },
+            { picNum: 477, driveId: "17gEm_7GYWEyNa8hbGnlwllKrOSnawd_E" },
+            { picNum: 478, driveId: "1FyVsDrpfqxcVPMlSe_OgHcYYghL0BOBL" },
+            { picNum: 479, driveId: "1vkT_Iv-oywLqIj0bs7R8Bl2Dokfr88J_" },
+            { picNum: 480, driveId: "1j_W1Dleq38PL7xxDypih82_YApaDXBmR" },
+            { picNum: 481, driveId: "1NAaQAMqU4kmNNYNZ0sm4BGbMLOcsGaqG" },
+            { picNum: 482, driveId: "1XCZP4ezT1Lo0KJ4bjaquJtwP0HbXLB8c" },
+            { picNum: 483, driveId: "1hHnSIQAAbGil5GMCDXCjxsSBdkUYpxzv" },
+            { picNum: 484, driveId: "12Ncwryy5JO4OPzpS7j7Iuy2b4OrgyhCV" },
+            { picNum: 485, driveId: "1wkfyZGzAoPw6no72pIgxnS5-AQYiNess" },
+            { picNum: 486, driveId: "1H9CCF12Oy-9kA5cUXsdXGAMdDYje-9C4" },
+            { picNum: 487, driveId: "1Un6VzTw2hDrCb_fyYM_FVgp8issU9p6a" },
+            { picNum: 488, driveId: "1HsVHo23ytGhVk5M4-DxtmlGNbwAy1lPE" },
+            { picNum: 489, driveId: "138oF81Jino8A2sxdAmJ8DkV_v_r_hzd3" },
+            { picNum: 490, driveId: "1rnZkDCq55nUdouGnp2wLFYNkCffjblKv" },
+            { picNum: 491, driveId: "1A8PDqcLDO0Q7XKIDvf6xiCde1k5cyRG5" },
+            { picNum: 492, driveId: "1v29tjnnalE6addafqEfcXK9DCdHW-Utd" },
+            { picNum: 493, driveId: "1i68b7MdxoKZ6IwlvAqItJM8I-tPG1TG8" },
+            { picNum: 494, driveId: "1XVgu2tS9RiErG4ybbB9rKhvtVx84a3dc" },
+            { picNum: 495, driveId: "1A2kDG03ehiiBX-_xtqCCsW_FJDd2RZQn" },
+            { picNum: 496, driveId: "1wlz4eqIHJ9MXHZ3QDKt1hTPO2NnQTMQ9" },
+            { picNum: 497, driveId: "1xZygKPawcUm6CDOYsgtMeAKSAlytjRRY" },
+            { picNum: 498, driveId: "1LXAAZWdjGxYbPsuynwwhvU-g3_SBNUa7" },
+            { picNum: 499, driveId: "1b-QAGD8CtKhSKkKrFgBTf7bFE4yjiWz2" },
+            { picNum: 505, driveId: "1fE-3yQF4wGHgYP32t3c8fSQ7rk4WmfJq" },
+            { picNum: 501, driveId: "1FAsHrgtukn-3UloBkxoo39mdlJg3WfBt" },
+            { picNum: 502, driveId: "1BDEdP9wdoROwNctFYnAMFy7yFIkZDXQO" },
+            { picNum: 503, driveId: "1CyoL1P5Kh_r73kLWVmGiuL9HWCN7JZWC" },
+            { picNum: 504, driveId: "1RQpbFPeMdjIKrcBVdKUmnxG7NSY7l67E" },
+            { picNum: 505, driveId: "1ErZNdzwIFWjvQfQC5-50GVE-D0U0AAya" },
+            { picNum: 506, driveId: "1nDDHSyjnnEMDM3vszs6stMTMkDRQr93A" },
+            { picNum: 507, driveId: "1qhoVy3dwEwGIGvXGYmz0Y7fC6OnbWiX-" },
+            { picNum: 508, driveId: "1P1Mmu1xZbMcscXdulgTjGoxgmV5VuyRW" },
+            { picNum: 509, driveId: "10EYVxVSXu_og_sDbZhaU7pW70PMj6f4_" },
+            { picNum: 510, driveId: "1O6704rNM7Z6tnbDq01B4OtbgCjVAJYPx" },
+            { picNum: 511, driveId: "1jKMT9JqNjryFCYGpYpqX1vPT_vuQ8abt" },
+            { picNum: 512, driveId: "1fJA7a0TqCTR0rRafcclPxyvabvd1bLd7" },
+            { picNum: 513, driveId: "1yXFpegS_RTWLUlV2gR2AaQ_qT3W5pC3j" },
+            { picNum: 514, driveId: "1H9rftB7ckh_2hdvWI0LWwz4-YwoDZMgw" },
+            { picNum: 515, driveId: "1282AoUiAAdPrzJyc_XyA_BOa4qgLWN8w" },
+            { picNum: 516, driveId: "1LTcVt4S5UjEfi-mkiNbdnmKwtbls1_va" },
+            { picNum: 517, driveId: "1D3WS1dn-fyFUzE7Mqr24u7RKmsNEhvrl" },
+            { picNum: 518, driveId: "16XuAX2zKHhVh2EtMy-EgLub-XGXtllr4" },
+            { picNum: 519, driveId: "12vnBS15ShNwLzxlipw4NKH2hgg1ULmK7" },
+            { picNum: 520, driveId: "17_TeeLlwa7raxk4QBt_HyoKdZFmxjG-f" },
+            { picNum: 521, driveId: "166TbSQGbIveVird1x-v_lDEfaJ2Ja5mP" }
+        ];
+
+      const galleryGrid = document.querySelector(".picgallery-grid");
+
+     galleryDatabase.forEach((item) => {
+            const elementId = item.picNum + 81; 
+
+            galleryGrid.innerHTML += `
+                <div class="gallery-item" id="pic${elementId}">
+                    <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=s4000" 
+                         alt="Gallery Image ${item.picNum}" 
+                         loading="lazy">
+                </div>
+            `;
+        });
+    </script>
 </body>
-</html>
 </html>

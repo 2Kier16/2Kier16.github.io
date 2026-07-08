@@ -1377,49 +1377,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   8. COFFEE PORTFOLIO & COFFEE LEARNING LAYOUTS
+   8. COFFEE PORTFOLIO & COFFEE LEARNING LAYOUTS (CLEAN UNIFIED FIX)
    ========================================================================== */
-#coffee-shop-page .coffee-hero::after {
+#picshop-page .coffee-hero::after {
     background-image: url('../assets/mastercrest.png');
     background-size: contain;
     opacity: 0.05;
 }
 
-#coffee-shop-page .section-heading-primary {
+#picshop-page .section-heading-primary {
     color: var(--primary-dark) !important;
 }
 
-#coffee-shop-page .section-paragraph-large {
+#picshop-page .section-paragraph-large {
     color: var(--text-dark) !important;
 }
 
-#coffee-shop-page .coffee-content {
+#picshop-page .coffee-content {
     max-width: 900px;
     margin: 0 auto;
     padding-top: 4rem;
 }
 
-#coffee-shop-page .coffee-location {
+/* --- 📍 LOCATION SECTIONS (PRESERVED WORK) --- */
+#picshop-page .piclocation {
     margin-bottom: 5rem;
     padding-bottom: 3rem;
     border-bottom: 1px solid var(--border);
 }
 
-#coffee-shop-page .coffee-location-title {
+#picshop-page .piclocation-title {
     font-size: 2.2rem;
     font-family: 'Montserrat', serif;
     color: var(--primary-dark);
     margin-bottom: 0.5rem;
 }
 
-#coffee-shop-page .coffee-location-summary {
+#picshop-page .piclocation-summary {
     font-size: 1.15rem;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     line-height: 1.75;
 }
 
-#coffee-shop-page .latte-art-feature {
+/* --- ROTATED FEATURE PICTURE FRAME WORK --- */
+#picshop-page .latte-art-feature {
     width: 100%;
     margin: 0 auto;
     transform: rotate(-2.5deg);
@@ -1430,7 +1432,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #000000;
 }
 
-#coffee-shop-page .latte-art-feature img {
+#picshop-page .latte-art-feature img {
     width: 100%;
     height: 160px;
     display: block;
@@ -1438,49 +1440,63 @@ h1, h2, h3, h4, h5, h6 {
     object-position: var(--cup-position, center);
 }
 
-#coffee-shop-page .gallery-collection {
+#picshop-page .gallery-collection {
     margin-top: 6rem;
     text-align: center;
 }
 
-#coffee-shop-page .gallery-title {
+#picshop-page .gallery-title {
     font-size: 2.4rem;
     font-family: 'Montserrat', serif;
     color: var(--primary-dark);
     margin-bottom: 2rem;
 }
 
-#coffee-shop-page .social-icon {
+#picshop-page .social-icon {
     background: var(--bg-white);
     color: var(--text-dark);
     border: 1px solid var(--border);
 }
 
-#coffee-shop-page .social-icon:hover {
+#picshop-page .social-icon:hover {
     background: #6366f1;
     color: white;
     border-color: #6366f1;
 }
 
-#coffee-shop-page .coffee-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.2rem;
-    max-width: 900px;
-    margin: 0 auto;
+/* ==========================================================================
+   🖼️ LOWER GALLERY THUMBNAIL GRID (ISOLATED SPECIFICS)
+   ========================================================================== */
+#picshop-page .picgallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 1.2rem !important;
+    max-width: 900px !important;
+    margin: 2rem auto !important;
+    width: 100% !important;
 }
 
-#coffee-shop-page .coffee-gallery-grid img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.25s ease;
+#picshop-page .picgallery-grid .gallery-item {
+    width: 100% !important;
+    overflow: hidden !important;
+    background: var(--bg-white) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--shadow-sm) !important;
+    display: block !important;
+    height: 140px !important; /* Locks the item bounding box shape */
 }
 
-#coffee-shop-page .coffee-gallery-grid img:hover {
-    transform: scale(1.05);
+#picshop-page .picgallery-grid .gallery-item img {
+    width: 100% !important;
+    height: 100% !important; /* Forces Google Drive asset to occupy the whole square */
+    object-fit: cover !important; /* Crops cleanly into a square without flattening */
+    display: block !important;
+    border-radius: 10px !important;
+    transition: transform 0.25s ease !important;
+}
+
+#picshop-page .picgallery-grid .gallery-item:hover img {
+    transform: scale(1.05) !important;
 }
 
 .learning-hero {
