@@ -46,122 +46,24 @@
         </div>
     </header>
 
-    <main>
-        <section class="portfolio-section content-wrapper">
-            <div class="resume-container">
-                
-                <!-- Action Buttons: Direct PDF Access -->
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
-                    <a href="assets/Kier_Turpin_Resume.pdf" target="_blank" class="btn btn-primary">
-                        View PDF Resume
+    <main class="content-wrapper">
+        <section class="portfolio-section text-center">
+            <div class="box-glass" style="max-width: 650px; margin: 4rem auto; padding: 3.5rem 2rem;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📄</div>
+                <h1 class="section-heading-primary" style="margin-bottom: 0.5rem;">Resume</h1>
+                <p class="section-paragraph-large" style="color: #4b5563; margin-bottom: 2rem;">
+                    Kier V. Turpin &bull; Software Developer & U.S. Air Force Veteran
+                </p>
+
+                <!-- PDF Action Buttons -->
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="assets/Kier_Turpin_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-weight: 600;">
+                        View PDF
                     </a>
-                    <a href="assets/Kier_Turpin_Resume.pdf" download="Kier_Turpin_Resume.pdf" class="btn btn-primary" style="background-color: transparent; color: var(--text-color, #1f2937); border: 1px solid #d1d5db;">
-                        Download Resume
+                    <a href="assets/Kier_Turpin_Resume.pdf" download="Kier_Turpin_Resume.pdf" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-weight: 600; background: transparent; color: var(--text-color, #1f2937); border: 1px solid #d1d5db;">
+                        Download PDF
                     </a>
                 </div>
-
-                <!-- Header / Contact -->
-                <div class="resume-header text-center" style="margin-bottom: 2.5rem;">
-                    <h1 class="text-pop">Kier V. Turpin</h1>
-                    <p class="resume-tagline">Software Developer | U.S. Air Force Veteran</p>
-                    <div class="contact-info">
-                        <span>Miami, FL 33145</span> |
-                        <span>(786) 312-6087</span> |
-                        <span><a href="mailto:KierVTech@outlook.com" class="link-primary">KierVTech@outlook.com</a></span> |
-                        <span><a href="https://linkedin.com/in/kier-turpin" target="_blank" class="link-primary">LinkedIn Profile</a></span> |
-                        <span>Open to Relocate</span>
-                    </div>
-                </div>
-
-                <!-- Professional Summary -->
-                <div class="resume-section">
-                    <h2>Summary</h2>
-                    <p>
-                        U.S. Air Force Veteran and IT graduate (B.S. Information Technology, Magna Cum Laude) combining structured operational leadership with hands-on software development across Python, JavaScript, and Kotlin. Experienced in architecting audio streaming pipelines, autonomous reinforcement learning systems, and deploying scalable digital workflows.
-                    </p>
-                </div>
-
-                <!-- Core Competencies -->
-                <div class="resume-section">
-                    <h2>Core Competencies</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Languages & Frontend</h3>
-                            <ul>
-                                <li>Python</li>
-                                <li>JavaScript (ES6+)</li>
-                                <li>Kotlin / Android Jetpack</li>
-                                <li>HTML5 & CSS3</li>
-                                <li>REST API Integration</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Architecture & Systems</h3>
-                            <ul>
-                                <li>SQL / NoSQL Database Design</li>
-                                <li>ExoPlayer / Media3 Pipelines</li>
-                                <li>Git & GitHub Pages</li>
-                                <li>Systems Troubleshooting</li>
-                                <li>Cross-Functional Teaming</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>AI & Methodologies</h3>
-                            <ul>
-                                <li>Q-Learning Algorithms</li>
-                                <li>Pygame Simulation</li>
-                                <li>Prompt Testing & LLM Tooling</li>
-                                <li>Agile / Scrum Practices</li>
-                                <li>Technical Documentation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Featured Technical Projects -->
-                <div class="resume-section">
-                    <h2>Technical Projects</h2>
-                    <div class="job-entry">
-                        <h3>Lead Developer &mdash; <span>MoodMix Media Application</span></h3>
-                        <p class="job-dates">2025 &ndash; Present</p>
-                        <ul>
-                            <li>Architected an audio client mapping dynamic emotional states to curated music streams via Jamendo and Audius endpoints.</li>
-                            <li>Engineered client-side caching using Android Media3/ExoPlayer and implemented a zero-PII privacy architecture.</li>
-                        </ul>
-                    </div>
-                    <div class="job-entry">
-                        <h3>Lead Developer &mdash; <span>Project A.N.G.E.L.</span></h3>
-                        <p class="job-dates">2026</p>
-                        <ul>
-                            <li>Engineered an autonomous agent simulation in Python utilizing Q-learning reinforcement algorithms and algorithmic feedback loops.</li>
-                            <li>Implemented multi-threaded audio execution, fail-safe kill switches, and system-level hotkey listeners in Pygame.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Education & Credentials -->
-                <div class="resume-section">
-                    <h2>Education & Credentials</h2>
-                    <div class="job-entry job-entry-mb-1">
-                        <h3 class="job-entry-h3-small">Bachelor of Science, Information Technology (Magna Cum Laude)</h3>
-                        <p class="job-dates job-dates-mb-0">University of Arizona Global Campus | 2023 &ndash; 2025</p>
-                    </div>
-                    <div class="job-entry job-dates-mb-0">
-                        <h3 class="job-entry-h3-small">Full-Stack Web Development Certification</h3>
-                        <p class="job-dates job-dates-mb-0">Bottega University | 2022</p>
-                    </div>
-                </div>
-
-                <!-- Leadership & Service -->
-                <div class="resume-section">
-                    <h2>Leadership & Professional Service</h2>
-                    <ul>
-                        <li><strong>Student Veterans of America (SVA), UAGC Chapter:</strong> Executive Assistant & Alumni Relations Officer.</li>
-                        <li><strong>DREAM Program:</strong> Strategic Development Coordinator & Youth Services Mentor.</li>
-                        <li><strong>Honor Societies:</strong> Alpha Sigma Lambda, Delta Alpha Pi, Sigma Epsilon Kappa.</li>
-                    </ul>
-                </div>
-
             </div>
         </section>
     </main>
