@@ -1,4 +1,4 @@
-﻿﻿import re
+﻿import re
 import os
 
 files = [
@@ -33,6 +33,8 @@ def repl_nav(match):
         '                    </div>\n'
         '                </div>\n'
     )
+
+        # Pathways Dropdown (books-n-books and hobbiest removed while under construction)
     new_nav += (
         '                <div class="dropdown">\n'
         f'                    <a href="#" onclick="event.preventDefault()">Pathways {arrow}</a>\n'
@@ -42,8 +44,8 @@ def repl_nav(match):
         '                        <a href="advocacy.html">Advocacy</a>\n'
         '                        <a href="art-gallery.html">Art Gallery</a>\n'
         '                        <a href="coffee-shop.html">Coffee Shop</a>\n'
-        '                        <a href="books-n-books.html">Books n Books</a>\n'
-        '                        <a href="hobbiest.html">Hobbiest</a>\n'
+        # '                        <a href="hobbiest.html">Hobbiest</a>\n'
+        # '                        <a href="hobbiest.html">Hobbiest</a>\n'
         '                    </div>\n'
         '                </div>\n'
     )
