@@ -1,25 +1,113 @@
- <main class="content-wrapper">
-    <section class="portfolio-section" style="max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem;">
-        
-        <!-- Header & Quote Section at Top -->
-        <div class="box-glass text-center" style="padding: 2.5rem 2rem; margin-bottom: 3rem;">
-            <h1 class="text-pop" style="margin-bottom: 1rem;">The Gallery Collection</h1>
-            <p style="font-size: 1.05rem; line-height: 1.7; max-width: 850px; margin: 0 auto 1rem auto; color: var(--text-color, #374151);">
-                Explore a collection of free-pour latte art and specialty drinks crafted by baristas across various coffee shops. Whether you find them aesthetically perfect or beautifully unique, every cup represents a dedication to the craft—from beginners practicing to pros perfecting their technique. This gallery is a sincere thank you to the baristas who pour their time, effort, and passion into every single cup. It didn’t just look great; it tasted amazing!
-            </p>
-            <p style="font-style: italic; color: #6b7280; margin-bottom: 1.5rem;">
-                P.S. I even tried my hand at it, and let me tell you—it is NOT easy!
-            </p>
-            <a href="coffee-shop.html" class="link-primary">&larr; Back to Coffee Shops</a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee & Latte Art Gallery</title>
 
-        <!-- The Image Grid -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #f1f1f1;
+            padding: 3rem 1.5rem;
+        }
+
+        .gallery-page {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 3-Column Square Grid */
+        .picgallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            margin-bottom: 3.5rem;
+        }
+
+        /* 1:1 Aspect Ratio Card */
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.04);
+        }
+
+        /* Button Styling */
+        .gallery-actions {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #7b4b32;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #92583b;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .picgallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .picgallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="gallery-page">
+        <!-- Grid where items render -->
         <div class="picgallery-grid"></div>
 
-    </section>
-</main>
+        <!-- Return Button -->
+        <div class="gallery-actions">
+            <a href="coffee-shop.html" class="btn-primary">
+                ← Back to Coffee Shops
+            </a>
+        </div>
+    </main>
 
- <script>
+    <!-- Script Placed Before Closing Body -->
+    <script>
 
         // 1. Map your Picture IDs directly to your true Google Drive File IDs from your database
         const galleryDatabase = [
@@ -546,17 +634,23 @@
             { picNum: 521, driveId: "166TbSQGbIveVird1x-v_lDEfaJ2Ja5mP" }
         ];
 
-      const galleryGrid = document.querySelector(".picgallery-grid");
 
-     galleryDatabase.forEach((item) => {
-            const elementId = item.picNum + 81; 
 
-            galleryGrid.innerHTML += `
-                <div class="gallery-item" id="pic${elementId}">
-                    <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=s4000" 
-                         alt="Gallery Image ${item.picNum}" 
-                         loading="lazy">
-                </div>
-            `;
-        });
+     const galleryGrid = document.querySelector(".picgallery-grid");
+
+
+        if (galleryGrid && typeof galleryDatabase !== "undefined") {
+            galleryGrid.innerHTML = galleryDatabase.map((item) => {
+                const elementId = item.picNum + 81;
+                return `
+                    <div class="gallery-item" id="pic${elementId}">
+                        <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=w600-h600-c" 
+                             alt="Gallery Image ${item.picNum}" 
+                             loading="lazy">
+                    </div>
+                `;
+            }).join("");
+        }
     </script>
+</body>
+</html>
