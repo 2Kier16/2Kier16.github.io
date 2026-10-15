@@ -156,7 +156,7 @@
     <script>
 
         // Picture IDs are mappeddirectly to my true Google Drive File IDs from my database
-        const advocacyDatabase = [
+        const galleryDatabase = [
             { picNum: 469, driveId: "1gyeeJ2exrbvspgjfSVwkFkWxXDvRySmq" },
             { picNum: 470, driveId: "1qzRc6QHJIIcIOozevxDXL3TOvQ3NRELs" },
             { picNum: 471, driveId: "1WHkyz3AdaOUP_oLuC6nqmqTrqYMAAymw" },
@@ -211,23 +211,25 @@
             { picNum: 521, driveId: "166TbSQGbIveVird1x-v_lDEfaJ2Ja5mP" }
         ];
 
-        const ITEMS_PER_PAGE = 16;
+        const advocacyDatabase = galleryDatabase;
+
+      const ITEMS_PER_PAGE = 16;
         let currentPage = 1;
 
         function renderGalleryPage(page) {
             currentPage = page;
-            const galleryGrid = document.getElementById("advocacy-gallery-grid");
-            if (!galleryGrid || typeof advocacyDatabase === "undefined") return;
+            const galleryGrid = document.querySelector(".picgallery-grid");
+            if (!galleryGrid || typeof galleryDatabase === "undefined") return;
 
             const startIndex = (page - 1) * ITEMS_PER_PAGE;
             const endIndex = startIndex + ITEMS_PER_PAGE;
-            const currentItems = advocacyDatabase.slice(startIndex, endIndex);
+            const currentItems = galleryDatabase.slice(startIndex, endIndex);
 
             galleryGrid.innerHTML = currentItems.map(item => {
                 return `
-                    <div class="gallery-item" id="advocacy-pic${item.picNum}">
+                    <div class="gallery-item" id="pic${item.picNum}">
                         <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=w600-h600-c"
-                             alt="Advocacy Event Image ${item.picNum}"
+                             alt="Advocacy Image ${item.picNum}"
                              loading="lazy">
                     </div>
                 `;
@@ -239,10 +241,10 @@
 
         function renderPaginationControls() {
             const controls = document.getElementById("pagination-controls");
-            if (!controls || typeof advocacyDatabase === "undefined") return;
+            if (!controls || typeof galleryDatabase === "undefined") return;
             controls.innerHTML = "";
 
-            const totalPages = Math.ceil(advocacyDatabase.length / ITEMS_PER_PAGE);
+            const totalPages = Math.ceil(galleryDatabase.length / ITEMS_PER_PAGE);
             if (totalPages <= 1) return;
 
             // Previous button
@@ -307,9 +309,13 @@
             controls.appendChild(nextBtn);
         }
 
-        if (typeof advocacyDatabase !== "undefined" && advocacyDatabase.length > 0) {
+        
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", () => renderGalleryPage(1));
+        } else {
             renderGalleryPage(1);
         }
     </script>
 </body>
 </html>
+ 
