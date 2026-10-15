@@ -96,7 +96,10 @@
 
     <main class="gallery-page">
         <!-- Grid where items render -->
-        <div class="picgallery-grid"></div>
+        <div class="picgallery-grid" class="picgallery-grid"></div>
+
+        <!-- Pagination  Controls -->
+         <div class="pagination-container" id="pagination-controls"></div>
 
         <!-- Return Button -->
         <div class="gallery-actions">
@@ -109,7 +112,7 @@
     <!-- Script Placed Before Closing Body -->
     <script>
 
-        // 1. Map your Picture IDs directly to your true Google Drive File IDs from your database
+        // Picture IDs are mappeddirectly to my true Google Drive File IDs from my database
         const galleryDatabase = [
             { picNum: 1, driveId: "1X6RKdw7AjUydNJY-WpVQHPBKpjBZ-euH" },
             { picNum: 2, driveId: "1VQpMBnBbN_0-YSOL37EOk1d2-ewa_X_h" },
@@ -636,21 +639,106 @@
 
 
 
-     const galleryGrid = document.querySelector(".picgallery-grid");
+     const ITEMS_PER_PAGE = 16;
+    let currentPage = 1;
 
+    function renderGalleryPage(page) {
+        currentPage = page;
+        const galleryGrid = document.querySelector(".picgallery-grid");
+        if (!galleryGrid || typeof galleryDatabase === "undefined") return;
 
-        if (galleryGrid && typeof galleryDatabase !== "undefined") {
-            galleryGrid.innerHTML = galleryDatabase.map((item) => {
-                const elementId = item.picNum + 81;
-                return `
-                    <div class="gallery-item" id="pic${elementId}">
-                        <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=w600-h600-c" 
-                             alt="Gallery Image ${item.picNum}" 
-                             loading="lazy">
-                    </div>
-                `;
-            }).join("");
+        const startIndex = (page - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const currentItems = galleryDatabase.slice(startIndex, endIndex);
+
+        galleryGrid.innerHTML = currentItems.map(item => {
+            const elementId = item.picNum + 81;
+            return `
+                <div class="gallery-item" id="pic${elementId}">
+                    <img src="https://drive.google.com/thumbnail?id=${item.driveId}&sz=w600-h600-c"
+                         alt="Gallery Image ${item.picNum}"
+                         loading="lazy">
+                </div>
+            `;
+        }).join('');
+
+        renderPaginationControls();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPaginationControls() {
+        const controls = document.getElementById("pagination-controls");
+        if (!controls || typeof galleryDatabase === "undefined") return;
+        controls.innerHTML = "";
+
+        const totalPages = Math.ceil(galleryDatabase.length / ITEMS_PER_PAGE);
+        if (totalPages <= 1) return;
+
+        // Previous button
+        const prevBtn = document.createElement("button");
+        prevBtn.textContent = "‹";
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => renderGalleryPage(currentPage - 1);
+        controls.appendChild(prevBtn);
+
+        // Smart sliding window (keeps the 33 buttons from overflowing)
+        const maxButtons = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+        if (endPage - startPage + 1 < maxButtons) {
+            startPage = Math.max(1, endPage - maxButtons + 1);
         }
+
+        if (startPage > 1) {
+            const firstBtn = document.createElement("button");
+            firstBtn.textContent = "1";
+            firstBtn.onclick = () => renderGalleryPage(1);
+            controls.appendChild(firstBtn);
+            if (startPage > 2) {
+                const dots = document.createElement("span");
+                dots.textContent = "…";
+                dots.style.padding = "0 0.5rem";
+                dots.style.alignSelf = "center";
+                controls.appendChild(dots);
+            }
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            const pageBtn = document.createElement("button");
+            pageBtn.textContent = i;
+            if (i === currentPage) {
+                pageBtn.classList.add("active");
+            }
+            pageBtn.onclick = () => renderGalleryPage(i);
+            controls.appendChild(pageBtn);
+        }
+
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                const dots = document.createElement("span");
+                dots.textContent = "…";
+                dots.style.padding = "0 0.5rem";
+                dots.style.alignSelf = "center";
+                controls.appendChild(dots);
+            }
+            const lastBtn = document.createElement("button");
+            lastBtn.textContent = totalPages;
+            lastBtn.onclick = () => renderGalleryPage(totalPages);
+            controls.appendChild(lastBtn);
+        }
+
+        // Next button
+        const nextBtn = document.createElement("button");
+        nextBtn.textContent = "›";
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => renderGalleryPage(currentPage + 1);
+        controls.appendChild(nextBtn);
+    }
+
+    if (typeof galleryDatabase !== "undefined") {
+        renderGalleryPage(1);
+    }  
     </script>
 </body>
 </html>
