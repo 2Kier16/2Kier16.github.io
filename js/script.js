@@ -1,4 +1,4 @@
-// --- 1. Helper Function: Clean Google Drive Links ---
+﻿// --- 1. Helper Function: Clean Google Drive Links ---
 function cleanDriveLink(url) {
     if (!url || typeof url !== 'string') return '';
     // Handle both full sharing URLs and direct file IDs
@@ -43,7 +43,7 @@ async function loadSheetData() {
             // 1. GLOBAL LOGO OVERRIDE: Applies the K.V.T. logo to site-wide header and footer
             if ((title.toLowerCase().includes('kvtlogowb') || title.toLowerCase().includes('k.v.t logo') || title.toLowerCase().includes('site logo')) && mediaUrl) {
                 let finalLogoUrl = mediaUrl.replace('drive.google.com/uc?export=view&id=', 'lh3.googleusercontent.com/d/');
-                document.querySelectorAll('.logo-img, .signature-logo').forEach(img => {
+                // document.querySelectorAll('.logo-img, .signature-logo').forEach(img => {
                     img.setAttribute('referrerpolicy', 'no-referrer');
                     img.src = finalLogoUrl;
                 });
